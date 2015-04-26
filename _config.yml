@@ -83,4 +83,4 @@ theme: landscape
 deploy:
   type: git
   repository: git@github.com:pakchoidora/pakchoidora.git
-  branch: master
+  branch: gh-pages
