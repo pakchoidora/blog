@@ -75,6 +75,9 @@ Plugins:
   hexo-generator-feed
   hexo-generator-sitemap
 
+# Disqus
+disqus_shortname: pakchoi
+
 ## Themes: http://hexo.io/themes/
 theme: landscape
 
