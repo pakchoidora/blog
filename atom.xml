@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Half An Day]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://pakchoi.me/"/>
+  <updated>2015-04-26T03:04:56.000Z</updated>
+  <id>http://pakchoi.me/</id>
+  
+  <author>
+    <name><![CDATA[Pakchoi]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://pakchoi.me/2015/03/12/hello-world/"/>
+    <id>http://pakchoi.me/2015/03/12/hello-world/</id>
+    <published>2015-03-11T22:29:52.000Z</published>
+    <updated>2015-04-26T03:04:56.000Z</updated>
+    <content type="html"><![CDATA[<p>��Ϊһ������Ա, Ӧ����һ������Ա��ʽ�Ŀ�ʼ.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>��Ϊһ������Ա, Ӧ����һ������Ա��ʽ�Ŀ�ʼ.</p>
+]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
