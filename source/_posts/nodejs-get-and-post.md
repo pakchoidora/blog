@@ -1,7 +1,7 @@
-title: "NodeJS 与隔壁老王(GET/POST)参数的二三事"
+title: "Node.js 与隔壁老王(GET/POST)参数的二三事"
 date: 2015-03-29 13:25:59
 tags: 
-- NodeJS
+- Node.js
 - HTTP
 ---
 
@@ -131,3 +131,4 @@ Express 是 Node 服务端里我们比较常见的 Web 框架. Express.js 框架
 ## 总结:
 
 理解 GET/POST 两种请求的参数传递方式. 打完收工.
+

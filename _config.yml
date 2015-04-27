@@ -79,7 +79,7 @@ Plugins:
 disqus_shortname: pakchoi
 
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
