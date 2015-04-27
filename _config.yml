@@ -7,7 +7,7 @@ title: Half A Day
 subtitle:
 description:
 author: Pakchoi
-language:
+language: default
 timezone:
 
 # URL
@@ -26,6 +26,11 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+# Social
+social:
+  GitHub: http://github.com/pakchoidora
+  Weibo: http://weibo.com/pakchoidora
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -68,6 +73,9 @@ feed:
 # Site Map
 sitemap:
   path: sitemap.xml
+
+# Creative Commons 4.0 International License.
+creative_commons: by-nc-sa
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
