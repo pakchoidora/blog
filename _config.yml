@@ -5,7 +5,12 @@
 # Site
 title: Half A Day
 subtitle:
-description:
+description: Pakchoi's blog.
+keywords: 
+  Java
+  JavaScript
+  Android
+  Linux
 author: Pakchoi
 language: default
 timezone:
@@ -87,7 +92,7 @@ Plugins:
 disqus_shortname: pakchoi
 
 ## Themes: http://hexo.io/themes/
-theme: next
+theme: ninja
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
