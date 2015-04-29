@@ -12,7 +12,7 @@
   <ul id="menu" class="menu">
     {% if config.swiftype_key %}
     <form class="menu-item menu-item-{{ itemName }}">
-      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"  />
+      <input type="text" id="st-search-input" class="st-search-input" style="width:80px;"/>
     </form>
     {% set swiftype_key = config.swiftype_key %}
     <script type="text/javascript">

@@ -7,10 +7,10 @@ title: Half A Day
 subtitle:
 description: Pakchoi's blog.
 keywords: 
-  Java
-  JavaScript
-  Android
-  Linux
+- Java
+- JavaScript
+- Android
+- Linux
 author: Pakchoi
 language: default
 timezone:
@@ -85,8 +85,8 @@ creative_commons: by-nc-sa
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 Plugins:
-  hexo-generator-feed
-  hexo-generator-sitemap
+- hexo-generator-feed
+- hexo-generator-sitemap
 
 # Disqus
 disqus_shortname: pakchoi
