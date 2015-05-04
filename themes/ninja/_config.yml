@@ -45,6 +45,9 @@ mathjax:
 # Schemes
 #scheme: Mist
 
+# Analytics
+baidu_analytics: 6ea3a6b78cf86228995c577636d3f562
+
 
 # Automatically scroll page to section which is under <!-- more --> mark.
 scroll_to_more: true

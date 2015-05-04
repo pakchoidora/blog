@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html class="theme-ninja {% if theme.use_motion %}use-motion{% endif %} {% if theme.scheme %}theme-ninja-{{ theme.scheme | lower }}{% endif %}">
 <head>{% include '_partials/head.swig' %}
-  <title>{% block title %}{% endblock %}</title>
+<title>{% block title %}{% endblock %}</title>
 </head>
 <body>
   <div class="container one-column {% block page_class %}{% endblock %}">
     <div class="headband"></div>
     <div id="header" class="header">
       <div class="header-inner">
-        {% include '_partials/header.swig' %}
+{% include '_partials/header.swig' %}
       </div>
     </div>
     <div id="main" class="main">
