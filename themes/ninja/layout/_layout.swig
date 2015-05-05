@@ -8,14 +8,15 @@
     <div class="headband"></div>
     <div id="header" class="header">
       <div class="header-inner">
-{% include '_partials/header.swig' %}
+        {% include '_partials/header.swig' %}
       </div>
     </div>
     <div id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content">{% block content %}{% endblock %}
         </div>
-      </div>{% block sidebar %}{% endblock %}
+      </div>
+      {% block sidebar %}{% endblock %}
     </div>
     <div id="footer" class="footer">
       <div class="footer-inner">
@@ -25,8 +26,7 @@
     <div class="back-to-top"></div>
   </div>
   <script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/index.js?v=2.1.3"></script>
-  {# This block is used to set options before any other scripts run #}
-  {% block script_extra_before %}{% endblock %}
+  {% block script_extra_before %}{% endblock %}  {# This block is used to set options before any other scripts run #}
   {% include '_scripts/fancy-box.swig' %}
   {% include '_scripts/helpers.swig' %}
   {% include '_scripts/motion.swig' %}
