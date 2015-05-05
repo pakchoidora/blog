@@ -1,6 +1,4 @@
-{% if theme.rss === '' and config.feed and config.feed.path %}
-  {% set theme.rss = config.root + config.feed.path %}
-{% endif %}
+{% if theme.rss === '' and config.feed and config.feed.path %}{% set theme.rss = config.root + config.feed.path %}{% endif %}
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -11,5 +9,5 @@
 {% if page.tags and page.tags.length %}<meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}"/>
 {% elif config.keywords %}<meta name="keywords" content="{{ config.keywords.join(',') }}"/>{% endif %}
 {% if theme.rss %}<link rel="alternate" href="{{ url_for(theme.rss) }}" title="{{ config.title }}" type="application/atom+xml"/>{% endif %}
-{% if theme.favicon %}<link rel="shorticon icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}"/>
-{% endif %}{% include '../_scripts/analytics/baidu-analytics.swig' %}
+{% if theme.favicon %}<link rel="shorticon icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}"/>{% endif %}
+{% include '../_scripts/analytics/baidu-analytics.swig' %}

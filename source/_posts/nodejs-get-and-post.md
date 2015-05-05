@@ -7,7 +7,9 @@ tags:
 
 由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及. 嗯, 就是酱紫, 不要问我隔壁老王是谁.
 
-## 首先我们先了解下 HTTP GET 以及 HTTP POST 两者的区别.
+## HTTP GET 以及 HTTP POST 两者的区别.
+
+首先我们先了解下 HTTP GET 与 HTTP POST 两者有什么不同
 
 ### 相同点:
 
@@ -17,7 +19,7 @@ tags:
 
 GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据大小, 3. 数据传输方式.
 
-但是在这里我们仅仅来讨论它们两者数据的传输方式不同, 更多内容可以查阅维基老头给我们的说明. [点我](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
+但是在这里我们仅仅来讨论它们两者数据的传输方式不同, 更多内容可以查阅维基老头给我们的说明. [点我拜访维基老头](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
 
 **POST**
 

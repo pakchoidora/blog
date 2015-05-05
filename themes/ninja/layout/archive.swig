@@ -19,7 +19,6 @@
       {{ __('cheers.' + cheers) }}! {{ _p("counter.archive_posts", site.posts.length) }} {{ __('keep_on') }}
     </span>
     {% for post in page.posts %}
-      {# Show year #}
       {% set year %}
       {% set post.year = post.date | date('Y') %}
       {% if post.year !== year %}
@@ -28,7 +27,6 @@
           <h2 class="archive-year motion-element" id="archive-year-{{ year }}">{{ year }}</h2>
         </div>
       {% endif %}
-      {# endshow #}
       {{ post_template.render(post) }}
     {% endfor %}
   </div>

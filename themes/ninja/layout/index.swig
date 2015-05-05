@@ -5,16 +5,9 @@
 {% block page_class %}{% if is_home() %} page-home {% endif %}{% endblock %}
 {% block content %}
   <div id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    {% for post in page.posts %}{{ post_template.render(post, true) }}{% endfor %}
   </div>
   {% include '_partials/pagination.swig' %}
 {% endblock %}
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
-{% block comment_system %}
-  {% include '_scripts/comments/duoshuo.swig' %}
-  {% include '_scripts/comments/disqus.swig' %}
-{% endblock %}
+{% block sidebar %}{{ sidebar_template.render(false) }}{% endblock %}
+{% block comment_system %}{% include '_scripts/comments/duoshuo.swig' %}{% include '_scripts/comments/disqus.swig' %}{% endblock %}

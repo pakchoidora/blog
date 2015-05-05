@@ -12,8 +12,7 @@
 {% endblock %}
 {% block content %}
   <div id="posts" class="posts-expand">
-    {# tagcloud page support #}
-    {% if page.type === "tags" %}
+    {% if page.type === "tags" %}  {# tagcloud page support #}
       <div class="tag-cloud">
         <div class="tag-cloud-title">
             {{ _p('counter.tag_cloud', site.tags.length) }}

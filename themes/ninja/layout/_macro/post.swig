@@ -1,23 +1,19 @@
 {% macro render(post, is_index, post_extra_class) %}
   <div class="post post-type-{{ post.type | default('normal') }} {{ post_extra_class | default('') }}">
     <div class="post-header">
-      {# Not to show title for quote posts that do not have a title #}
-      {% if not (is_home() and post.type === 'quote' and not post.title) %}
+      {% if not (is_home() and post.type === 'quote' and not post.title) %}  {# Not to show title for quote posts that do not have a title #}
         <h1 class="post-title">
-          {# Link posts #}
-          {% if post.link %}
+          {% if post.link %}  {# Link posts #}
             <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
               {{ post.title or post.link }}
               <i class="icon-external-link"></i>
             </a>
+          {% elseif is_home() %}
+            <a class="post-title-link" href="{{ url_for(post.path) }}">
+              {{ post.title | default(__('post.untitled'))}}
+            </a>
           {% else %}
-            {% if is_home() %}
-              <a class="post-title-link" href="{{ url_for(post.path) }}">
-                {{ post.title | default(__('post.untitled'))}}
-              </a>
-            {% else %}
-              {{ post.title }}
-            {% endif %}
+            {{ post.title }}
           {% endif %}
         </h1>
       {% endif %}
@@ -42,14 +38,14 @@
             <span class="post-comments-count">
             &nbsp; | &nbsp;
             <a href="{{ url_for(post.path) }}#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}"></span>
+              <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}">0 Comments</span>
             </a>
           </span>
           {% elseif config.disqus_shortname %}
             <span class="post-comments-count">
             &nbsp; | &nbsp;
             <a href="{{ url_for(post.path) }}#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="{{ post.path }}"></span>
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="{{ post.path }}">0 Comments</span>
             </a>
           </span>
           {% endif %}
@@ -57,8 +53,7 @@
       </div>
     </div>
     <div class="post-body">
-      {# Gallery support #}
-      {% if post.photos and post.photos.length %}
+      {% if post.photos and post.photos.length %}  {# Gallery support #}
         <div class="post-gallery">
           {% for photo in post.photos %}
             <a class="post-gallery-img fancybox" href="{{ url_for(photo) }}" rel="gallery_{{ post._id }}">

@@ -1,8 +1,16 @@
 .DS_Store
+
 Thumbs.db
+
 db.json
+
 *.log
+
 node_modules/
+
+# Generated files
 public/
 .deploy*/
+
+# Jetbrains' IDE configuration dir
 .idea/

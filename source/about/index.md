@@ -2,6 +2,7 @@ title: "关于"
 date: 2015-04-27 15:21:16
 comments: false
 ---
+
 ## 爱折腾星人
 
 不折腾不快乐星人, 伪 Geek, 伪文艺.
@@ -28,7 +29,9 @@ XGIMI 投影仪梦想版
 
 ### 最近在玩的游戏
 
-GTA 5 \(PS4版\)
+GTA 5 \(PS4\)
+
+臭名昭彰: 次子 \(PS4\)
 
 怪物猎人 4G
 
@@ -46,7 +49,7 @@ Hell Divers
 
 Doragon_Pakchoi
 
-#### STEAM:
+#### STEAM: 
 
 [D] Pakchoi
 
@@ -60,7 +63,7 @@ Doragon_Pakchoi
 
 学学板绘, 玩玩摄影.
 
-### 设备:
+### 设备: 
 
 Sony alpha 6000
 
