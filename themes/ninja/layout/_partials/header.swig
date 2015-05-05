@@ -9,7 +9,7 @@
   <span class="logo-line-after"><i></i></span>
 </h1>
 {% if theme.menu %}
-  <ul id="menu" class="menu">
+<ul id="menu" class="menu">
   {% if config.swiftype_key %}<form class="menu-item menu-item-{{ itemName }}"><input type="text" id="st-search-input" class="st-search-input" style="width:80px;"/></form>{% set swiftype_key = config.swiftype_key %}
   <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
@@ -36,12 +36,12 @@
   </script>
   {% endif %}
   {% for name, path in theme.menu %}{% set itemName = name.toLowerCase() %}
-    <li class="menu-item menu-item-{{ itemName }}">
-      <a href="{{ url_for(path) }}">
-        <i class="menu-item-icon icon-{{ itemName }}"></i><br/>
-        {{ __('menu.' + itemName) }}
-      </a>
-    </li>
+  <li class="menu-item menu-item-{{ itemName }}">
+    <a href="{{ url_for(path) }}">
+      <i class="menu-item-icon icon-{{ itemName }}"></i><br/>
+      {{ __('menu.' + itemName) }}
+    </a>
+  </li>
   {% endfor %}
-  </ul>
+</ul>
 {% endif %}

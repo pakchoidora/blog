@@ -1,14 +1,9 @@
 {% extends '_layout.swig' %}
 {% import '_macro/sidebar.swig' as sidebar_template %}
-{% block title %}
-  {% set page_title_suffix = ' // ' + config.title %}
-  {% if page.type === "categories" %}
-    {{ __('title.category') + page_title_suffix }}
-  {% elif page.type === "tags" %}
-    {{ __('title.tag') + page_title_suffix }}
-  {% else %}
-    {{ page.title + page_title_suffix }}
-  {% endif %}
+{% block title %}{% set page_title_suffix = ' // ' + config.title %}
+  {% if page.type === "categories" %}{{ __('title.category') + page_title_suffix }}
+  {% elif page.type === "tags" %}{{ __('title.tag') + page_title_suffix }}
+  {% else %}{{ page.title + page_title_suffix }}{% endif %}
 {% endblock %}
 {% block content %}
 <div id="posts" class="posts-expand">
@@ -30,6 +25,8 @@
     {{ list_categories() }}
     </div>
   </div>
+  {% elseif page.status == 404 %}
+    {{ page.content }}
   {% else %}
     {{ page.content }}
   {% endif %}
