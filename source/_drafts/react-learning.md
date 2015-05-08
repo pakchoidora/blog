@@ -22,5 +22,5 @@ tags:
 
 ## 相关资料
 
- [React]: https://github.com/facebook/react
- [React 入门实例教程]: http://www.ruanyifeng.com/blog/2015/03/react.html
+[React](https://github.com/facebook/react)
+[React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
