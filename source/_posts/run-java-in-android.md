@@ -30,10 +30,10 @@ tags:
 
 这里值得注意的是, 它支持 -cp 命令, 所以我们可以通过 -cp 来指定我们的类库依赖, 比如:
 
-`adb shell dalvikvm Hello -cp /data/local/tmp/hello-dex.jar`
+    adb shell dalvikvm Hello -cp /data/local/tmp/hello-dex.jar
 
 但是这里需要注意, 只支持 dex 可执行文件.
 
 Ps: 当我们使用非 root 权限, 或者 USER_ID 不等于0 的时候, 我们需要设置 ANDROID_DATA 方能使用, 不然会直接出现 Aborted 的结果
 
-`ANDROID_DATA=/data/local/tmp CLASSPATH=/system/framework/uiautomator.jar:/system/framework/android.test.runner.jar exec app_process /system/bin com.android.commands.uiautomator.Launcher`
+    ANDROID_DATA=/data/local/tmp CLASSPATH=/system/framework/uiautomator.jar:/system/framework/android.test.runner.jar exec app_process /system/bin com.android.commands.uiautomator.Launcher
