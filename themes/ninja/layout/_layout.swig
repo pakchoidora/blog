@@ -27,12 +27,8 @@
   </div>
   <script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/index.js?v=2.1.3"></script>
   {% block script_extra_before %}{% endblock %}  {# This block is used to set options before any other scripts run #}
-  {% include '_scripts/fancy-box.swig' %}
-  {% include '_scripts/helpers.swig' %}
-  {% include '_scripts/motion.swig' %}
-  {% block script_extra %}{% endblock %}
-  {% include '_scripts/mathjax.swig' %}
-  {% block comment_system %}{% endblock %}
-  {% include '_scripts/analytics/google-analytics.swig' %}
+  {% include '_scripts/fancy-box.swig' %}{% include '_scripts/helpers.swig' %}{% include '_scripts/motion.swig' %}
+  {% block script_extra %}{% endblock %}{% include '_scripts/mathjax.swig' %}
+  {% block comment_system %}{% endblock %}{% include '_scripts/analytics/google-analytics.swig' %}
 </body>
 </html>

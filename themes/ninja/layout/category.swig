@@ -5,9 +5,9 @@
 {% block content %}
 <div id="posts" class="posts-collapse">
   <div class="collection-title">
-    <h2 >
+    <h2>
       {{ page.category }}
-      <small>{{  __('title.category')  }}</small>
+      <small>{{ __('title.category') }}</small>
     </h2>
   </div>
   {% for post in page.posts %}

@@ -2,6 +2,8 @@ title: "Git 交互式变基"
 date: 2015-03-17 13:56:52
 tags: 
 - git
+categories:
+- Software
 ---
 
 # git rebase 简介

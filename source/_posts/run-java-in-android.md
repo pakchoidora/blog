@@ -1,6 +1,10 @@
 title: "在 Android 系统上执行 Java 程序"
 date: 2015-0-31 10:43:22
 tags:
+- Java
+- Android
+categories:
+- Code
 ---
 
 
