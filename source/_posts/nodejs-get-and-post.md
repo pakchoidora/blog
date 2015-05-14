@@ -9,6 +9,7 @@ categories:
 - Code
 ---
 
+
 由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及. 嗯, 就是酱紫, 不要问我隔壁老王是谁.
 
 ## HTTP GET 以及 HTTP POST 两者的区别.
@@ -130,11 +131,14 @@ Express 是 Node 服务端里我们比较常见的 Web 框架. Express.js 框架
 
 在 Express.js 框架中, 我们每个请求都会有一个 Request 对象, 通过查阅 API 我们发现, Request 对象有一个 params 属性, 我们发送请求时所附带的参数数据都被保存在其中, 我们可以直接调用.
 
-如: `request.params['name']` 或者是 `request.params.name`
+如: `request.params['name']` 或者是 `request.params.name`.
 
 详见 Express.js 上 Request 对象的 API:  http://expressjs.com/4x/api.html#req.params
 
 ## 总结:
 
-理解 GET/POST 两种请求的参数传递方式. 打完收工.
+理解 GET/POST 两种请求的参数传递方式.
 
+GET 的参数都是附加于 URL 中的, 而 POST 的参数是添加在 RequestHeader 中的.
+
+打完收工.
