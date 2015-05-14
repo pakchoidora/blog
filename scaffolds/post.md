@@ -1,7 +1,5 @@
 title: {{ title }}
 date: {{ date }}
-figure:
-tags:
-categories:
-- uncategorized
+figure: {{ figure }}
+description: {{ description }}
 ---

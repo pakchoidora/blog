@@ -1,5 +1,7 @@
 title: "Git 交互式变基"
 date: 2015-03-17 13:56:52
+figure:
+description: 我们知道 Git 中它提供了几个命令来让我们进行代码合并操作, 分别有 git merge, git pull 还有 git rebase. 然而 git rebase 与前两者有什么区别, 而 Git 交互式变基又是啥呢?
 tags: 
 - git
 categories:
@@ -11,8 +13,6 @@ categories:
 我们知道 Git 中它提供了几个命令来让我们进行代码合并操作, 分别有 `git merge`, `git pull` 还有 `git rebase`.
 它们之间是有着不少细节上的区别, 由于 `git pull` 平时较少用, 所以我们这里就只比较下 `git rebase` 以及 `git merge` 两者之间的区别.
 至于为何 `git pull` 平时较少使用, 可以[查看此](http://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful).
-
-
 
 ## git rebase 作用
 

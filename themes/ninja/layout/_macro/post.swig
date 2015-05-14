@@ -70,7 +70,7 @@
         {{ __('post.read_more') }} &raquo;
       </a>
     </div>
-      {% elif post.excerpt  %}
+      {% elseif post.excerpt %}
         {{ post.excerpt }}
     <div class="post-more-link text-center">
       <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}">

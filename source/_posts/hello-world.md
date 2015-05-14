@@ -1,5 +1,6 @@
 title: "Hello World"
 date: 2015-03-12 06:29:52
+figure: 
 tags:
 categories:
 - Casual

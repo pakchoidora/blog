@@ -13,17 +13,17 @@ comments: false
 
 ### 游戏设备
 
-PS4 \(港版\) 
+Play Station 4 \(港版\) 
 
-PSV \(日版\)
+Play Station Vita \(日版\)
 
 New 3DSLL \(日版\)
 
 Macbook Pro Retina 13inch
 
-Gate NV47H 自改配件
+Gateway NV47H 自改配件
 
-北通手柄 x 2 
+北通手柄
 
 XGIMI 投影仪梦想版
 

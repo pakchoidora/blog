@@ -1,8 +1,12 @@
 title: "React 学习指南"
-tags:
+figure:
+tags: 
 - JavaScript
 - React
+categories: 
+- Code
 ---
+
 
 几个月前发布的 React, 在现在看来已经不算是新鲜东西了, 网上也有了五花八门的相关文章, 但本篇内容主要是讲讲要如何学习 React.
 

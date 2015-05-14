@@ -1,5 +1,7 @@
 title: "在 Android 系统上执行 Java 程序"
 date: 2015-0-31 10:43:22
+figure:
+description: 之前一阵子在有在使用 Android 平台上的 UiAutomator 编写一些自动化脚本, 然后我就在想, UiAutoamtor 程序是怎么执行起来的, 在编写程序的时候也感觉 UiAutomator 似乎与一般的 Java 程序无异, 那么, 我们是否可以在 Android 上来执行 Java 程序呢.
 tags:
 - Java
 - Android
