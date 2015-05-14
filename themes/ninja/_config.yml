@@ -2,14 +2,15 @@ menu:
   home: /
   # categories: /categories
   archives: /archives
-  tags: /tags
+  # tags: /tags
   about: /about
 
 # Place your favicon.ico to /source directory.
 favicon: /favicon.ico
 
-# Set default keywords (Use a comma to separate)
-keywords: "Hexo,ninja"
+keywords: 
+- Hexo
+- ninja
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -26,8 +27,8 @@ widgets:
 
 # Icon fonts
 # Place your font into ninja/source/fonts, specify directory-name and font-name here
-# Avialable: default | linecons | fifty-shades | feather
-icon_font: default
+# Avialable: normal | linecons | fifty-shades | feather
+icon_font: normal
 #icon_font: fifty-shades
 #icon_font: feather
 #icon_font: linecons
@@ -35,7 +36,7 @@ icon_font: default
 # Code Highlight theme
 # Available value: normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # MathJax Support
@@ -43,7 +44,7 @@ mathjax:
 
 
 # Schemes
-#scheme: Mist
+# scheme: Mist
 
 # Analytics
 baidu_analytics: 6ea3a6b78cf86228995c577636d3f562
