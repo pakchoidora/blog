@@ -1,12 +1,12 @@
 {% macro render(post, is_index, post_extra_class) %}
 <div class="post post-type-{{ post.type | default('normal') }} {{ post_extra_class | default('') }}">
   <div class="post-header">
-    {% if not (is_home() and post.type === 'quote' and not post.title) %}  {# Not to show title for quote posts that do not have a title #}
     {% if post.figure %}
     <a class="post-cover" href={{ url_for(post.path) }}>
       <img src="{{ post.figure }}" alt="{{ post.title }}" class="post-thumbnail">
     </a>
     {% endif %}
+    {% if not (is_home() and post.type === 'quote' and not post.title) %}  {# Not to show title for quote posts that do not have a title #}
     <h1 class="post-title">
       {% if post.link %}  {# Link posts #}
       <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">

@@ -2,25 +2,25 @@
   $(document).ready(function () {
     var body = $('body');
     var isSidebarVisible = false;
-    var sidebarToggle = $('.sidebar-toggle');
-    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
-    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
-    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var toggle = $('.sidebar-toggle');
+    var toggleLine1st = $('.sidebar-toggle-line-first')
+    var toggleLine2nd = $('.sidebar-toggle-line-middle');
+    var toggleLine3rd = $('.sidebar-toggle-line-last');
     var sidebar = $('.sidebar');
     var SIDEBAR_WIDTH = '320px';
     var SIDEBAR_DISPLAY_DURATION = 300;
-    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
-    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
-    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
-    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
-    var sidebarToogleLine2ndStatusClose = {opacity: 0};
-    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
-    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    var toggleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+    var toggleLine1stStatusInit = toggleLineStatusInit;
+    var toggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var toggleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var toggleLine2ndStatusInit = toggleLineStatusInit;
+    var toggleLine2ndStatusArrow = {width: '90%'};
+    var toggleLine2ndStatusClose = {opacity: 0};
+    var toggleLine3rdStatusInit = toggleLineStatusInit;
+    var toggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var toggleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
     LogoAndMenuMotion();
-    sidebatToggleMotion();
+    sidebarToggleMotion();
     postsListMotion();
     backToTopMotion();
     $(document)
@@ -51,9 +51,9 @@
       });
     }
     function sidebarShowMotion () {
-      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
-      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
-      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+      toggleLine1st.velocity(toggleLine1stStatusClose);
+      toggleLine2nd.velocity(toggleLine2ndStatusClose);
+      toggleLine3rd.velocity(toggleLine3rdStatusClose);
       sidebar.velocity({width: SIDEBAR_WIDTH}, {
         display: 'block',
         duration: SIDEBAR_DISPLAY_DURATION,
@@ -67,9 +67,9 @@
     function sidebarHideMotion () {
       isDesktop() && body.velocity({paddingRight: 0});
       sidebar.velocity('reverse');
-      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
-      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
-      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+      toggleLine1st.velocity(toggleLine1stStatusInit);
+      toggleLine2nd.velocity(toggleLine2ndStatusInit);
+      toggleLine3rd.velocity(toggleLine3rdStatusInit);
       sidebar.removeClass('sidebar-active');
       sidebar.trigger('sidebar.isHiding');
     };
@@ -83,21 +83,21 @@
       var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
       $('.post').velocity('transition.slideDownIn', postMotionOptions);
     }
-    function sidebatToggleMotion () {
-      sidebarToggle.on('click', function () {
+    function sidebarToggleMotion () {
+      toggle.on('click', function () {
         isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
         isSidebarVisible = !isSidebarVisible;
       });
-      sidebarToggle.hover(function () {
+      toggle.hover(function () {
         if (isSidebarVisible) {return}
-        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
-        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
-        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+        toggleLine1st.velocity('stop').velocity(toggleLine1stStatusArrow);
+        toggleLine2nd.velocity('stop').velocity(toggleLine2ndStatusArrow);
+        toggleLine3rd.velocity('stop').velocity(toggleLine3rdStatusArrow);
       }, function () {
         if (isSidebarVisible) {return}
-        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
-        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
-        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+        toggleLine1st.velocity('stop').velocity(toggleLine1stStatusInit);
+        toggleLine2nd.velocity('stop').velocity(toggleLine2ndStatusInit);
+        toggleLine3rd.velocity('stop').velocity(toggleLine3rdStatusInit);
       });
     }
   });
