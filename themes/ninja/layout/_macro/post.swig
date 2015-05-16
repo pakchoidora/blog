@@ -15,7 +15,7 @@
       </a>
       {% elseif is_home() %}
       <a class="post-title-link" href="{{ url_for(post.path) }}">
-        {{ post.title | default(__('post.untitled'))}}
+        {{ post.title | default(__('post.untitled')) }}
       </a>
       {% else %}
         {{ post.title }}
@@ -42,14 +42,14 @@
         {% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
       <span class="post-comments-count">
         &nbsp; | &nbsp;
-        <a href="{{ url_for(post.path) }}#comments" >
+        <a href="{{ url_for(post.path) }}#comments">
           <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}">0 Comments</span>
         </a>
       </span>
         {% elseif config.disqus_shortname %}
       <span class="post-comments-count">
         &nbsp; | &nbsp;
-        <a href="{{ url_for(post.path) }}#comments" >
+        <a href="{{ url_for(post.path) }}#comments">
           <span class="post-comments-count disqus-comment-count" data-disqus-identifier="{{ post.path }}">0 Comments</span>
         </a>
       </span>
