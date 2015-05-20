@@ -1,9 +1,9 @@
 title: "React 学习指南"
 figure:
-tags: 
+tags:
 - JavaScript
 - React
-categories: 
+categories:
 - Code
 ---
 
@@ -20,7 +20,7 @@ categories:
 
 我们大概可以看出, React 是一个高效构建灵活 UI 的 JavaScript 库.
 
-## 
+##
 
 # 怎么学
 
