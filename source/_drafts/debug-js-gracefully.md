@@ -3,7 +3,7 @@ tags:
 - JavaScript
 - Debug
 - Chrome Developer Tools
-figure: 
+figure:
 ---
 
 
