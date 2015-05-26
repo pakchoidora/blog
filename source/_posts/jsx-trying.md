@@ -1,6 +1,6 @@
 title: "初识 JSX"
 date: 2015-05-20 23:40:53
-figure: 
+figure:
 description: React 项目中独特的采用了 JSX 语法, 这究竟是何方神圣, 且看本文来粗略讲讲.
 tags:
 - JSX
@@ -18,7 +18,7 @@ tags:
 这里需要说明白, JSX 其实有两个东西, 他们同名了, 但是功能却是不同的.
 
 1. React 中使用到的 JSX, 有一个简单的描述是, 在 JavaScript 中写 XML 节点, 即是 JSX.
-2. Github 上的 JSX 项目, 它是一个静态类型的, 面向对象的编程语言, 它可以通过编译, 生成高性能的 JavaScript 代码. 详情见[这里](http://jsx.github.io/)
+2. Github 上的 JSX 项目, 它是一个静态类型的, 面向对象的编程语言, 它可以通过编译, 生成高性能的 JavaScript 代码. 详情见 [这里](http://jsx.github.io/)
 
 为了避免混乱, 下文一律将 React 中的 JSX 称为 React-JSX, 而 Github 上的 JSX 项目则依旧叫 JSX.
 
