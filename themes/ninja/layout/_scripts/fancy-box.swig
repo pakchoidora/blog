@@ -11,12 +11,6 @@
       $imageWrapLink.addClass('fancybox');
     });
   });
-  $('.fancybox').fancybox({
-    helpers: {
-      overlay: {
-        locked: false
-      }
-    }
-  });
+  $('.fancybox').fancybox({helpers: {overlay: {locked: false}}});
 </script>
 {% endif %}

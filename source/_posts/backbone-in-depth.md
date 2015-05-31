@@ -1,5 +1,5 @@
 title: "深入理解 Backbone"
-date: 2015-05-30 16:09:37
+date: 2015-05-31 00:09:37
 figure: 
 description: 研究 Backbone 说来也有一阵子了, 而 Backbone 本身也并不复杂, 我们常将它与 Angular.js 等框架进行比较, 但 Backbone 它相比较于 Angular.js, 是很灵活的一个框架, Backbone 可以与其它框架诸如 jQuery, 亦或是最近比较火的 React.js 很好的协作. 本篇将深入的讲讲 Backbone 的使用.
 tags:

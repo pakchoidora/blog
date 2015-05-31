@@ -1,6 +1,7 @@
 title: "关于"
 date: 2015-04-27 15:21:16
 comments: false
+type: full
 ---
 
 ## 爱折腾星人
