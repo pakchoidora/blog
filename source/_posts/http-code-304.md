@@ -1,6 +1,6 @@
 title: "HTTP 304 状态与浏览器缓存"
 date: 2015-04-02 22:51:46
-figure: 
+figure:
 description: Http Status Code 304 与浏览器缓存的一些简单理解.
 tags:
 - HTTP

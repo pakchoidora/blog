@@ -1,4 +1,4 @@
-<script type="text/javascript" id="motion.global">
+<script type="text/javascript">
   $(document).ready(function () {
     var body = $('body');
     var isSidebarVisible = false;

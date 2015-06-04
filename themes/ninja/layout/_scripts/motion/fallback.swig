@@ -1,4 +1,4 @@
-<script type="text/javascript" id="motion.fallback">
+<script type="text/javascript">
   $(document).ready(function () {
     var isSidebarVisible;
     var DURATION = 300;

@@ -14,7 +14,7 @@ type: full
 
 ### 游戏设备
 
-Play Station 4 \(港版\) 
+Play Station 4 \(港版\)
 
 Play Station Vita \(日版\)
 
@@ -29,6 +29,8 @@ Gateway NV47H 自改配件
 XGIMI 投影仪梦想版
 
 ### 最近在玩的游戏
+
+炉石传说 \(国服\)
 
 GTA 5 \(PS4\)
 
@@ -46,15 +48,15 @@ Hell Divers
 
 ### 各个游戏平台 ID
 
-#### PSN: 
+#### PSN:
 
 Doragon_Pakchoi
 
-#### STEAM: 
+#### STEAM:
 
 [D] Pakchoi
 
-#### 战网 ID: 
+#### 战网 ID:
 
 国服: 愤怒的小白菜
 
@@ -64,8 +66,8 @@ Doragon_Pakchoi
 
 学学板绘, 玩玩摄影.
 
-### 设备: 
+### 设备:
 
 Sony alpha 6000
 
-Wacom CTH-480 
+Wacom CTH-480

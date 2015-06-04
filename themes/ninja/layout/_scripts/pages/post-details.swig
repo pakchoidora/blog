@@ -1,17 +1,17 @@
-{% include '../bootstrap.scrollspy.swig' %}
-<script type="text/javascript" id="sidebar.toc.highlight">
+{% include '../scrollspy.swig' %}
+<script type="text/javascript">
   $(document).ready(function () {
     var tocSelector = '.post-toc';
     var $tocSelector = $(tocSelector);
     var activeCurrentSelector = '.active-current';
     $tocSelector
-      .on('activate.bs.scrollspy', function () {
+      .on('activate.scrollspy', function () {
         var $currentActiveElement = $(tocSelector + ' .active').last();
         removeCurrentActiveClass();
         $currentActiveElement.addClass('active-current');
         $tocSelector[0].scrollTop = $currentActiveElement.position().top;
       })
-      .on('clear.bs.scrollspy', function () {
+      .on('clear.scrollspy', function () {
         removeCurrentActiveClass();
       });
     function removeCurrentActiveClass () {
@@ -68,7 +68,7 @@
   });
 </script>
 {% if theme.use_motion %}
-<script type="text/javascript" id="sidebar.nav">
+<script type="text/javascript">
   $(document).ready(function () {
     var html = $('html');
     $('.sidebar-nav li').on('click', function () {
@@ -89,7 +89,7 @@
       item.siblings().removeClass(activeTabClassName);
       item.addClass(activeTabClassName);
     });
-    $('.post-toc a').on('click', function (e) {
+    $('.post-toc').find('a').on('click', function (e) {
       e.preventDefault();
       var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
       html.velocity('stop').velocity('scroll', {

@@ -18,7 +18,7 @@
   })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
   _st('install','{{swiftype_key}}');
   </script>{% elseif config.tinysou_Key %}{% set engineKey = config.tinysou_Key %}<form class="menu-item" ><input type="text" id="ts-search-input" class="menu-search-input"></form>
-  <script>
+  <script type="text/javascript">
   var option = {
     engineKey: '{{engineKey}}'
   };
@@ -38,8 +38,7 @@
   {% for name, path in theme.menu %}{% set itemName = name.toLowerCase() %}
   <li class="menu-item menu-item-{{ itemName }}">
     <a href="{{ url_for(path) }}">
-      <i class="menu-item-icon icon-{{ itemName }}"></i><br/>
-      {{ __('menu.' + itemName) }}
+      <i class="menu-item-icon icon-{{ itemName }}"></i><br/>{{ __('menu.' + itemName) }}
     </a>
   </li>
   {% endfor %}

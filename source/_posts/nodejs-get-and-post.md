@@ -75,15 +75,17 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 
 完整的代码如下:
 
+{% codeblock %}
     var http = require('http');
     var url = require('url');
     http.createServer(function (request, response) {
-    	var params = url.parse(request.url, true).query;
-    	console.log(params);
-    	response.writeHead(200, {'Content-Type': 'text/plain'});
-    	response.end('Hello World\n');
+      var params = url.parse(request.url, true).query;
+      console.log(params);
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      response.end('Hello World\n');
     }).listen(1337, '127.0.0.1');
     console.log('Server running at http://127.0.0.1:1337/');
+{% endcodeblock %}
 
 ### 在 POST 方式中:
 
@@ -93,23 +95,25 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 
 这里我们就需要使用 'querystring' 这个库了, 用来处理 response 对象的数据, 完整代码如下.
 
+{% codeblock %}
     var http = require('http');
     var querystring = require('querystring');
     http.createServer(function (request, response) {
-    	request.setEncoding('utf-8');
-        var postData = '';
-        // 注册监听, 接收数据块
-        request.addListener("data", function (postDataChunk) {
-            postData += postDataChunk;
-        });
-        // 数据接收完毕, 执行回调函数
-        request.addListener("end", function () {
-            var params = querystring.parse(postData);  //解析 HEADER 中的数据
-            console.log(params);
-            response.writeHead(200, {'Content-Type': 'text/plain'});
-            response.end('Hello World\n');
-        });
+      request.setEncoding('utf-8');
+      var postData = '';
+      // 注册监听, 接收数据块
+      request.addListener("data", function (postDataChunk) {
+          postData += postDataChunk;
+      });
+      // 数据接收完毕, 执行回调函数
+      request.addListener("end", function () {
+        var params = querystring.parse(postData);  //解析 HEADER 中的数据
+        console.log(params);
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.end('Hello World\n');
+      });
     }).listen(1337, '127.0.0.1');
+{% endcodeblock %}
 
 由于 POST 传输数据的量相较于 GET 方式较大, 所以这里并不能直接得到数据, 而是通过添加两个监听器, 分别处理数据接入过程以及数据接入完两个状态.
 

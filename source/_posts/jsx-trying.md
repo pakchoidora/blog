@@ -48,6 +48,7 @@ React 在官网中也说到了, Why JSX?
 
 以官网上的状态组件: 计时器为例子
 
+{% codeblock %}
     var Timer = React.createClass({
       getInitialState: function() {
         return {secondsElapsed: 0};
@@ -69,6 +70,7 @@ React 在官网中也说到了, Why JSX?
     });
 
     React.render(<Timer />, mountNode);
+{% endcodeblock %}
 
 我们可以看到其中用使用了 `<div>Seconds Elapsed: {this.state.secondsElapsed}</div>` 及 `<Timer />` 酱紫的代码, 它们都表示着一个 ReactElement 对象, 不需要使用类似 `React.createElement("Timer", {})` 这样的 API 函数去创建对象, JSX 编译工具会自动帮我们转化.
 它带来的, 是代码上清晰直观的体验.
@@ -77,6 +79,7 @@ React 在官网中也说到了, Why JSX?
 
 编译后的代码, 如下:
 
+{% codeblock %}
     var Timer = React.createClass({displayName: "Timer",
       getInitialState: function() {
         return {secondsElapsed: 0};
@@ -98,6 +101,7 @@ React 在官网中也说到了, Why JSX?
     });
 
     React.render(React.createElement(Timer, null), mountNode);
+{% endcodeblock %}
 
 可以看到, 与上边的代码比较, 区别仅仅两个 `HTML Tags` 用法被替换成了 `React.createElement()` 的函数调用, 以及 `React.createClass` 补充了一个 `displayName` 的属性.
 
@@ -127,6 +131,7 @@ React 提供了 react-tools 工具集, 其中就包含了 React-JSX 的编译, �
 
 add.js:
 
+{% codeblock %}
     class _Main {
       static function main(args :string[]) : void {
         var x = 10;
@@ -134,6 +139,7 @@ add.js:
         log x + y;
       }
     }
+{% endcodeblock %}
 
 通过 npm 我们可以下载 JSX 项目的编译工具.
 
@@ -144,6 +150,3 @@ add.js:
 跟 Java 类似的, 我们需要有一个程序入口, 在 Java 中, 我们知道有 `static void main(String[] args)` 方法, 而在 JSX 中, 它也是相似的, `static function main(args : string[]) : void`, 并且在 JSX 中, 有个 _Main 的类, 它是程序的入口.
 
 \(Ps: JSX 项目的 jsx 编译工具与 React 的 react-tools 工具集中的 jsx 工具冲突, 安装任一者都会把上一个覆盖掉, 所以在尝试使用两个工具时, 最好为其中一个重命名下批处理, 或者 shell 文件\)
-
-
-
