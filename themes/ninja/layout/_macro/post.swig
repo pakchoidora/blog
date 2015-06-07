@@ -5,8 +5,8 @@
     <a class="post-cover" href={{ url_for(post.path) }}>
       <img src="{{ post.figure }}" alt="{{ post.title }}" class="post-thumbnail">
     </a>
-    {% endif %}
-    {% if not (is_home() and post.type === 'quote' and not post.title) %}  {# Not to show title for quote posts that do not have a title #}
+    {% endif %}  {# Not to show title for quote posts that do not have a title #}
+    {% if not (is_home() and post.type === 'quote' and not post.title) %}
     <h1 class="post-title">
       {% if post.link %}  {# Link posts #}
       <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
@@ -61,7 +61,7 @@
     {% if post.photos and post.photos.length %}  {# Gallery support #}
     <div class="post-gallery">
       {% for photo in post.photos %}
-      <a class="post-gallery-img fancybox" href="{{ url_for(photo) }}" rel="gallery_{{ post._id }}">
+      <a class="post-gallery-img" href="{{ url_for(photo) }}" rel="gallery_{{ post._id }}">
         <img src="{{ url_for(photo) }}" />
       </a>
       {% endfor %}

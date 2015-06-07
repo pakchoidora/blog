@@ -10,12 +10,8 @@
   <div class="sidebar-inner">
     {% if is_post %}
     <ul class="sidebar-nav motion-element">
-      <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-        {{ __('sidebar.toc') }}
-      </li>
-      <li class="sidebar-nav-overview" data-target="site-overview">
-        {{ __('sidebar.overview') }}
-      </li>
+      <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">{{ __('sidebar.toc') }}</li>
+      <li class="sidebar-nav-overview" data-target="site-overview">{{ __('sidebar.overview') }}</li>
     </ul>
     {% endif %}
     <div class="site-overview">
@@ -32,16 +28,16 @@
           </a>
         </div>
         <div class="site-state-item site-state-categories">
-        {% if theme.menu.categories %}<a href="{{ url_for(theme.menu.categories) }}">{% endif %}
+        {% if theme.sidebar_menu.categories %}<a href="{{ url_for(theme.sidebar_menu.categories) }}">{% endif %}
           <span class="site-state-item-count">{{ site.categories.length }}</span>
           <span class="site-state-item-name">{{ __('state.categories') }}</span>
-        {% if theme.menu.categories %}</a>{% endif %}
+        {% if theme.sidebar_menu.categories %}</a>{% endif %}
         </div>
         <div class="site-state-item site-state-tags">
-        {% if theme.menu.tags %}<a href="{{ url_for(theme.menu.tags) }}">{% endif %}
+        {% if theme.sidebar_menu.tags %}<a href="{{ url_for(theme.sidebar_menu.tags) }}">{% endif %}
           <span class="site-state-item-count">{{ site.tags.length }}</span>
           <span class="site-state-item-name">{{ __('state.tags') }}</span>
-        {% if theme.menu.tags %}</a>{% endif %}
+        {% if theme.sidebar_menu.tags %}</a>{% endif %}
         </div>
       </div>
       {% if theme.rss %}
