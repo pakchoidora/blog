@@ -30,7 +30,7 @@ widgets:
 
 # Icon fonts
 # Place your font into ninja/source/fonts, specify directory-name and font-name here
-# Avialable: normal | linecons | fifty-shades | feather
+# Examples: normal | linecons | fifty-shades | feather
 icon_font: normal
 
 # Code Highlight theme
@@ -58,13 +58,12 @@ toc_list_number: true
 # Use velocity to animate everything.
 use_motion: true
 
-# Fancybox
-fancybox: false
 
 # Static files
 vendors: vendors
 css: css
 images: images
+
 
 # Theme version
 version: 0.0.1

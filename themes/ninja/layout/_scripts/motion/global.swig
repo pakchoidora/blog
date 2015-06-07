@@ -3,22 +3,22 @@
     var body = $('body');
     var isSidebarVisible = false;
     var toggle = $('.sidebar-toggle');
-    var toggleLine1st = $('.sidebar-toggle-line-first')
-    var toggleLine2nd = $('.sidebar-toggle-line-middle');
-    var toggleLine3rd = $('.sidebar-toggle-line-last');
+    var line1st = $('.sidebar-toggle-line-first')
+    var line2nd = $('.sidebar-toggle-line-middle');
+    var line3rd = $('.sidebar-toggle-line-last');
     var sidebar = $('.sidebar');
     var SIDEBAR_WIDTH = '320px';
     var SIDEBAR_DISPLAY_DURATION = 300;
-    var toggleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
-    var toggleLine1stStatusInit = toggleLineStatusInit;
-    var toggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
-    var toggleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
-    var toggleLine2ndStatusInit = toggleLineStatusInit;
-    var toggleLine2ndStatusArrow = {width: '90%'};
-    var toggleLine2ndStatusClose = {opacity: 0};
-    var toggleLine3rdStatusInit = toggleLineStatusInit;
-    var toggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
-    var toggleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    var statusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+    var line1stStatusInit = statusInit;
+    var line1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var line1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var line2ndStatusInit = statusInit;
+    var line2ndStatusArrow = {width: '90%'};
+    var line2ndStatusClose = {opacity: 0};
+    var line3rdStatusInit = statusInit;
+    var line3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var line3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
     LogoAndMenuMotion();
     sidebarToggleMotion();
     postsListMotion();
@@ -34,26 +34,21 @@
       .on('sidebar.isHiding', function () {});
     function LogoAndMenuMotion() {
       $.Velocity.RunSequence([
-        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
-        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
-        {% if theme.scheme === 'Mist' %}
-        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
-        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
-        {% endif %}
-        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+        {e: $('.brand'), p: {opacity: 1}, o: {duration: 100}},
+        {e: $('.logo'), p: {opacity: 1, top: 0}, o: {duration: 50}},
+        {e: $('.site-title'), p: {opacity: 1, top: 0}, o: {duration: 200}}
       ]);
       $('.menu-item').velocity('transition.slideDownIn', {display: null});
     }
     function backToTopMotion () {
-      var b2top = $('.back-to-top');
-      b2top.on('click', function () {
+      $('.back-to-top').on('click', function () {
         body.velocity('scroll');
       });
     }
     function sidebarShowMotion () {
-      toggleLine1st.velocity(toggleLine1stStatusClose);
-      toggleLine2nd.velocity(toggleLine2ndStatusClose);
-      toggleLine3rd.velocity(toggleLine3rdStatusClose);
+      line1st.velocity(line1stStatusClose);
+      line2nd.velocity(line2ndStatusClose);
+      line3rd.velocity(line3rdStatusClose);
       sidebar.velocity({width: SIDEBAR_WIDTH}, {
         display: 'block',
         duration: SIDEBAR_DISPLAY_DURATION,
@@ -67,9 +62,9 @@
     function sidebarHideMotion () {
       isDesktop() && body.velocity({paddingRight: 0});
       sidebar.velocity('reverse');
-      toggleLine1st.velocity(toggleLine1stStatusInit);
-      toggleLine2nd.velocity(toggleLine2ndStatusInit);
-      toggleLine3rd.velocity(toggleLine3rdStatusInit);
+      line1st.velocity(line1stStatusInit);
+      line2nd.velocity(line2ndStatusInit);
+      line3rd.velocity(line3rdStatusInit);
       sidebar.removeClass('sidebar-active');
       sidebar.trigger('sidebar.isHiding');
     };
@@ -80,8 +75,7 @@
       );
     }
     function postsListMotion () {
-      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
-      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+      $('.post').velocity('transition.slideDownIn', window.postMotionOptions || {stagger: 300, drag: true});
     }
     function sidebarToggleMotion () {
       toggle.on('click', function () {
@@ -90,14 +84,14 @@
       });
       toggle.hover(function () {
         if (isSidebarVisible) {return}
-        toggleLine1st.velocity('stop').velocity(toggleLine1stStatusArrow);
-        toggleLine2nd.velocity('stop').velocity(toggleLine2ndStatusArrow);
-        toggleLine3rd.velocity('stop').velocity(toggleLine3rdStatusArrow);
+        line1st.velocity('stop').velocity(line1stStatusArrow);
+        line2nd.velocity('stop').velocity(line2ndStatusArrow);
+        line3rd.velocity('stop').velocity(line3rdStatusArrow);
       }, function () {
         if (isSidebarVisible) {return}
-        toggleLine1st.velocity('stop').velocity(toggleLine1stStatusInit);
-        toggleLine2nd.velocity('stop').velocity(toggleLine2ndStatusInit);
-        toggleLine3rd.velocity('stop').velocity(toggleLine3rdStatusInit);
+        line1st.velocity('stop').velocity(line1stStatusInit);
+        line2nd.velocity('stop').velocity(line2ndStatusInit);
+        line3rd.velocity('stop').velocity(line3rdStatusInit);
       });
     }
   });
