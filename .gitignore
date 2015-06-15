@@ -14,3 +14,5 @@ public/
 
 # Jetbrains' IDE configuration dir
 .idea/
+
+.settings/
