@@ -22,7 +22,9 @@ categories:
 
 ### 不同点:
 
-GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据大小, 3. 数据传输方式.
+GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据大小, 3. 传输数据时载体不同.
+
+具体可以在 [w3schools](http://www.w3schools.com/tags/ref_httpmethods.asp) 中看到具体说明.
 
 但是在这里我们仅仅来讨论它们两者数据的传输方式不同, 更多内容可以查阅维基老头给我们的说明. [点我拜访维基老头](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
 
@@ -71,7 +73,7 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 
 然后打印我们的 params, 即可看到如下图的内容.
 
-![get-params.png](http://7xirxu.com1.z0.glb.clouddn.com/2015/03/get-params.png)
+![get-params](http://7xirxu.com1.z0.glb.clouddn.com/2015/03/get-params.png)
 
 完整的代码如下:
 
@@ -143,6 +145,12 @@ Express 是 Node 服务端里我们比较常见的 Web 框架. Express.js 框架
 
 理解 GET/POST 两种请求的参数传递方式.
 
-GET 的参数都是附加于 URL 中的, 而 POST 的参数是添加在 RequestHeader 中的.
+GET 的参数都是附加于 URL 中的, 而 POST 的参数是添加在 Body 中的.
 
-打完收工.
+但是, 这不是必须的, 我们一样可以在 GET 请求时, 设置参数在 Body 中, 而 POST 请求时, 将参数放置在 URL 中. 但是因为一些考虑, 才有上边的结果.
+
+比如, URL 带有参数的 GET 请求, 我们可以将其保存在书签中, 下次通过地址访问一样的内容.
+
+而对于 POST 请求, 它不会被浏览器的历史记录了, 且不可保存在书签中, 于是乎, 有了一点点安全性, 但只是一点点, 对于有心人, 一样可以记录请求, 以及获取参数.
+
+打完收工. 另外还有一篇文章, 可以一看 [GET和POST有什么区别? 及为什么网上的多数答案都是错的](http://aijuans.iteye.com/blog/1562027)
