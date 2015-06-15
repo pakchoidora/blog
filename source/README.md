@@ -1,4 +1,6 @@
 Pakchoi's Blog.
-=================
+===============
 
-This is Pakchoi's personal blog. Recording his programming life.
+This is Pakchoi's personal blog.
+
+A Programmer's life.

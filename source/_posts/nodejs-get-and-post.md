@@ -26,7 +26,7 @@ GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据
 
 具体可以在 [w3schools](http://www.w3schools.com/tags/ref_httpmethods.asp) 中看到具体说明.
 
-但是在这里我们仅仅来讨论它们两者数据的传输方式不同, 更多内容可以查阅维基老头给我们的说明. [点我拜访维基老头](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
+但是在这里我们仅仅来讨论它们两者数据的传输载体不同, 更多内容可以查阅维基老头给我们的说明. [点我拜访维基老头](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
 
 **POST**
 
