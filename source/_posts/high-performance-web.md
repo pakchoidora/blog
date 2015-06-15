@@ -1,4 +1,4 @@
-title: 如何构建高性能 Web
+title: 构建高性能 Web 的 14 条黄金法则
 tags:
 - Web
 date: 2015-06-15 13:18:35
