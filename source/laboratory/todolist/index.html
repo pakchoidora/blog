@@ -50,15 +50,15 @@
     <div class="content"></div>
   </div>
   <!--
-  <script type="text/javascript" src="//7xirxu.com1.z0.glb.clouddn.com/libs/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="//http://7xirxu.com1.z0.glb.clouddn.com/libs/zepto/zepto.min.js"></script>
   <script type="text/javascript" src="//7xirxu.com1.z0.glb.clouddn.com/libs/underscore/underscore-min.js"></script>
   <script type="text/javascript" src="//7xirxu.com1.z0.glb.clouddn.com/libs/backbone/backbone-min.js"></script>
   -->
-  <script type="text/javascript" src="//localhost/libs/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="//localhost/libs/zepto/zepto.js"></script>
   <script type="text/javascript" src="//localhost/libs/underscore/underscore-min.js"></script>
   <script type="text/javascript" src="//localhost/libs/backbone/backbone-min.js"></script>
   <script type="text/javascript">
-  jQuery(function($) {
+  Zepto(function($) {
     var TodoApp = Backbone.View.extend({
       initialize: function(title, items) {
         this.setElement(this.template({title: title}));

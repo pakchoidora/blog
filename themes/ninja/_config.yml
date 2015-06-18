@@ -55,10 +55,6 @@ scroll_to_more: true
 toc_list_number: true
 
 
-# Use velocity to animate everything.
-use_motion: true
-
-
 # Static files
 vendors: vendors
 css: css

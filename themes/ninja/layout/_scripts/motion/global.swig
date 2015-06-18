@@ -23,15 +23,6 @@
     sidebarToggleMotion();
     postsListMotion();
     backToTopMotion();
-    $(document)
-      .on('sidebar.isShowing', function () {
-        isDesktop() && body.velocity(
-          {paddingRight: SIDEBAR_WIDTH},
-          SIDEBAR_DISPLAY_DURATION
-        );
-        sidebarContentMotion();
-      })
-      .on('sidebar.isHiding', function () {});
     function LogoAndMenuMotion() {
       $.Velocity.RunSequence([
         {e: $('.brand'), p: {opacity: 1}, o: {duration: 100}},
@@ -57,7 +48,16 @@
           sidebar.trigger('sidebar.didShow');
         }
       });
-      sidebar.trigger('sidebar.isShowing');
+      setTimeout(function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        $('.sidebar .motion-element').velocity(
+          'transition.slideRightIn',
+          {stagger: 50, drag: true}
+        );
+      }, 0);
     }
     function sidebarHideMotion () {
       isDesktop() && body.velocity({paddingRight: 0});
@@ -66,14 +66,12 @@
       line2nd.velocity(line2ndStatusInit);
       line3rd.velocity(line3rdStatusInit);
       sidebar.removeClass('sidebar-active');
-      sidebar.trigger('sidebar.isHiding');
+      setTimeout(function() {
+        $('.sidebar .motion-element').css({
+          display: 'none'
+        });
+      }, 0);
     };
-    function sidebarContentMotion () {
-      $('.sidebar .motion-element').velocity(
-        'transition.slideRightIn',
-        {stagger: 50, drag: true}
-      );
-    }
     function postsListMotion () {
       $('.post').velocity('transition.slideDownIn', window.postMotionOptions || {stagger: 300, drag: true});
     }
@@ -81,13 +79,12 @@
       toggle.on('click', function () {
         isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
         isSidebarVisible = !isSidebarVisible;
-      });
-      toggle.hover(function () {
+      }).on('mouseenter', function () {
         if (isSidebarVisible) {return}
         line1st.velocity('stop').velocity(line1stStatusArrow);
         line2nd.velocity('stop').velocity(line2ndStatusArrow);
         line3rd.velocity('stop').velocity(line3rdStatusArrow);
-      }, function () {
+      }).on('mouseleave', function () {
         if (isSidebarVisible) {return}
         line1st.velocity('stop').velocity(line1stStatusInit);
         line2nd.velocity('stop').velocity(line2ndStatusInit);

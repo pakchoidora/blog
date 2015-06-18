@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-ninja {% if theme.use_motion %}use-motion{% endif %} {% if theme.scheme %}theme-ninja-{{ theme.scheme | lower }}{% endif %}">
+<html class="theme-ninja use-motion{% if theme.scheme %} theme-ninja-{{ theme.scheme | lower }}{% endif %}">
 <head>{% include '_partials/head.swig' %}
 <title>{% block title %}{% endblock %}</title>
 </head>
@@ -25,7 +25,7 @@
   </div>
   <div class="back-to-top"></div>
 </div>
-<script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="{{ url_for(theme.vendors) }}/zepto/zepto.min.js?v=1.1.6"></script>
 {% block script_extra_before %}{% endblock %}  {# This block is used to set options before any other scripts run #}
 {% include '_scripts/helpers.swig' %}{% include '_scripts/motion.swig' %}
 {% block script_extra %}{% endblock %}{% include '_scripts/mathjax.swig' %}
