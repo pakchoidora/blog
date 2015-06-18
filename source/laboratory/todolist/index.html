@@ -27,15 +27,37 @@
     border: 1px #eee solid;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
   }
-  .todo .title, .todo .items {
+  .todo .title, .todo .item, .todo .todo-new>input {
     padding: 10px 15px;
   }
-  .item.done {
+  .todo .status {
+    padding: 5px 15px;
+    background: #f5f5f5;
+  }
+  .todo .status .message {
+    font-size: 10px;
+    line-height: 12px;
+    color: #0c0c0c;
+    display: inline-block;
+    height: 12px;
+  }
+  .item {
+    border-top: 1px #eee solid;
+  }
+  .item:last-of-type {
+    border-bottom: 1px #eee solid;
+  }
+  .item .done {
     text-decoration: line-through;
     opacity: .6;
   }
   .todo>.title {
     background-color: #f5f5f5;
+  }
+  .todo-new>input{
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
   }
   .item>a {
     text-decoration: none;
@@ -61,31 +83,45 @@
   Zepto(function($) {
     var TodoApp = Backbone.View.extend({
       initialize: function(title, items) {
-        this.setElement(this.template({title: title}));
-        this._todoItems = new TodoItems(items);
-        this.append(this._todoItems);
+        this.setElement('<div class="todo">');
+        this._title = title;
+        this._items = items;
+        this._todoItems = new TodoItems(this._items);
         this._todoStatus = new TodoStatus();
+        this._todoNew = new TodoNew('请输入新的待办事项');
+        var self = this;
+        this._todoNew.delegateEvents({
+          'submit': function(event) {
+            event.preventDefault();
+            // TODO
+            self._todoItems.add();
+          }
+        });
+        $(document).on('todo:message', function(event, message) {
+          self._todoStatus.message(message);
+        });
+        this.render();
+      },
+      render: function() {
+        this.$el.html(this.template({title: this._title}));
+        this.append(this._todoItems);
+        this.append(this._todoNew);
         this.append(this._todoStatus);
       },
       template: _.template('\
-        <div class="todo">\
-          <div class="title"><%=title%></div>\
-        </div>\
+        <div class="title"><%- title %></div>\
       '),
       append: function(view) {
         this.$el.append(view.$el || view);
-      },
-      notify: function(event, model, message) {
-        this._todoStatus.message(message);
+      }
+    });
+    var Todo = Backbone.Model.extend({
+      defaults: {
+        isDone: false
       }
     });
     var Todos = Backbone.Collection.extend({
-      model: Backbone.Model.extend({
-        defaults: {
-          isDone: false
-        },
-        initialize: function() {}
-      }),
+      model: Todo,
       initialize: function(items) {
         this.parse(items);
       }
@@ -93,55 +129,82 @@
     var TodoItem = Backbone.View.extend({
       initialize: function(model) {
         this._model = model;
-        this.setElement(this.template(this._model.toJSON()));
-        this.listenTo(this._model, 'change', this.render);
+        var self = this;
+        this.setElement('<li class="item">');
+        this.listenTo(this._model, 'change', function(model, options) {
+          self.render(model, options);
+          setTimeout(function() {
+            self.$el.trigger('todo:message', _.template('<%- name %> is set to <%- isDone %>')(model.toJSON()));
+          }, 0);
+        });
+        this.render(this._model);
+      },
+      render: function(model, options) {
+        this.$el.html(this.template((model && model.toJSON()) || new Todo().toJSON(), options));
       },
       template: _.template('\
-        <li class="item<%=isDone?\' done\':\'\'%>">\
-          <a href="javascript:void(0);">\
-            <div class="check-box">\
-              <span class="todo-icon">&nbsp;</span>\
-            </div>\
-            <div class="todo-content-set">\
-              <div class="todo-content"><%=name%></div>\
-            </div>\
-          </a>\
-        </li>\
+        <a href="javascript:void(0);" class="<%=isDone?\'done\':\'\'%>">\
+          <div class="check-box">\
+            <span class="todo-icon">&nbsp;</span>\
+          </div>\
+          <div class="todo-content-set">\
+            <div class="todo-content"><%- name %></div>\
+          </div>\
+        </a>\
       '),
       events: {
-        'click .check-box': function() {
-          if (this.$el.hasClass('done')) {
-            this.$el.removeClass('done');
-          } else {
-            this.$el.addClass('done');
-          }
+        'click .check-box': function(event) {
+          this._model.set({
+            isDone: !this.$('a').hasClass('done')
+          });
         }
       }
     });
     var TodoItems = Backbone.View.extend({
       initialize: function(items) {
         this._items = new Todos(items);
-        this.setElement(this.template());
+        this.setElement('<ul class="items">');
+        this.listenTo(this._items, 'update', this.render);
+        this.render();
+      },
+      render: function() {
         var self = this;
         this._items.forEach(function(element) {
           self.$el.append(new TodoItem(element).$el);
         });
       },
+      add: function(model) {
+        this._items.add(model);
+      }
+    });
+    var TodoNew = Backbone.View.extend({
+      initialize: function(placeholder) {
+        this._placeholder = placeholder;
+        this.setElement('<form class="todo-new">');
+        this.render();
+      },
+      render: function() {
+        this.$el.html(this.template({placeholder: this._placeholder}));
+      },
       template: _.template('\
-        <ul class="items"></ul>\
+        <input type="text" name="name" placeholder="<%- placeholder || \'\' %>">\
       ')
     });
     var TodoStatus = Backbone.View.extend({
-      initialize: function() {
-        this.setElement(this.template());
+      initialize: function(message) {
+        this._message = message;
+        this.setElement('<div class="status">');
+        this.render();
+      },
+      render: function() {
+        this.$el.html(this.template({message: this._message}));
       },
       template: _.template('\
-        <div class="status">\
-          <span class="message"></span>\
-        </div>\
+        <span class="message"><%- message %></span>\
       '),
       message: function(message) {
-        this.$('.message').text(message);
+        this._message = message;
+        this.render();
       }
     });
     $(document).ready(function() {
