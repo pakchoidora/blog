@@ -108,12 +108,13 @@ Backbone 中, 每个 View 对象都是有对应的 DOM 元素的, 我们在 `ext
 
 {% codeblock %}
     var UserView = Backbone.View.extend({
-      template: _.template('<div class="user-view"></div>'),
+      template: _.template(''),
       initialize: function() {
+        this.setElement('<div class="user-view">');
         this.render();
       },
       render: function() {
-        this.setElement(this.template());
+        this.$el.html(this.template && this.template());
       }
     });
 
