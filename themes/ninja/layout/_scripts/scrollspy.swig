@@ -3,7 +3,7 @@
     'use strict';
     function ScrollSpy(element, options) {
       this.$body = $(document.body);
-      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element);
+      this.$scrollElement = $(element).is('body') ? $(window) : $(element);
       this.options = $.extend({}, ScrollSpy.DEFAULTS, options);
       this.selector = (this.options.target || '') + ' .nav li > a';
       this.offsets = [];
@@ -87,7 +87,7 @@
     }
     ScrollSpy.prototype.clear = function () {
       $(this.selector)
-        .parentsUntil(this.options.target, '.active')
+        .parent('.active')
         .removeClass('active');
     }
     function Plugin(option) {
@@ -112,5 +112,5 @@
         Plugin.call($spy, $spy.data());
       })
     })
-  })(jQuery);
+  })(Zepto);
 </script>

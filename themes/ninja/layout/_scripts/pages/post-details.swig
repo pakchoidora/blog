@@ -67,7 +67,6 @@
     }
   });
 </script>
-{% if theme.use_motion %}
 <script type="text/javascript">
   $(document).ready(function () {
     var html = $('html');
@@ -106,4 +105,3 @@
     }
   });
 </script>
-{% endif %}
