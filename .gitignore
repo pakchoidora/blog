@@ -16,3 +16,6 @@ public/
 .idea/
 
 .settings/
+
+# libs for laboratory
+dev-libs/
