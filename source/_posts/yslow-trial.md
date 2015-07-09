@@ -8,7 +8,7 @@ description: YSlow 分析工具的简单试用.
 
 今天被问到测试前端页面性能时, 脑子里只蹦出了 Loadrunner 压测, 以及 PageSpeed, 然后被告知还有 YSlow 这么一个工具, 我也是半天没听出来是个啥...
 
------- 
+------
 
 YSlow 是一个 Web 页面的分析工具, [yslow.org](http://yslow.org) 上的说明是: "YSlow 是用来分析 Web 页面慢的原因的工具", 原文见下.
 

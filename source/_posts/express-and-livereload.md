@@ -42,13 +42,11 @@ Express 中有这么一个中间件 `connect-livereload`, 它就为我们办这�
 
 为 Express 对象添加这个中间件即可.
 
-{% codeblock %}
     var express = require('express');
     var app = express();
     app.use(require('connect-livereload')({
       port: 35729
     }));
-    {% endcodeblock %}
 
 所以到这里, 我们就算是把客户端上的 livereload 给配置好了.
 
@@ -77,8 +75,7 @@ Express 中有这么一个中间件 `connect-livereload`, 它就为我们办这�
 1. 启动 LiveReload 的服务端;
 2. 调用 LiveReload 的重新加载.
 
-{% codeblock %}
-var livereload = require('gulp-livereload');
+    var livereload = require('gulp-livereload');
     gulp.task('watch', function() {
       livereload.listen({
         port: 35729
@@ -89,7 +86,6 @@ var livereload = require('gulp-livereload');
           .pipe(livereload());
       });
     });
-{% endcodeblock%}
 
 上述中, 第三行代码 `livereload.listen({port: 35729});` 即是启动我们的 LiveReload 服务端.
 

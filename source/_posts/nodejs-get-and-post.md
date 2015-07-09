@@ -64,10 +64,12 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 我们可以通过 Node.js 内建的 url 库来解析 GET 请求过来的 URL.
 
     var url = require('url');
-    然后调用 url.parse 函数.
+
+然后调用 url.parse 函数.
 
     var params = url.parse(request.url, true).query;  // params 即为我们需要的参数
-    然后打开浏览器, 尝试请求我们的 HTTP Server.
+
+然后打开浏览器, 尝试请求我们的 HTTP Server.
 
 如: http://localhost:1337/index?username=root&action=test , 在 url 中附带参数.
 
@@ -77,7 +79,6 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 
 完整的代码如下:
 
-{% codeblock %}
     var http = require('http');
     var url = require('url');
     http.createServer(function (request, response) {
@@ -87,7 +88,6 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
       response.end('Hello World\n');
     }).listen(1337, '127.0.0.1');
     console.log('Server running at http://127.0.0.1:1337/');
-{% endcodeblock %}
 
 ### 在 POST 方式中:
 
@@ -97,7 +97,6 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
 
 这里我们就需要使用 'querystring' 这个库了, 用来处理 response 对象的数据, 完整代码如下.
 
-{% codeblock %}
     var http = require('http');
     var querystring = require('querystring');
     http.createServer(function (request, response) {
@@ -115,7 +114,6 @@ GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常�
         response.end('Hello World\n');
       });
     }).listen(1337, '127.0.0.1');
-{% endcodeblock %}
 
 由于 POST 传输数据的量相较于 GET 方式较大, 所以这里并不能直接得到数据, 而是通过添加两个监听器, 分别处理数据接入过程以及数据接入完两个状态.
 
