@@ -9,6 +9,8 @@ description:
 
 前几天被问到构建高性能 Web 时, 一时脑抽没反应过来这是个啥, 其实平时做的雪碧图, 以及 js 代码压缩等都属于这块的内容, 当然这只是其中的一部分.
 
+------
+
 在 ["High Performance Web Sites"](http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309/ref=sr_1_1) 这本书中, 我们可以看到, 它列举了 14 条高性能黄金法则.
 
 1. 使用更少的 HTTP 请求 \(Make Fewer HTTP Requests\)
