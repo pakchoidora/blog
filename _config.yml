@@ -87,6 +87,11 @@ Plugins:
 # Disqus
 disqus_shortname: pakchoi
 
+# HTML Minifier
+html_minifier:
+  exclude:
+  collapseWhitespace: true
+
 ## Themes: http://hexo.io/themes/
 theme: ninja
 
