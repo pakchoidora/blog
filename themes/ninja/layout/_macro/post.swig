@@ -23,9 +23,7 @@
     </h1>
     {% endif %}
     <div class="post-meta">
-      <span class="post-time">
-        {{ __('post.posted') }} {{ post.date | date('Y-m-d') }}
-      </span>
+      <span class="post-time">{{ __('post.posted') }} {{ post.date | date('Y-m-d') }}</span>
       {% if post.categories and post.categories.length %}
       <span class="post-category">
         &nbsp; | &nbsp; {{ __('post.in') }}

@@ -98,5 +98,5 @@ theme: ninja
 # Deployment
 deploy:
   type: git
-  repository: git@github.com:pakchoidora/pakchoidora.git
+  repository: git@github.com:pakchoidora/blog.git
   branch: gh-pages

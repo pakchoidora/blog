@@ -10,7 +10,7 @@ type: full
 
 ## 游戏生活
 
-热爱电子游戏的程序员, 无缘从事游戏开发, 那么, 就让我们痛苦的玩游戏吧.
+热爱电子游戏的程序员, 无缘从事游戏开发, 那么, 就让我们痛快的玩游戏吧.
 
 ### 游戏设备
 
@@ -22,7 +22,9 @@ New 3DSLL \(日版\)
 
 Macbook Pro Retina 13inch
 
-Gateway NV47H 自改配件
+Shinelon A60 I74710/GTX860M/1T/8G
+
+Gateway NV47H 自改配件\(已转卖二手\)
 
 北通手柄
 
@@ -30,7 +32,17 @@ XGIMI 投影仪梦想版
 
 ### 最近在玩的游戏
 
+合金装备V: 幻痛
+
+黑暗之魂: 受死版
+
+Warframe 国际服
+
+胧村正
+
 炉石传说 \(国服\)
+
+血源诅咒
 
 GTA 5 \(PS4\)
 
@@ -54,7 +66,7 @@ Doragon_Pakchoi
 
 #### STEAM:
 
-[D] Pakchoi
+__Pakchoi
 
 #### 战网 ID:
 

@@ -59,6 +59,7 @@ toc_list_number: true
 vendors: vendors
 css: css
 images: images
+js: js
 
 
 # Theme version

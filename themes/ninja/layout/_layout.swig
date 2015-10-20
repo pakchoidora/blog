@@ -1,6 +1,15 @@
 <!DOCTYPE html>
+<!--
+<html>
+<head>
+<title></title>
+<body></body>
+</head>
+</html>
+-->
 <html class="theme-ninja use-motion{% if theme.scheme %} theme-ninja-{{ theme.scheme | lower }}{% endif %}">
-<head>{% include '_partials/head.swig' %}
+<head>
+{% include '_partials/head.swig' %}
 <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
