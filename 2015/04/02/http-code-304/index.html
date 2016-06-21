@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<!--
+<html>
+<head>
+<title></title>
+<body></body>
+</head>
+</html>
+-->
+<html class="theme-ninja use-motion">
+<head>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+	<meta name="description" content="Pakchoi's blog."/>
+
+
+	<meta name="keywords" content="HTTP,304,"/>
+
+
+	<link rel="alternate" href="/atom.xml" title="Half A Day" type="application/atom+xml"/>
+
+
+	<link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1"/>
+
+
+<script type="text/javascript">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6ea3a6b78cf86228995c577636d3f562";
+    var s = document.getElementsByTagName("script")[0];
+    if (!(/^localhost|^(\d+\.){3}\d+/.test(window.location.hostname))) s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<title> HTTP 304 状态与浏览器缓存 // Half A Day </title>
+</head>
+<body>
+  <div class="container one-column page-post-detail">
+  <div class="headband"></div>
+  <div id="header" class="header">
+    <div class="header-inner">
+      <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+    <span class="logo">
+      <i class="icon-logo"></i>
+    </span>
+    <span class="site-title">Half A Day</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<ul id="menu" class="menu">
+  
+  
+  <li class="menu-item menu-item-home">
+    <a href="/">
+      <i class="menu-item-icon icon-home"></i><br/>Home
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives">
+      <i class="menu-item-icon icon-archives"></i><br/>Archives
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about">
+      <i class="menu-item-icon icon-about"></i><br/>About
+    </a>
+  </li>
+  
+</ul>
+
+    </div>
+  </div>
+  <div id="main" class="main">
+    <div class="main-inner">
+      <div id="content" class="content">
+<div id="posts" class="posts-expand">
+  
+<div class="post post-type-normal ">
+  <div class="post-header">
+      
+    
+    <h1 class="post-title">
+      
+        HTTP 304 状态与浏览器缓存
+      
+    </h1>
+    
+    <div class="post-meta">
+      <span class="post-time">Posted on 2015-04-02</span>
+      
+      
+        
+      <span class="post-comments-count">
+        &nbsp; | &nbsp;
+        <a href="/2015/04/02/http-code-304/#comments">
+          <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/02/http-code-304/">0 Comments</span>
+        </a>
+      </span>
+        
+      
+    </div>
+  </div>
+  <div class="post-body">
+    
+    
+      <p>事情起因是之前有人问起一个问题, 说他加载了页面后, 打开浏览器的开发者工具后发现在 Network 里, 很多资源的传输大小都是 200B.</p>
+<p>而且当我们点开了菜单中的 <code>Use large request rows</code> 按钮后, 我们在 <code>Size/Content</code> 列会看到两个大小不同的数值, 而假如我们启用了浏览器 cache 时, 往往 <code>Content</code> 值要比 <code>Size</code> 值小得多, 这是因为啥呢.</p>
+<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/04/browser-cache.png" alt="browser cache"></p>
+<p>而且我们注意到, Status 栏写着 304, 文本则为 <code>Not Modified</code>.</p>
+<p>所以, 问题来了, 这里的 304 指的是 <code>HTTP Status Code 304</code>, 但是 <code>HTTP Status Code 304</code> 究竟表示什么意思呢.</p>
+<p>首先我们要知道 <code>HTTP Status Code 304</code> 究竟表达什么意思, 所以在查阅了 <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection" target="_blank" rel="external">维基老头的图书馆</a> 后, 我们发现:</p>
+<blockquote>
+<p><strong>304 Not Modified</strong><br>    Indicates that the resource has not been modified since the version specified by the request headers If-Modified-Since or If-None-Match. This means that there is no need to retransmit the resource, since the client still has a previously-downloaded copy.</p>
+</blockquote>
+<p>它表示着, 该请求资源自从上次请求后, 没有被修改过, 因而不会重新传输该资源, 而是从缓存中获取.</p>
+<p>浏览器在 Request Header 中加入 <code>If-Modified-Since</code> 字段, 或者 <code>If-None-Match</code> 字段来描述一个具体版本的资源. 如下图的一个请求的 <code>Header</code> 信息.</p>
+<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/04/browser-cache-request.png" alt="browser cache request"></p>
+<p>我们可以看到, <code>Request Headers</code> 中, 有着 <code>If-None-Match</code> 两个字段, 而与之对应的, 在 <code>Response Header</code> 中有个 <code>ETag</code> 的属性, 当它的值与 <code>If-None-Match</code> 一致, 即表示该文件自上次请求至今没有发生修改.</p>
+<p>ETag 的描述为:</p>
+<blockquote>
+<p><strong>ETag</strong><br>    An identifier for a specific version of a resource, often a message digest</p>
+</blockquote>
+<p><code>ETag</code> 属性的值是某个版本中的一个资源的标识符.</p>
+<p>因为浏览器缓存的存在, 我们经常在查看网络请求时, 有的文件明明有好几十KB, 但是请求时, 返回的却只有几百 Bytes, 这其实就是因为 <code>HTTP Status Code 304</code>, 资源没有修改, 浏览器使用缓存中的资源.</p>
+<p>而当我们禁用缓存时, 每次正常请求都是跟资源大小相近的.</p>
+
+    
+  </div>
+  <div class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/HTTP/">#HTTP</a>
+      
+      <a href="/tags/304/">#304</a>
+      
+    </div>
+    
+    
+    <div class="post-nav">
+      <div class="post-nav-prev post-nav-item">
+      
+        <a href="/2015/05/14/express-and-livereload/">Express 中配置 livereload</a>
+      
+      </div>
+      <div class="post-nav-next post-nav-item">
+      
+        <a href="/2015/03/29/nodejs-get-and-post/">Node.js 与隔壁老王(GET/POST)参数的二三事</a>
+      
+      </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+  
+  <div class="comments" id="comments">
+    
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+  </div>
+  
+</div>
+
+      </div>
+    </div>
+    
+  
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+    
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table Of Contents</li>
+      <li class="sidebar-nav-overview" data-target="site-overview">Overview</li>
+    </ul>
+    
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/default_avatar.jpg" alt="__Pakchoi" />
+        <p class="site-author-name">__Pakchoi</p>
+      </div>
+      <p class="site-description motion-element">Pakchoi's blog.</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">11</span>
+            <span class="site-state-item-name">posts</span>
+          </a>
+        </div>
+        <div class="site-state-item site-state-categories">
+        <a href="/categories">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">categories</span>
+        </a>
+        </div>
+        <div class="site-state-item site-state-tags">
+        <a href="/tags">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">tags</span>
+        </a>
+        </div>
+      </div>
+      
+      <div class="feed-link motion-element">
+        <a href="/atom.xml"><i class="menu-item-icon icon-feed"></i>RSS</a>
+      </div>
+      
+      <div class="links-of-author motion-element">
+      
+        
+        <span class="links-of-author-item">
+          <a href="http://github.com/pakchoidora" target="_blank">GitHub</a>
+        </span>
+        
+        <span class="links-of-author-item">
+          <a href="http://weibo.com/pakchoidora" target="_blank">Weibo</a>
+        </span>
+        
+      
+      </div>
+      
+      
+      <div class="cc-license motion-element">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+          <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/>
+        </a>
+      </div>
+      
+    </div>
+    
+    <div class="post-toc-wrap sidebar-panel-active">
+      <div class="post-toc-indicator-top post-toc-indicator"></div>
+      <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+      </div>
+      <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+    </div>
+    
+  </div>
+</div>
+
+
+  </div>
+  <div id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="copyright">
+  
+  &copy; &nbsp; 
+  2016
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">__Pakchoi</span>
+</div>
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+    </div>
+  </div>
+  <div class="back-to-top"></div>
+</div>
+<script type="text/javascript" src="/vendors/zepto/zepto.min.js?v=1.1.6"></script>
+  
+<script type="text/javascript">
+  function hasMobileUA () {
+    return /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g.test(window.navigator.userAgent);
+  }
+  function isDesktop () { return screen.width > 991 && !hasMobileUA(); }
+  function isTablet () { return screen.width < 992 && screen.width > 767 && hasMobileUA(); }
+  function isMobile () { return screen.width < 767 && hasMobileUA(); }
+  function escapeSelector (selector) { return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&") }
+</script>
+<script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var toggle = $('.sidebar-toggle');
+    var line1st = $('.sidebar-toggle-line-first')
+    var line2nd = $('.sidebar-toggle-line-middle');
+    var line3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+    var statusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+    var line1stStatusInit = statusInit;
+    var line1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var line1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var line2ndStatusInit = statusInit;
+    var line2ndStatusArrow = {width: '90%'};
+    var line2ndStatusClose = {opacity: 0};
+    var line3rdStatusInit = statusInit;
+    var line3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var line3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    $.Velocity.RunSequence([
+      {e: $('.brand'), p: {opacity: 1}, o: {duration: 100}},
+      {e: $('.logo'), p: {opacity: 1, top: 0}, o: {duration: 50}},
+      {e: $('.site-title'), p: {opacity: 1, top: 0}, o: {duration: 200}}
+    ]);
+    $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    $('.post').velocity('transition.slideDownIn', window.postMotionOptions || {stagger: 300, drag: true});
+    $('.back-to-top').on('click', function () {
+      body.velocity('scroll');
+    });
+    function sidebarShowMotion () {
+      line1st.velocity(line1stStatusClose);
+      line2nd.velocity(line2ndStatusClose);
+      line3rd.velocity(line3rdStatusClose);
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      setTimeout(function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        $('.sidebar .motion-element').velocity(
+          'transition.slideRightIn',
+          {stagger: 50, drag: true}
+        );
+      }, 0);
+    }
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+      line1st.velocity(line1stStatusInit);
+      line2nd.velocity(line2ndStatusInit);
+      line3rd.velocity(line3rdStatusInit);
+      sidebar.removeClass('sidebar-active');
+      setTimeout(function() {
+        $('.sidebar .motion-element').css({
+          display: 'none'
+        });
+      }, 0);
+    };
+    toggle.on('click', function () {
+      isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+      isSidebarVisible = !isSidebarVisible;
+    }).on('mouseenter', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusArrow);
+      line2nd.velocity('stop').velocity(line2ndStatusArrow);
+      line3rd.velocity('stop').velocity(line3rdStatusArrow);
+    }).on('mouseleave', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusInit);
+      line2nd.velocity('stop').velocity(line2ndStatusInit);
+      line3rd.velocity('stop').velocity(line3rdStatusInit);
+    });
+  });
+</script>
+
+  <script type="text/javascript">
+  (function ($) {
+    'use strict';
+    function ScrollSpy(element, options) {
+      this.$body = $(document.body);
+      this.$scrollElement = $(element).is('body') ? $(window) : $(element);
+      this.options = $.extend({}, ScrollSpy.DEFAULTS, options);
+      this.selector = (this.options.target || '') + ' .nav li > a';
+      this.offsets = [];
+      this.targets = [];
+      this.activeTarget = null;
+      this.scrollHeight = 0;
+      this.$scrollElement.on('scroll.scrollspy', $.proxy(this.process, this));
+      this.refresh();
+      this.process();
+    }
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    };
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight);
+    }
+    ScrollSpy.prototype.refresh = function () {
+      var that = this;
+      var offsetMethod = 'offset';
+      var offsetBase = 0;
+      this.offsets = [];
+      this.targets = [];
+      this.scrollHeight = this.getScrollHeight();
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position';
+        offsetBase = this.$scrollElement.scrollTop();
+      }
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el = $(this);
+          var href = $el.data('target') || $el.attr('href');
+          var $href = /^#./.test(href) && $(escapeSelector(href)); // Need to escape selector.
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0]);
+          that.targets.push(this[1]);
+        });
+    }
+    ScrollSpy.prototype.process = function () {
+      var scrollTop = this.$scrollElement.scrollTop() + this.options.offset;
+      var scrollHeight = this.getScrollHeight();
+      var maxScroll = this.options.offset + scrollHeight - this.$scrollElement.height();
+      var offsets = this.offsets;
+      var targets = this.targets;
+      var activeTarget = this.activeTarget;
+      var i;
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh();
+      }
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i);
+      }
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.scrollspy');  // Add a custom event.
+        this.activeTarget = null;
+        return this.clear();
+      }
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i]);
+      }
+    }
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target;
+      this.clear();
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]';
+      var active = $(selector)
+        .parents('li')
+        .addClass('active');
+      active.trigger('activate.scrollspy')
+    }
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parent('.active')
+        .removeClass('active');
+    }
+    function Plugin(option) {
+      return this.each(function () {
+        var $this = $(this);
+        var data = $this.data('scrollspy');
+        var options = typeof option == 'object' && option;
+        if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)));
+        if (typeof option == 'string') data[option]();
+      })
+    }
+    var old = $.fn.scrollspy;
+    $.fn.scrollspy = Plugin;
+    $.fn.scrollspy.Constructor = ScrollSpy;
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old;
+      return this;
+    }
+    $(window).on('load.scrollspy', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this);
+        Plugin.call($spy, $spy.data());
+      })
+    })
+  })(Zepto);
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+    $tocSelector
+      .on('activate.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+      $tocSelector.css('height', height);
+      return height;
+    }
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+    onScroll($tocSelector);
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+          toggleTOCOverflowIndicators();
+      });
+    }
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var html = $('html');
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+      currentTarget.velocity('transition.slideUpOut', 200, function () {
+        target
+          .velocity('stop')
+          .velocity('transition.slideDownIn', 200)
+          .addClass(activePanelClassName);
+      });
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+    $('.post-toc').find('a').on('click', function (e) {
+      e.preventDefault();
+      var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+      html.velocity('stop').velocity('scroll', {
+        offset: offset  + 'px',
+        mobileHA: false
+      });
+    });
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+      setTimeout(function () {
+        $('.sidebar-toggle').trigger('click');
+      }, 800);
+    }
+  });
+</script>
+
+
+
+  
+  
+  
+    
+      
+    
+<script type="text/javascript">
+  var disqus_shortname = 'pakchoi';
+  var disqus_identifier = '2015/04/02/http-code-304/';
+  var disqus_url = 'http://pakchoi.me/2015/04/02/http-code-304/';
+  (function(){
+    var scripts = 'count,embed'.split(',');
+    for (var k in scripts) {
+      var script = scripts[k];
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + script + '.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+  }());
+</script>
+  
+
+
+
+</body>
+</html>

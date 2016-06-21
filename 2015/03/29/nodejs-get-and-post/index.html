@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!--
+<html>
+<head>
+<title></title>
+<body></body>
+</head>
+</html>
+-->
+<html class="theme-ninja use-motion">
+<head>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+	<meta name="description" content="Pakchoi's blog."/>
+
+
+	<meta name="keywords" content="Node.js,HTTP,"/>
+
+
+	<link rel="alternate" href="/atom.xml" title="Half A Day" type="application/atom+xml"/>
+
+
+	<link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1"/>
+
+
+<script type="text/javascript">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6ea3a6b78cf86228995c577636d3f562";
+    var s = document.getElementsByTagName("script")[0];
+    if (!(/^localhost|^(\d+\.){3}\d+/.test(window.location.hostname))) s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<title> Node.js 与隔壁老王(GET/POST)参数的二三事 // Half A Day </title>
+</head>
+<body>
+  <div class="container one-column page-post-detail">
+  <div class="headband"></div>
+  <div id="header" class="header">
+    <div class="header-inner">
+      <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+    <span class="logo">
+      <i class="icon-logo"></i>
+    </span>
+    <span class="site-title">Half A Day</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<ul id="menu" class="menu">
+  
+  
+  <li class="menu-item menu-item-home">
+    <a href="/">
+      <i class="menu-item-icon icon-home"></i><br/>Home
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives">
+      <i class="menu-item-icon icon-archives"></i><br/>Archives
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about">
+      <i class="menu-item-icon icon-about"></i><br/>About
+    </a>
+  </li>
+  
+</ul>
+
+    </div>
+  </div>
+  <div id="main" class="main">
+    <div class="main-inner">
+      <div id="content" class="content">
+<div id="posts" class="posts-expand">
+  
+<div class="post post-type-normal ">
+  <div class="post-header">
+      
+    
+    <h1 class="post-title">
+      
+        Node.js 与隔壁老王(GET/POST)参数的二三事
+      
+    </h1>
+    
+    <div class="post-meta">
+      <span class="post-time">Posted on 2015-03-29</span>
+      
+      <span class="post-category">
+        &nbsp; | &nbsp; In
+        
+        <a href="/categories/Code/">Code</a>
+          
+          
+        
+      </span>
+      
+      
+        
+      <span class="post-comments-count">
+        &nbsp; | &nbsp;
+        <a href="/2015/03/29/nodejs-get-and-post/#comments">
+          <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/29/nodejs-get-and-post/">0 Comments</span>
+        </a>
+      </span>
+        
+      
+    </div>
+  </div>
+  <div class="post-body">
+    
+    
+      <p>由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及. 嗯, 就是酱紫, 不要问我隔壁老王是谁.</p>
+<h2 id="HTTP-GET-以及-HTTP-POST-两者的区别"><a href="#HTTP-GET-以及-HTTP-POST-两者的区别" class="headerlink" title="HTTP GET 以及 HTTP POST 两者的区别."></a>HTTP GET 以及 HTTP POST 两者的区别.</h2><p>首先我们先了解下 HTTP GET 与 HTTP POST 两者有什么不同</p>
+<h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点:"></a>相同点:</h3><p>它们都是 HTTP 中的一种发送请求方式. 并不是广义上的一个取, 一个发. 所以不要被名字所误导了.</p>
+<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点:"></a>不同点:</h3><p>GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据大小, 3. 传输数据时载体不同.</p>
+<p>具体可以在 <a href="http://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank" rel="external">w3schools</a> 中看到具体说明.</p>
+<p>但是在这里我们仅仅来讨论它们两者数据的传输载体不同, 更多内容可以查阅维基老头给我们的说明. <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank" rel="external">点我拜访维基老头</a></p>
+<p><strong>POST</strong></p>
+<p>先说说 POST 方式, 它是将数据各字段及内容添加到请求的 HEADER 中去, 然后随着请求发送到服务器端, 这个过程是不可见的;</p>
+<p><strong>GET</strong></p>
+<p>GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常可以看到 URL 中使用 ‘&amp;’ 符号来拼接各种键值对应的参数.</p>
+<p>如: <a href="http://localhost:1337/index?name=root&amp;password=1234" target="_blank" rel="external">http://localhost:1337/index?name=root&amp;password=1234</a></p>
+<p>但是这种方式就存在安全问题了, 具体在这就不做讨论了.</p>
+<h2 id="Node-js-中如何处理请求参数"><a href="#Node-js-中如何处理请求参数" class="headerlink" title="Node.js 中如何处理请求参数"></a>Node.js 中如何处理请求参数</h2><p>前边一堆废话过去了, 是时候进入主题了.</p>
+<p>在 Node.js 的官网上我们可以看到, 官方给出了一个简单的 HTTP Server 程序例子.</p>
+<p>这部分以官网上的代码为例, 来理解 Node.js 中 GET/POST 参数的获取.</p>
+<pre><code>var http = require(&apos;http&apos;);
+http.createServer(function (request, response) {
+    response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+    response.end(&apos;Hello World\n&apos;);
+}).listen(1337, &apos;127.0.0.1&apos;);
+console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
+</code></pre><p>在这个例子中, 假如我们需要获取 GET/POST 方式传递过来的参数, 是无法直接得到的, 需要对 request 对象进行处理, 才可以得到我们想要的参数.</p>
+<h3 id="在-GET-方式中"><a href="#在-GET-方式中" class="headerlink" title="在 GET 方式中:"></a>在 GET 方式中:</h3><p>参数都是以键值方式拼接在请求的 URL 当中的, 所以我们可以通过解析 URL 来获得参数.</p>
+<p>我们可以通过 Node.js 内建的 url 库来解析 GET 请求过来的 URL.</p>
+<pre><code>var url = require(&apos;url&apos;);
+</code></pre><p>然后调用 url.parse 函数.</p>
+<pre><code>var params = url.parse(request.url, true).query;  // params 即为我们需要的参数
+</code></pre><p>然后打开浏览器, 尝试请求我们的 HTTP Server.</p>
+<p>如: <a href="http://localhost:1337/index?username=root&amp;action=test" target="_blank" rel="external">http://localhost:1337/index?username=root&amp;action=test</a> , 在 url 中附带参数.</p>
+<p>然后打印我们的 params, 即可看到如下图的内容.</p>
+<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/03/get-params.png" alt="get-params"></p>
+<p>完整的代码如下:</p>
+<pre><code>var http = require(&apos;http&apos;);
+var url = require(&apos;url&apos;);
+http.createServer(function (request, response) {
+  var params = url.parse(request.url, true).query;
+  console.log(params);
+  response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+  response.end(&apos;Hello World\n&apos;);
+}).listen(1337, &apos;127.0.0.1&apos;);
+console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
+</code></pre><h3 id="在-POST-方式中"><a href="#在-POST-方式中" class="headerlink" title="在 POST 方式中:"></a>在 POST 方式中:</h3><p>由于 POST 方式传递的参数并不会显示在 URL 中, 所以上边的方式就不可行了, 那么我们就要换一种方式了.</p>
+<p>前边我们已经知道了, POST 方式, 它会将参数数据添加到请求的 HEADER 中发送到服务端, 所以, 我们需要去解析 HEADER 中的数据来获取 POST 请求发送过来的参数.</p>
+<p>这里我们就需要使用 ‘querystring’ 这个库了, 用来处理 response 对象的数据, 完整代码如下.</p>
+<pre><code>var http = require(&apos;http&apos;);
+var querystring = require(&apos;querystring&apos;);
+http.createServer(function (request, response) {
+  request.setEncoding(&apos;utf-8&apos;);
+  var postData = &apos;&apos;;
+  // 注册监听, 接收数据块
+  request.addListener(&quot;data&quot;, function (postDataChunk) {
+      postData += postDataChunk;
+  });
+  // 数据接收完毕, 执行回调函数
+  request.addListener(&quot;end&quot;, function () {
+    var params = querystring.parse(postData);  //解析 HEADER 中的数据
+    console.log(params);
+    response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+    response.end(&apos;Hello World\n&apos;);
+  });
+}).listen(1337, &apos;127.0.0.1&apos;);
+</code></pre><p>由于 POST 传输数据的量相较于 GET 方式较大, 所以这里并不能直接得到数据, 而是通过添加两个监听器, 分别处理数据接入过程以及数据接入完两个状态.</p>
+<p>但是, 这并不是最理想的. 当你是通过 ‘FORM-DATA’ 方式发送请求的话, 我们接收到的结果并不是我们想象中的样子. 比如我通过 POSTMAN 去发送一个 ‘FORM-DATA’, 其中包含了 ‘name’ 及 ‘password’ 两个字段的数据. 我们解析出来的结果是如下图:</p>
+<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/03/post-form-data.png" alt="post-form-data"></p>
+<p>它虽然是一个 JS 对象, 但是它的内容于我们而言几乎是不可用的, 尽管依稀可以见到 ‘name’ 跟 ‘password’ 两个字段, 但是处理起来还是比较费劲.</p>
+<p>而当我们在发送数据时, 是通过发送 ‘application/json’ 类型的数据, 如下图 POSTMAN 的使用.</p>
+<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/03/postman.png" alt="postman"></p>
+<p>然后我们就能顺利看到我们传递过来的参数了.</p>
+<h3 id="Express-js-中的请求参数处理"><a href="#Express-js-中的请求参数处理" class="headerlink" title="Express.js 中的请求参数处理"></a>Express.js 中的请求参数处理</h3><p>Express 是 Node 服务端里我们比较常见的 Web 框架. Express.js 框架有较为完善的封装, 可以让我们直接获取 GET/POST 方式传递过来的参数.</p>
+<p>在 Express.js 框架中, 我们每个请求都会有一个 Request 对象, 通过查阅 API 我们发现, Request 对象有一个 params 属性, 我们发送请求时所附带的参数数据都被保存在其中, 我们可以直接调用.</p>
+<p>如: <code>request.params[&#39;name&#39;]</code> 或者是 <code>request.params.name</code>.</p>
+<p>详见 Express.js 上 Request 对象的 API:  <a href="http://expressjs.com/4x/api.html#req.params" target="_blank" rel="external">http://expressjs.com/4x/api.html#req.params</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>理解 GET/POST 两种请求的参数传递方式.</p>
+<p>GET 的参数都是附加于 URL 中的, 而 POST 的参数是添加在 Body 中的.</p>
+<p>但是, 这不是必须的, 我们一样可以在 GET 请求时, 设置参数在 Body 中, 而 POST 请求时, 将参数放置在 URL 中. 但是因为一些考虑, 才有上边的结果.</p>
+<p>比如, URL 带有参数的 GET 请求, 我们可以将其保存在书签中, 下次通过地址访问一样的内容.</p>
+<p>而对于 POST 请求, 它不会被浏览器的历史记录了, 且不可保存在书签中, 于是乎, 有了一点点安全性, 但只是一点点, 对于有心人, 一样可以记录请求, 以及获取参数.</p>
+<p>打完收工. 另外还有一篇文章, 可以一看 <a href="http://aijuans.iteye.com/blog/1562027" target="_blank" rel="external">GET和POST有什么区别? 及为什么网上的多数答案都是错的</a></p>
+
+    
+  </div>
+  <div class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Node-js/">#Node.js</a>
+      
+      <a href="/tags/HTTP/">#HTTP</a>
+      
+    </div>
+    
+    
+    <div class="post-nav">
+      <div class="post-nav-prev post-nav-item">
+      
+        <a href="/2015/04/02/http-code-304/">HTTP 304 状态与浏览器缓存</a>
+      
+      </div>
+      <div class="post-nav-next post-nav-item">
+      
+        <a href="/2015/03/17/git-interactive-rebase/">Git 交互式变基</a>
+      
+      </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+  
+  <div class="comments" id="comments">
+    
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+  </div>
+  
+</div>
+
+      </div>
+    </div>
+    
+  
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+    
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table Of Contents</li>
+      <li class="sidebar-nav-overview" data-target="site-overview">Overview</li>
+    </ul>
+    
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/default_avatar.jpg" alt="__Pakchoi" />
+        <p class="site-author-name">__Pakchoi</p>
+      </div>
+      <p class="site-description motion-element">Pakchoi's blog.</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">11</span>
+            <span class="site-state-item-name">posts</span>
+          </a>
+        </div>
+        <div class="site-state-item site-state-categories">
+        <a href="/categories">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">categories</span>
+        </a>
+        </div>
+        <div class="site-state-item site-state-tags">
+        <a href="/tags">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">tags</span>
+        </a>
+        </div>
+      </div>
+      
+      <div class="feed-link motion-element">
+        <a href="/atom.xml"><i class="menu-item-icon icon-feed"></i>RSS</a>
+      </div>
+      
+      <div class="links-of-author motion-element">
+      
+        
+        <span class="links-of-author-item">
+          <a href="http://github.com/pakchoidora" target="_blank">GitHub</a>
+        </span>
+        
+        <span class="links-of-author-item">
+          <a href="http://weibo.com/pakchoidora" target="_blank">Weibo</a>
+        </span>
+        
+      
+      </div>
+      
+      
+      <div class="cc-license motion-element">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+          <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/>
+        </a>
+      </div>
+      
+    </div>
+    
+    <div class="post-toc-wrap sidebar-panel-active">
+      <div class="post-toc-indicator-top post-toc-indicator"></div>
+      <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-GET-以及-HTTP-POST-两者的区别"><span class="nav-number">1.</span> <span class="nav-text">HTTP GET 以及 HTTP POST 两者的区别.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相同点"><span class="nav-number">1.1.</span> <span class="nav-text">相同点:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同点"><span class="nav-number">1.2.</span> <span class="nav-text">不同点:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-中如何处理请求参数"><span class="nav-number">2.</span> <span class="nav-text">Node.js 中如何处理请求参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-GET-方式中"><span class="nav-number">2.1.</span> <span class="nav-text">在 GET 方式中:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-POST-方式中"><span class="nav-number">2.2.</span> <span class="nav-text">在 POST 方式中:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Express-js-中的请求参数处理"><span class="nav-number">2.3.</span> <span class="nav-text">Express.js 中的请求参数处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结:</span></a></li></ol></div>
+      
+      </div>
+      <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+    </div>
+    
+  </div>
+</div>
+
+
+  </div>
+  <div id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="copyright">
+  
+  &copy; &nbsp; 
+  2016
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">__Pakchoi</span>
+</div>
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+    </div>
+  </div>
+  <div class="back-to-top"></div>
+</div>
+<script type="text/javascript" src="/vendors/zepto/zepto.min.js?v=1.1.6"></script>
+  
+<script type="text/javascript">
+  function hasMobileUA () {
+    return /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g.test(window.navigator.userAgent);
+  }
+  function isDesktop () { return screen.width > 991 && !hasMobileUA(); }
+  function isTablet () { return screen.width < 992 && screen.width > 767 && hasMobileUA(); }
+  function isMobile () { return screen.width < 767 && hasMobileUA(); }
+  function escapeSelector (selector) { return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&") }
+</script>
+<script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var toggle = $('.sidebar-toggle');
+    var line1st = $('.sidebar-toggle-line-first')
+    var line2nd = $('.sidebar-toggle-line-middle');
+    var line3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+    var statusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+    var line1stStatusInit = statusInit;
+    var line1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var line1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var line2ndStatusInit = statusInit;
+    var line2ndStatusArrow = {width: '90%'};
+    var line2ndStatusClose = {opacity: 0};
+    var line3rdStatusInit = statusInit;
+    var line3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var line3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    $.Velocity.RunSequence([
+      {e: $('.brand'), p: {opacity: 1}, o: {duration: 100}},
+      {e: $('.logo'), p: {opacity: 1, top: 0}, o: {duration: 50}},
+      {e: $('.site-title'), p: {opacity: 1, top: 0}, o: {duration: 200}}
+    ]);
+    $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    $('.post').velocity('transition.slideDownIn', window.postMotionOptions || {stagger: 300, drag: true});
+    $('.back-to-top').on('click', function () {
+      body.velocity('scroll');
+    });
+    function sidebarShowMotion () {
+      line1st.velocity(line1stStatusClose);
+      line2nd.velocity(line2ndStatusClose);
+      line3rd.velocity(line3rdStatusClose);
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      setTimeout(function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        $('.sidebar .motion-element').velocity(
+          'transition.slideRightIn',
+          {stagger: 50, drag: true}
+        );
+      }, 0);
+    }
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+      line1st.velocity(line1stStatusInit);
+      line2nd.velocity(line2ndStatusInit);
+      line3rd.velocity(line3rdStatusInit);
+      sidebar.removeClass('sidebar-active');
+      setTimeout(function() {
+        $('.sidebar .motion-element').css({
+          display: 'none'
+        });
+      }, 0);
+    };
+    toggle.on('click', function () {
+      isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+      isSidebarVisible = !isSidebarVisible;
+    }).on('mouseenter', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusArrow);
+      line2nd.velocity('stop').velocity(line2ndStatusArrow);
+      line3rd.velocity('stop').velocity(line3rdStatusArrow);
+    }).on('mouseleave', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusInit);
+      line2nd.velocity('stop').velocity(line2ndStatusInit);
+      line3rd.velocity('stop').velocity(line3rdStatusInit);
+    });
+  });
+</script>
+
+  <script type="text/javascript">
+  (function ($) {
+    'use strict';
+    function ScrollSpy(element, options) {
+      this.$body = $(document.body);
+      this.$scrollElement = $(element).is('body') ? $(window) : $(element);
+      this.options = $.extend({}, ScrollSpy.DEFAULTS, options);
+      this.selector = (this.options.target || '') + ' .nav li > a';
+      this.offsets = [];
+      this.targets = [];
+      this.activeTarget = null;
+      this.scrollHeight = 0;
+      this.$scrollElement.on('scroll.scrollspy', $.proxy(this.process, this));
+      this.refresh();
+      this.process();
+    }
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    };
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight);
+    }
+    ScrollSpy.prototype.refresh = function () {
+      var that = this;
+      var offsetMethod = 'offset';
+      var offsetBase = 0;
+      this.offsets = [];
+      this.targets = [];
+      this.scrollHeight = this.getScrollHeight();
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position';
+        offsetBase = this.$scrollElement.scrollTop();
+      }
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el = $(this);
+          var href = $el.data('target') || $el.attr('href');
+          var $href = /^#./.test(href) && $(escapeSelector(href)); // Need to escape selector.
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0]);
+          that.targets.push(this[1]);
+        });
+    }
+    ScrollSpy.prototype.process = function () {
+      var scrollTop = this.$scrollElement.scrollTop() + this.options.offset;
+      var scrollHeight = this.getScrollHeight();
+      var maxScroll = this.options.offset + scrollHeight - this.$scrollElement.height();
+      var offsets = this.offsets;
+      var targets = this.targets;
+      var activeTarget = this.activeTarget;
+      var i;
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh();
+      }
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i);
+      }
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.scrollspy');  // Add a custom event.
+        this.activeTarget = null;
+        return this.clear();
+      }
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i]);
+      }
+    }
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target;
+      this.clear();
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]';
+      var active = $(selector)
+        .parents('li')
+        .addClass('active');
+      active.trigger('activate.scrollspy')
+    }
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parent('.active')
+        .removeClass('active');
+    }
+    function Plugin(option) {
+      return this.each(function () {
+        var $this = $(this);
+        var data = $this.data('scrollspy');
+        var options = typeof option == 'object' && option;
+        if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)));
+        if (typeof option == 'string') data[option]();
+      })
+    }
+    var old = $.fn.scrollspy;
+    $.fn.scrollspy = Plugin;
+    $.fn.scrollspy.Constructor = ScrollSpy;
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old;
+      return this;
+    }
+    $(window).on('load.scrollspy', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this);
+        Plugin.call($spy, $spy.data());
+      })
+    })
+  })(Zepto);
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+    $tocSelector
+      .on('activate.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+      $tocSelector.css('height', height);
+      return height;
+    }
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+    onScroll($tocSelector);
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+          toggleTOCOverflowIndicators();
+      });
+    }
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var html = $('html');
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+      currentTarget.velocity('transition.slideUpOut', 200, function () {
+        target
+          .velocity('stop')
+          .velocity('transition.slideDownIn', 200)
+          .addClass(activePanelClassName);
+      });
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+    $('.post-toc').find('a').on('click', function (e) {
+      e.preventDefault();
+      var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+      html.velocity('stop').velocity('scroll', {
+        offset: offset  + 'px',
+        mobileHA: false
+      });
+    });
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+      setTimeout(function () {
+        $('.sidebar-toggle').trigger('click');
+      }, 800);
+    }
+  });
+</script>
+
+
+
+  
+  
+  
+    
+      
+    
+<script type="text/javascript">
+  var disqus_shortname = 'pakchoi';
+  var disqus_identifier = '2015/03/29/nodejs-get-and-post/';
+  var disqus_url = 'http://pakchoi.me/2015/03/29/nodejs-get-and-post/';
+  (function(){
+    var scripts = 'count,embed'.split(',');
+    for (var k in scripts) {
+      var script = scripts[k];
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + script + '.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+  }());
+</script>
+  
+
+
+
+</body>
+</html>

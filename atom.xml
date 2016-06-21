@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Half A Day</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://pakchoi.me/"/>
+  <updated>2016-05-13T06:22:48.559Z</updated>
+  <id>http://pakchoi.me/</id>
+  
+  <author>
+    <name>__Pakchoi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>毕业后一年</title>
+    <link href="http://pakchoi.me/2015/11/01/after-graduation-year-1/"/>
+    <id>http://pakchoi.me/2015/11/01/after-graduation-year-1/</id>
+    <published>2015-11-01T10:13:38.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;由于没有写个人年度总结的习惯, 但是又想记录一些成长经历, 所以从毕业后开始算起吧, 不过现在已经不止毕业后一年, 都已经一年又三个月了呢.&lt;/p&gt;
+&lt;h1 id=&quot;大四&quot;&gt;&lt;a href=&quot;#大四&quot; class=&quot;headerlink&quot; title=&quot;大四:&quot;&gt;&lt;/a&gt;大四:&lt;/h1&gt;&lt;p&gt;事情其实应该从去年年初讲起了, 那会大四下学期还没开始, 顺着朋友的推荐, 还没过正月十五, 直接就从家跑到珠海去面试.&lt;/p&gt;
+&lt;p&gt;有惊无险的, 在面试后的第四天, 收到实习通知, 心里的石头也算是落下来, 这都大四了, 我还没参加过实习, 怎么想心里都挺慌的, 一来各种校招宣讲会都没有去参加, 没有拿到校招实习的机会, 再者, 也没跟老师处好关系, 得不到推荐机会. 在仅参加了鹅厂校招笔试, 然后还因为不会 C++ 直接笔试被刷, 感觉整个人就不好了.&lt;/p&gt;
+&lt;p&gt;但是话说回来, 在珠海拿到的实习岗位, 是测试工程师, 说得好听点, 是测试开发工程师, 在这个点上, 个人还是很不爽. 好歹在大学主攻的是 Java 编程, 以及 Web 开发, 所以总感觉顿时就掉价了不少, 好在从事的是 Android 相关的, 在这时候, 常用的 Java 经验发挥了作用.&lt;/p&gt;
+&lt;h1 id=&quot;实习&quot;&gt;&lt;a href=&quot;#实习&quot; class=&quot;headerlink&quot; title=&quot;实习&quot;&gt;&lt;/a&gt;实习&lt;/h1&gt;&lt;p&gt;拿到这实习机会, 其实也只是解一解燃眉之急, 然后就等着混到毕业了. (大学里还有几门重修课等着考试).&lt;/p&gt;
+&lt;p&gt;在这个阶段, 主要工作是 Android 自动化脚本开发, 心里对自动化脚本虽然是讨厌的不行, 但是这时候接触到了不少东西, 从 Android 的一些开发工具, 批处理, 到自动化构建等等, 期间自己也根据别的 Android UI 测试框架对原声 UiAutomator 进行封装改进, 做的比较适合日常工作使用.&lt;/p&gt;
+&lt;p&gt;工作中流程以及规范等的东西, 值得改进的有好多, 也提了不少意见, 但是实际中, 要在组内推行起来, 并没有想象中简单, 更何况我是这会还只是个实习生, 想法我说出来了, 组长实不实行, 我不太关心, 虽然能做到, 那感觉会很不错.&lt;/p&gt;
+&lt;p&gt;于是乎, 就这么混到毕业, 然后没啥意外的签了卖身契, 正式开始了在珠海的打工生活.&lt;/p&gt;
+&lt;p&gt;每天的工作不外乎就是, 写脚本, 接上手机, 然后跑脚本, 脚本出错了, 就调脚本, 枯燥得来也几乎没有挑战, 工作方式还比较落后, 但是这时候, Android 的自动化实现也差不多都这样, 不是随便写个程序就能解决的了的.&lt;/p&gt;
+&lt;p&gt;这样的生活, 发生转机, 估计就是在加入了校区的攻城狮群吧, 我一直对别人说, 是这个群改变了我, 说得是夸张了点, 但也是在这时候, 我意识到一直写 Android 脚本不是我所追求的东西, 而且事实也证明, 写脚本的绩效还远不如写工具来得好, 这个已经在以前的同事身上证明了.&lt;/p&gt;
+&lt;p&gt;还没待到2014年底, 心里就开始计划着要跳槽, 离开珠海这家公司, 到广州还是深圳做个 Web 前端开发.&lt;/p&gt;
+&lt;p&gt;想法是挺美好的, 但是一眨眼, 就到第二年5月份. 在新年初, 工作被调到负责内部测试平台前端开发.&lt;/p&gt;
+&lt;h1 id=&quot;跳槽&quot;&gt;&lt;a href=&quot;#跳槽&quot; class=&quot;headerlink&quot; title=&quot;跳槽&quot;&gt;&lt;/a&gt;跳槽&lt;/h1&gt;&lt;p&gt;(´▽`〃) 这该说是帮我积累了一点前端工作经验了么, 不过过程中也发现, 作为内部测试平台开发, 并且平台还只是作为一个测试组内使用的东西, 很多东西都变得很随意, 需求源源不断, 平台这个东西又是一个旧物, 历史问题很多, 在前端方面几乎也没要求, 拿了 bootstrap 跟 jQuery 就来用, 都是功能优先, 别的靠边站.&lt;/p&gt;
+&lt;p&gt;终于有了改版计划, 在这时候开始使用 Backbone 来构架前端的 MVC, 也是给了机会继续累积前端经验.&lt;/p&gt;
+&lt;p&gt;同时也得益于写脚本时工作算不上忙, 经常都是一边在看着电子书, 一边在优哉游哉写脚本程序.&lt;/p&gt;
+&lt;p&gt;到广州面试了两趟, 都算准备充分, 前端知识、技术等都挺能答上来的, 除了 CSS 的进阶知识有所欠缺, 不过最后还是成功应聘到 Web 前端开发工程师岗位. 但是值得反思的还是, 在 Web 方面的知识还是只偏向前端, 相关的一些网络知识, HTTP协议等, 都知之甚少. 在面试时比较不满意就是这些点.&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;总结下这一年接触到的比较有价值的东西,&lt;/p&gt;
+&lt;h2 id=&quot;Android-相关&quot;&gt;&lt;a href=&quot;#Android-相关&quot; class=&quot;headerlink&quot; title=&quot;Android 相关:&quot;&gt;&lt;/a&gt;Android 相关:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ant&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gradle.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gradle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;UiAutomator&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://appium.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Appium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Web-前端相关&quot;&gt;&lt;a href=&quot;#Web-前端相关&quot; class=&quot;headerlink&quot; title=&quot;Web 前端相关:&quot;&gt;&lt;/a&gt;Web 前端相关:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://gruntjs.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grunt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gulpjs.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gulp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://expressjs.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Expressjs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://backbonejs.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Backbone&lt;/a&gt;/&lt;a href=&quot;http://underscorejs.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;underscore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jquery.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jQuery&lt;/a&gt;/&lt;a href=&quot;http://zeptojs.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Zepto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://getbootstrap.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;其它&quot;&gt;&lt;a href=&quot;#其它&quot; class=&quot;headerlink&quot; title=&quot;其它:&quot;&gt;&lt;/a&gt;其它:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.libsdl.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CEF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PacktPub 出版的 《SDL Game Development》 这本书, 断断续续看了好久好久, 但是对于想从0开始编写一个游戏的人来说, 帮助还是很大的, 有着一些新手所不知道的技巧.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于没有写个人年度总结的习惯, 但是又想记录一些成长经历, 所以从毕业后开始算起吧, 不过现在已经不止毕业后一年, 都已经一年又三个月了呢.&lt;/p&gt;
+&lt;h1 id=&quot;大四&quot;&gt;&lt;a href=&quot;#大四&quot; class=&quot;headerlink&quot; title=&quot;大四:&quot;&gt;&lt;/a&gt;大
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://pakchoi.me/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>YSlow 试用</title>
+    <link href="http://pakchoi.me/2015/07/09/yslow-trial/"/>
+    <id>http://pakchoi.me/2015/07/09/yslow-trial/</id>
+    <published>2015-07-09T08:15:12.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;今天被问到测试前端页面性能时, 脑子里只蹦出了 Loadrunner 压测, 以及 PageSpeed, 然后被告知还有 YSlow 这么一个工具, 我也是半天没听出来是个啥…&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;YSlow 是一个 Web 页面的分析工具, &lt;a href=&quot;http://yslow.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;yslow.org&lt;/a&gt; 上的说明是: “YSlow 是用来分析 Web 页面慢的原因的工具”, 原文见下.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;YSlow analyzes web pages and why they’re slow based on Yahoo!’s rules for high performance web sites.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;YSlow 在多个浏览器及平台中都是可用的.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://yslow.org/ruleset-limitations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/07/09/yslow-availability.png&quot; alt=&quot;可用性&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;它从 Yahoo 的卓越性能 34 条规则中挑选了 23 条作为它的评判标准, 详细见下边列出来的 23 条规则, 而 Yahoo 的卓越性能规则请看&lt;a href=&quot;https://developer.yahoo.com/performance/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;减少 HTTP 请求 (Minimize HTTP Requests)&lt;/li&gt;
+&lt;li&gt;使用内容分发网络 (Use a Content Delivery Network)&lt;/li&gt;
+&lt;li&gt;避免使用空的 src 或者 href 属性 (Avoid empty src or href)&lt;/li&gt;
+&lt;li&gt;在 Header 中添加 Expires 或者 Cache-Control (Add an Expires or a Cache-Control Header)&lt;/li&gt;
+&lt;li&gt;使用 Gzip 压缩组件 (Gzip Components)&lt;/li&gt;
+&lt;li&gt;将样式表放在文档顶部 (Put StyleSheets at the Top)&lt;/li&gt;
+&lt;li&gt;将 JavaScript 代码放在文档底部 (Put Scripts at the Bottom)&lt;/li&gt;
+&lt;li&gt;避免使用 CSS 表达式 (Avoid CSS Expressions)&lt;/li&gt;
+&lt;li&gt;使用外部 JavaScript 及 CSS (Make JavaScript and CSS External)&lt;/li&gt;
+&lt;li&gt;减少 DNS 查找 (Reduce DNS Lookups)&lt;/li&gt;
+&lt;li&gt;压缩 JavaScript 及 CSS 代码 (Minify JavaScript and CSS)&lt;/li&gt;
+&lt;li&gt;避免使用重定向 (Avoid Redirects)&lt;/li&gt;
+&lt;li&gt;移除重复的脚本 (Remove Duplicate Scripts)&lt;/li&gt;
+&lt;li&gt;配置 ETags (Configure ETags)&lt;/li&gt;
+&lt;li&gt;使 Ajax 内容可缓存 (Make AJAX Cacheable)&lt;/li&gt;
+&lt;li&gt;在 AJAX 请求中, 使用 GET 方法 (Use GET for AJAX Requests)&lt;/li&gt;
+&lt;li&gt;减少 DOM 元素的数量 (Reduce the Number of DOM Elements)&lt;/li&gt;
+&lt;li&gt;不要使用 404 (No 404s)&lt;/li&gt;
+&lt;li&gt;减少 Cookie 的大小 (Reduce Cookie Size)&lt;/li&gt;
+&lt;li&gt;使用 Cookie-Free 的域名来提供组件 (Use Cookie-Free Domains for Components)&lt;/li&gt;
+&lt;li&gt;避免使用 Filter (Avoid Filters)&lt;/li&gt;
+&lt;li&gt;不要在 HTML 中缩放图片 (Do Not Scale Images in HTML)&lt;/li&gt;
+&lt;li&gt;使用小体积的 favicon 并且使其可缓存 (Make favicon.ico Small and Cacheable)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们可以看到, 其中的 14 条是在 &lt;a href=&quot;http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309/ref=sr_1_1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;“High Performance Web Sites”&lt;/a&gt; 被提及到的.&lt;/p&gt;
+&lt;p&gt;安装 YSlow 比较简单, 在 &lt;a href=&quot;http://yslow.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YSlow.org&lt;/a&gt; 首页的顶部就有 Install 的按钮, 这里我使用 Google Chrome. 点击 Install, 即会弹出 Chrome Extension 的安装提示.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/07/09/yslow-extension.png&quot; alt=&quot;安装提示&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击添加即可.&lt;/p&gt;
+&lt;p&gt;然后当我们需要对一个页面使用 YSlow 进行分析时, 我们可以在 Google Chrome 地址栏右边点击 YSlow 的按钮, 即可打开 YSlow.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/07/09/yslow-home.png&quot; alt=&quot;YSlow 默认页&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后点击, Run Test, 稍加等待, 即可看到结果.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/07/09/yslow-running.png&quot; alt=&quot;YSlow 分析中&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在 Grade 页面中, 我们可以看到上边列出的 23 点规则, 左边的大写字母为评分, A 为最好, F 为最差. 点击某个规则可以看到具体说明.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/07/09/yslow-grade.png&quot; alt=&quot;YSlow 打分页&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      YSlow 分析工具的简单试用.
+    
+    </summary>
+    
+    
+      <category term="YSlow" scheme="http://pakchoi.me/tags/YSlow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构建高性能 Web 的 14 条黄金法则</title>
+    <link href="http://pakchoi.me/2015/06/15/high-performance-web/"/>
+    <id>http://pakchoi.me/2015/06/15/high-performance-web/</id>
+    <published>2015-06-15T05:18:35.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;前几天被问到构建高性能 Web 时, 一时脑抽没反应过来这是个啥, 其实平时做的雪碧图, 以及 js 代码压缩等都属于这块的内容, 当然这只是其中的一部分.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在 &lt;a href=&quot;http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309/ref=sr_1_1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;“High Performance Web Sites”&lt;/a&gt; 这本书中, 我们可以看到, 它列举了 14 条高性能黄金法则.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用更少的 HTTP 请求 (Make Fewer HTTP Requests)&lt;/li&gt;
+&lt;li&gt;使用内容分发网络 (Use a Content Delivery Network)&lt;/li&gt;
+&lt;li&gt;设置过期 Header (Add an Expires Header)&lt;/li&gt;
+&lt;li&gt;使用 gzip 压缩各组件 (Gzip Components)&lt;/li&gt;
+&lt;li&gt;把样式表放在文档顶部 (Put Stylesheets at the Top)&lt;/li&gt;
+&lt;li&gt;把 JavsScript 代码放在文档底部 (Put Scripts at the Bottom)&lt;/li&gt;
+&lt;li&gt;避免使用 CSS 表达式 (Avoid CSS Expressions)&lt;/li&gt;
+&lt;li&gt;使用外部的 JavaScript 及 CSS 文件 (Make JavaScript and CSS External)&lt;/li&gt;
+&lt;li&gt;减少 DNS 查找 (Reduce DNS Lookups)&lt;/li&gt;
+&lt;li&gt;压缩 JavaScript 代码 (Minify JavaScript)&lt;/li&gt;
+&lt;li&gt;避免使用重定向 (Avoid Redirects)&lt;/li&gt;
+&lt;li&gt;移除重复的脚本 (Remove Duplicate Scripts)&lt;/li&gt;
+&lt;li&gt;配置 ETags (Configure ETags)&lt;/li&gt;
+&lt;li&gt;使 Ajax 内容可缓存 (Make Ajax Cacheable)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;内容较多, 具体还是看书上如何说明, 篇幅不过 200 页, 很快就可以看完, 这里就不细细写出来了.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天被问到构建高性能 Web 时, 一时脑抽没反应过来这是个啥, 其实平时做的雪碧图, 以及 js 代码压缩等都属于这块的内容, 当然这只是其中的一部分.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在 &lt;a href=&quot;http://www.amazon.com/High-Performa
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://pakchoi.me/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>果壳量子积木[小熊猫, 浣熊]</title>
+    <link href="http://pakchoi.me/2015/05/31/guokr-blocks/"/>
+    <id>http://pakchoi.me/2015/05/31/guokr-blocks/</id>
+    <published>2015-05-31T12:43:47.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;6.1 儿童节将至, 偶然在微博上看到果壳的量子积木, 甚是喜欢, 于是乎就下单了, 刚好在儿童节前一天拿到手, 趁着午饭前的一点时间, 就开始砌这两个小玩意了.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/05/DSC00018-C.jpg&quot; alt=&quot;盒子&quot;&gt;&lt;/p&gt;
+&lt;p&gt;四四方方又稍显结实的盒子.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/05/DSC00024-C.jpg&quot; alt=&quot;成果&quot;&gt;&lt;/p&gt;
+&lt;p&gt;两个小时后的成果.&lt;/p&gt;
+&lt;p&gt;平均每个积木耗时都在 1小时内, 而且完工还会稍稍剩一些小积木, 应该是防止我们弄丢了某几块就 GG 了 (想起以前做高达独角兽纸模, 结果头部做坏了, 整个就坏了, 图纸是跟淘宝卖家买的, 打印无门).&lt;/p&gt;
+&lt;p&gt;利用剩下的小零碎, 做了一棵不像树又不像草的东西, 唉, 如果再多点那就可以砌出一棵高大点的树了.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      果壳量子积木, 属于每个人的六一节礼物!
+    
+    </summary>
+    
+    
+      <category term="Blocks" scheme="http://pakchoi.me/tags/Blocks/"/>
+    
+      <category term="Toy" scheme="http://pakchoi.me/tags/Toy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识 JSX</title>
+    <link href="http://pakchoi.me/2015/05/20/jsx-trying/"/>
+    <id>http://pakchoi.me/2015/05/20/jsx-trying/</id>
+    <published>2015-05-20T15:40:53.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;说到 JSX, 想必很多人跟我一样, 是因为 React 项目中的使用到 JSX 语法才知道的.&lt;/p&gt;
+&lt;p&gt;但是其实早在几年前, Github 上就存在着一个名为 JSX 的项目, 是由 &lt;a href=&quot;https://github.com/kazuho&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;kazuho&lt;/a&gt; 等人开发设计的一个可以生成 JavaScript 代码的强类型, 面向对象的编程语言.&lt;/p&gt;
+&lt;p&gt;这里需要说明白, JSX 其实有两个东西, 他们同名了, 但是功能却是不同的.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;React 中使用到的 JSX, 有一个简单的描述是, 在 JavaScript 中写 XML 节点, 即是 JSX.&lt;/li&gt;
+&lt;li&gt;Github 上的 JSX 项目, 它是一个静态类型的, 面向对象的编程语言, 它可以通过编译, 生成高性能的 JavaScript 代码. 详情见 &lt;a href=&quot;http://jsx.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了避免混乱, 下文一律将 React 中的 JSX 称为 React-JSX, 而 Github 上的 JSX 项目则依旧叫 JSX.&lt;/p&gt;
+&lt;p&gt;上述两个完全不同的两个东西, 虽然它们都可以通过各自的编译工具最终编译成 JavaScript 代码, 但是在语法上, 是截然不同的. 这个得区分好, 不少人因为 React 中的 &lt;code&gt;JSX&lt;/code&gt; 结果在跟搜索引擎对话时, 找到了 JSX 项目, 在其中摆了乌龙.&lt;/p&gt;
+&lt;h1 id=&quot;React-JSX&quot;&gt;&lt;a href=&quot;#React-JSX&quot; class=&quot;headerlink&quot; title=&quot;React-JSX&quot;&gt;&lt;/a&gt;React-JSX&lt;/h1&gt;&lt;p&gt;React-JSX 它并不是一个单独的项目, 它是 React 项目中工具集里的一个, 主要功能是将 jsx 代码中的 xml 元素, 转换成 React.createElement 方式调用. 脱离了 React 项目本身, 它是无法工作的.&lt;/p&gt;
+&lt;p&gt;React-JSX 的语法与 JavaScript 基本无异, 但是它多了一个特性, 可以将 &lt;code&gt;&amp;lt;Element className=&amp;quot;app&amp;quot;/&amp;gt;&lt;/code&gt; 这样类似的标签理解为一个 ReactElement 对象.&lt;/p&gt;
+&lt;p&gt;它在转换为 JavsScript 代码后, 会变成&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;React.createElement(&amp;apos;Element&amp;apos;, {className: &amp;quot;app&amp;quot;})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;React 在官网中也说到了, Why JSX?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You don’t have to use JSX with React. You can just use plain JS. However, we recommend using JSX because it is a concise and familiar syntax for defining tree structures with attributes.&lt;/p&gt;
+&lt;p&gt;It’s more familiar for casual developers such as designers.&lt;/p&gt;
+&lt;p&gt;XML has the benefit of balanced opening and closing tags. This helps make large trees easier to read than function calls or object literals.&lt;/p&gt;
+&lt;p&gt;It doesn’t alter the semantics of JavaScript.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 JSX 可以使用 HTML Tags 的方式来使用 React 组件, 这样在面对比较大的组件树时, 代码上会比直接使用 React 的函数调用显得比较直观.&lt;/p&gt;
+&lt;p&gt;以官网上的状态组件: 计时器为例子&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var Timer = React.createClass({
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() {
+    return (
+      &amp;lt;div&amp;gt;Seconds Elapsed: {this.state.secondsElapsed}&amp;lt;/div&amp;gt;
+    );
+  }
+});
+
+React.render(&amp;lt;Timer /&amp;gt;, mountNode);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们可以看到其中用使用了 &lt;code&gt;&amp;lt;div&amp;gt;Seconds Elapsed: {this.state.secondsElapsed}&amp;lt;/div&amp;gt;&lt;/code&gt; 及 &lt;code&gt;&amp;lt;Timer /&amp;gt;&lt;/code&gt; 酱紫的代码, 它们都表示着一个 ReactElement 对象, 不需要使用类似 &lt;code&gt;React.createElement(&amp;quot;Timer&amp;quot;, {})&lt;/code&gt; 这样的 API 函数去创建对象, JSX 编译工具会自动帮我们转化.&lt;br&gt;它带来的, 是代码上清晰直观的体验.&lt;/p&gt;
+&lt;p&gt;而对于成员变量的调用, 我们可以用 {} 符号括起来, 里面写我们需要调用的变量即可.&lt;/p&gt;
+&lt;p&gt;编译后的代码, 如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var Timer = React.createClass({displayName: &amp;quot;Timer&amp;quot;,
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() {
+    return (
+      React.createElement(&amp;quot;div&amp;quot;, null, &amp;quot;Seconds Elapsed: &amp;quot;, this.state.secondsElapsed)
+    );
+  }
+});
+
+React.render(React.createElement(Timer, null), mountNode);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到, 与上边的代码比较, 区别仅仅两个 &lt;code&gt;HTML Tags&lt;/code&gt; 用法被替换成了 &lt;code&gt;React.createElement()&lt;/code&gt; 的函数调用, 以及 &lt;code&gt;React.createClass&lt;/code&gt; 补充了一个 &lt;code&gt;displayName&lt;/code&gt; 的属性.&lt;/p&gt;
+&lt;p&gt;顺带一提, &lt;code&gt;React.createClass&lt;/code&gt; 函数所产生的 &lt;code&gt;ReactClass&lt;/code&gt; 对象中, &lt;code&gt;state&lt;/code&gt; 是一个特别的数据模型, 随着 &lt;code&gt;state&lt;/code&gt; 的更新, UI 上也会相应的发生变化. 这就是 React 上的单向数据流.&lt;/p&gt;
+&lt;p&gt;React 提供了 react-tools 工具集, 其中就包含了 React-JSX 的编译, 首先, 我们通过 npm 安装 react-tools&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g react-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后就可以使用 jsx 工具来编译我们的代码了.&lt;/p&gt;
+&lt;h1 id=&quot;JSX&quot;&gt;&lt;a href=&quot;#JSX&quot; class=&quot;headerlink&quot; title=&quot;JSX&quot;&gt;&lt;/a&gt;JSX&lt;/h1&gt;&lt;p&gt;官网在: &lt;a href=&quot;http://jsx.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://jsx.github.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;它不是 JavaScript, 但是它可以通过编译后生成 JavaScript 目标代码.&lt;/p&gt;
+&lt;p&gt;据官方的说明是, 它的三个特征:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;faster&lt;/li&gt;
+&lt;li&gt;safer&lt;/li&gt;
+&lt;li&gt;easier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它的语法跟 Java 语言很相似.&lt;/p&gt;
+&lt;p&gt;举一个项目中的例子&lt;/p&gt;
+&lt;p&gt;add.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class _Main {
+  static function main(args :string[]) : void {
+    var x = 10;
+    var y = 20;
+    log x + y;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 npm 我们可以下载 JSX 项目的编译工具.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g jsx
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后打开控制台, 执行 &lt;code&gt;jsx --run add.js&lt;/code&gt;, 即可运行我们上边的这段代码.&lt;/p&gt;
+&lt;p&gt;跟 Java 类似的, 我们需要有一个程序入口, 在 Java 中, 我们知道有 &lt;code&gt;static void main(String[] args)&lt;/code&gt; 方法, 而在 JSX 中, 它也是相似的, &lt;code&gt;static function main(args : string[]) : void&lt;/code&gt;, 并且在 JSX 中, 有个 _Main 的类, 它是程序的入口.&lt;/p&gt;
+&lt;p&gt;(Ps: JSX 项目的 jsx 编译工具与 React 的 react-tools 工具集中的 jsx 工具冲突, 安装任一者都会把上一个覆盖掉, 所以在尝试使用两个工具时, 最好为其中一个重命名下批处理, 或者 shell 文件)&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      React 项目中独特的采用了 JSX 语法, 这究竟是何方神圣, 且看本文来粗略讲讲.
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://pakchoi.me/tags/JavaScript/"/>
+    
+      <category term="JSX" scheme="http://pakchoi.me/tags/JSX/"/>
+    
+      <category term="React" scheme="http://pakchoi.me/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Express 中配置 livereload</title>
+    <link href="http://pakchoi.me/2015/05/14/express-and-livereload/"/>
+    <id>http://pakchoi.me/2015/05/14/express-and-livereload/</id>
+    <published>2015-05-14T01:54:44.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;LiveReload-是什么&quot;&gt;&lt;a href=&quot;#LiveReload-是什么&quot; class=&quot;headerlink&quot; title=&quot;LiveReload 是什么&quot;&gt;&lt;/a&gt;LiveReload 是什么&lt;/h1&gt;&lt;p&gt;LiveReload 是 Web 开发中的实用的工具, 它可以让我们不用再在每次修改完文件之后手动刷新页面, 它会自动为我们刷新.&lt;/p&gt;
+&lt;p&gt;LiveReload 它分为三部分, 客户端目标代码及服务端, 还有浏览器插件.&lt;/p&gt;
+&lt;p&gt;在学习如何配置之前, 我们先逆向思维下, 从已经配置了 LiveReload 的项目中来了解 LiveReload 究竟是做了些啥.&lt;/p&gt;
+&lt;p&gt;通过审查加入了 LiveReload 的页面我们知道, LiveReload 它在我们的页面中的底部增加了类似下面这些代码:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;//&amp;lt;![CDATA[
+document.write(&amp;apos;&amp;lt;script src=&amp;quot;//&amp;apos; + (location.hostname || &amp;apos;localhost&amp;apos;) + &amp;apos;:35729/livereload.js?snipver=1&amp;quot;&amp;gt;&amp;lt;\/script&amp;gt;&amp;apos;)
+//]]&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;它会为我们 HTML 文件末尾添加一个 &lt;code&gt;script&lt;/code&gt; 标签, 用来请求本地的一个服务端中请求 livereload.js 这个 js 脚本.&lt;/p&gt;
+&lt;h1 id=&quot;怎么在-Express-中配置-LiveReload&quot;&gt;&lt;a href=&quot;#怎么在-Express-中配置-LiveReload&quot; class=&quot;headerlink&quot; title=&quot;怎么在 Express 中配置 LiveReload&quot;&gt;&lt;/a&gt;怎么在 Express 中配置 LiveReload&lt;/h1&gt;&lt;p&gt;所以这里就出现了两个问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;上面的那段代码是从哪来的?&lt;/li&gt;
+&lt;li&gt;livereload.js 这个文件又是从哪来的?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;关于第一个问题, 上面的那段代码是从哪来的?&lt;/p&gt;
+&lt;p&gt;这个不可能是我们手动去给每个页面添加的, 这样做不魔法.&lt;/p&gt;
+&lt;p&gt;Express 中有这么一个中间件 &lt;code&gt;connect-livereload&lt;/code&gt;, 它就为我们办这件事. &lt;a href=&quot;https://www.npmjs.com/package/connect-livereload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目页在此&lt;/a&gt;. Ps: &lt;code&gt;connect-livereload&lt;/code&gt; 它并不提供 livereload.js 这个文件.&lt;/p&gt;
+&lt;p&gt;为 Express 对象添加这个中间件即可.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var express = require(&amp;apos;express&amp;apos;);
+var app = express();
+app.use(require(&amp;apos;connect-livereload&amp;apos;)({
+  port: 35729
+}));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;所以到这里, 我们就算是把客户端上的 livereload 给配置好了.&lt;/p&gt;
+&lt;p&gt;第二个问题, livereload.js 这个文件又是从哪来的?&lt;/p&gt;
+&lt;p&gt;我们可以观察到, 它是从某个 http 服务中请求过来的.&lt;br&gt;所以, 这里我们就需要这个 http 服务了.&lt;/p&gt;
+&lt;p&gt;我们可以直接通过 npm 下载 livereload 然后运行.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g livereload
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;livereload -p 35729
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 35729 端口上运行 livereload 的服务端.&lt;/p&gt;
+&lt;p&gt;但是同时, livereload 也支持 gulp, grunt 这两个构建工具, 我们都可以在他们的 plugins 页面中搜索到相关.&lt;br&gt;(Ps: grunt 中已经集成了 livereload 在 &lt;code&gt;contrib-watch&lt;/code&gt; 模块中)&lt;/p&gt;
+&lt;h1 id=&quot;LiveReload-在-gulp-中&quot;&gt;&lt;a href=&quot;#LiveReload-在-gulp-中&quot; class=&quot;headerlink&quot; title=&quot;LiveReload 在 gulp 中&quot;&gt;&lt;/a&gt;LiveReload 在 gulp 中&lt;/h1&gt;&lt;p&gt;以 gulp 为例子, 我们需要插件 &lt;code&gt;gulp-livereload&lt;/code&gt;, 而且在 gulp 中需要做两件事:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;启动 LiveReload 的服务端;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;调用 LiveReload 的重新加载.&lt;/p&gt;
+&lt;p&gt; var livereload = require(‘gulp-livereload’);&lt;br&gt; gulp.task(‘watch’, function() {&lt;br&gt;   livereload.listen({&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;port: 35729
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   });&lt;/p&gt;
+&lt;p&gt;   gulp.watch([‘public/&lt;strong&gt;/*’, ‘views/&lt;/strong&gt;/*.jade’], function(event) {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gulp.src(event.path)
+  .pipe(livereload());
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   });&lt;br&gt; });&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上述中, 第三行代码 &lt;code&gt;livereload.listen({port: 35729});&lt;/code&gt; 即是启动我们的 LiveReload 服务端.&lt;/p&gt;
+&lt;p&gt;然后, 我们给当前 task 添加一个文件监听, 监听 public 及 views 目录下文件的变动, 然后对该变动的文件执行操作.&lt;/p&gt;
+&lt;p&gt;在 grunt 中也是类似的, 在此就不多说明. 详情可见 &lt;a href=&quot;https://www.npmjs.com/package/grunt-contrib-watch#options-livereload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;此&lt;/a&gt;, 插件页有详细的说明.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      LiveReload 是 Web 开发中的实用的工具, 它可以让我们不用再在每次修改完文件之后手动刷新页面, 它会自动为我们刷新. 本文将讲讲如何在 Express.js 框架中加入 LiveReload.
+    
+    </summary>
+    
+      <category term="Software" scheme="http://pakchoi.me/categories/Software/"/>
+    
+    
+      <category term="Express" scheme="http://pakchoi.me/tags/Express/"/>
+    
+      <category term="Node.js" scheme="http://pakchoi.me/tags/Node-js/"/>
+    
+      <category term="LiveReload" scheme="http://pakchoi.me/tags/LiveReload/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP 304 状态与浏览器缓存</title>
+    <link href="http://pakchoi.me/2015/04/02/http-code-304/"/>
+    <id>http://pakchoi.me/2015/04/02/http-code-304/</id>
+    <published>2015-04-02T14:51:46.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;事情起因是之前有人问起一个问题, 说他加载了页面后, 打开浏览器的开发者工具后发现在 Network 里, 很多资源的传输大小都是 200B.&lt;/p&gt;
+&lt;p&gt;而且当我们点开了菜单中的 &lt;code&gt;Use large request rows&lt;/code&gt; 按钮后, 我们在 &lt;code&gt;Size/Content&lt;/code&gt; 列会看到两个大小不同的数值, 而假如我们启用了浏览器 cache 时, 往往 &lt;code&gt;Content&lt;/code&gt; 值要比 &lt;code&gt;Size&lt;/code&gt; 值小得多, 这是因为啥呢.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/04/browser-cache.png&quot; alt=&quot;browser cache&quot;&gt;&lt;/p&gt;
+&lt;p&gt;而且我们注意到, Status 栏写着 304, 文本则为 &lt;code&gt;Not Modified&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;所以, 问题来了, 这里的 304 指的是 &lt;code&gt;HTTP Status Code 304&lt;/code&gt;, 但是 &lt;code&gt;HTTP Status Code 304&lt;/code&gt; 究竟表示什么意思呢.&lt;/p&gt;
+&lt;p&gt;首先我们要知道 &lt;code&gt;HTTP Status Code 304&lt;/code&gt; 究竟表达什么意思, 所以在查阅了 &lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;维基老头的图书馆&lt;/a&gt; 后, 我们发现:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;304 Not Modified&lt;/strong&gt;&lt;br&gt;    Indicates that the resource has not been modified since the version specified by the request headers If-Modified-Since or If-None-Match. This means that there is no need to retransmit the resource, since the client still has a previously-downloaded copy.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它表示着, 该请求资源自从上次请求后, 没有被修改过, 因而不会重新传输该资源, 而是从缓存中获取.&lt;/p&gt;
+&lt;p&gt;浏览器在 Request Header 中加入 &lt;code&gt;If-Modified-Since&lt;/code&gt; 字段, 或者 &lt;code&gt;If-None-Match&lt;/code&gt; 字段来描述一个具体版本的资源. 如下图的一个请求的 &lt;code&gt;Header&lt;/code&gt; 信息.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/04/browser-cache-request.png&quot; alt=&quot;browser cache request&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们可以看到, &lt;code&gt;Request Headers&lt;/code&gt; 中, 有着 &lt;code&gt;If-None-Match&lt;/code&gt; 两个字段, 而与之对应的, 在 &lt;code&gt;Response Header&lt;/code&gt; 中有个 &lt;code&gt;ETag&lt;/code&gt; 的属性, 当它的值与 &lt;code&gt;If-None-Match&lt;/code&gt; 一致, 即表示该文件自上次请求至今没有发生修改.&lt;/p&gt;
+&lt;p&gt;ETag 的描述为:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;ETag&lt;/strong&gt;&lt;br&gt;    An identifier for a specific version of a resource, often a message digest&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;ETag&lt;/code&gt; 属性的值是某个版本中的一个资源的标识符.&lt;/p&gt;
+&lt;p&gt;因为浏览器缓存的存在, 我们经常在查看网络请求时, 有的文件明明有好几十KB, 但是请求时, 返回的却只有几百 Bytes, 这其实就是因为 &lt;code&gt;HTTP Status Code 304&lt;/code&gt;, 资源没有修改, 浏览器使用缓存中的资源.&lt;/p&gt;
+&lt;p&gt;而当我们禁用缓存时, 每次正常请求都是跟资源大小相近的.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      Http Status Code 304 与浏览器缓存的一些简单理解.
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="http://pakchoi.me/tags/HTTP/"/>
+    
+      <category term="304" scheme="http://pakchoi.me/tags/304/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js 与隔壁老王(GET/POST)参数的二三事</title>
+    <link href="http://pakchoi.me/2015/03/29/nodejs-get-and-post/"/>
+    <id>http://pakchoi.me/2015/03/29/nodejs-get-and-post/</id>
+    <published>2015-03-29T05:25:59.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及. 嗯, 就是酱紫, 不要问我隔壁老王是谁.&lt;/p&gt;
+&lt;h2 id=&quot;HTTP-GET-以及-HTTP-POST-两者的区别&quot;&gt;&lt;a href=&quot;#HTTP-GET-以及-HTTP-POST-两者的区别&quot; class=&quot;headerlink&quot; title=&quot;HTTP GET 以及 HTTP POST 两者的区别.&quot;&gt;&lt;/a&gt;HTTP GET 以及 HTTP POST 两者的区别.&lt;/h2&gt;&lt;p&gt;首先我们先了解下 HTTP GET 与 HTTP POST 两者有什么不同&lt;/p&gt;
+&lt;h3 id=&quot;相同点&quot;&gt;&lt;a href=&quot;#相同点&quot; class=&quot;headerlink&quot; title=&quot;相同点:&quot;&gt;&lt;/a&gt;相同点:&lt;/h3&gt;&lt;p&gt;它们都是 HTTP 中的一种发送请求方式. 并不是广义上的一个取, 一个发. 所以不要被名字所误导了.&lt;/p&gt;
+&lt;h3 id=&quot;不同点&quot;&gt;&lt;a href=&quot;#不同点&quot; class=&quot;headerlink&quot; title=&quot;不同点:&quot;&gt;&lt;/a&gt;不同点:&lt;/h3&gt;&lt;p&gt;GET 与 POST 方式常常被提到的区别就有: 1. 安全性, 2. 传输数据大小, 3. 传输数据时载体不同.&lt;/p&gt;
+&lt;p&gt;具体可以在 &lt;a href=&quot;http://www.w3schools.com/tags/ref_httpmethods.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;w3schools&lt;/a&gt; 中看到具体说明.&lt;/p&gt;
+&lt;p&gt;但是在这里我们仅仅来讨论它们两者数据的传输载体不同, 更多内容可以查阅维基老头给我们的说明. &lt;a href=&quot;http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我拜访维基老头&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;先说说 POST 方式, 它是将数据各字段及内容添加到请求的 HEADER 中去, 然后随着请求发送到服务器端, 这个过程是不可见的;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GET 方式, 是将参数数据队列添加到 URL 中去的, 所以我们常常可以看到 URL 中使用 ‘&amp;amp;’ 符号来拼接各种键值对应的参数.&lt;/p&gt;
+&lt;p&gt;如: &lt;a href=&quot;http://localhost:1337/index?name=root&amp;amp;password=1234&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:1337/index?name=root&amp;amp;password=1234&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;但是这种方式就存在安全问题了, 具体在这就不做讨论了.&lt;/p&gt;
+&lt;h2 id=&quot;Node-js-中如何处理请求参数&quot;&gt;&lt;a href=&quot;#Node-js-中如何处理请求参数&quot; class=&quot;headerlink&quot; title=&quot;Node.js 中如何处理请求参数&quot;&gt;&lt;/a&gt;Node.js 中如何处理请求参数&lt;/h2&gt;&lt;p&gt;前边一堆废话过去了, 是时候进入主题了.&lt;/p&gt;
+&lt;p&gt;在 Node.js 的官网上我们可以看到, 官方给出了一个简单的 HTTP Server 程序例子.&lt;/p&gt;
+&lt;p&gt;这部分以官网上的代码为例, 来理解 Node.js 中 GET/POST 参数的获取.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;apos;http&amp;apos;);
+http.createServer(function (request, response) {
+    response.writeHead(200, {&amp;apos;Content-Type&amp;apos;: &amp;apos;text/plain&amp;apos;});
+    response.end(&amp;apos;Hello World\n&amp;apos;);
+}).listen(1337, &amp;apos;127.0.0.1&amp;apos;);
+console.log(&amp;apos;Server running at http://127.0.0.1:1337/&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在这个例子中, 假如我们需要获取 GET/POST 方式传递过来的参数, 是无法直接得到的, 需要对 request 对象进行处理, 才可以得到我们想要的参数.&lt;/p&gt;
+&lt;h3 id=&quot;在-GET-方式中&quot;&gt;&lt;a href=&quot;#在-GET-方式中&quot; class=&quot;headerlink&quot; title=&quot;在 GET 方式中:&quot;&gt;&lt;/a&gt;在 GET 方式中:&lt;/h3&gt;&lt;p&gt;参数都是以键值方式拼接在请求的 URL 当中的, 所以我们可以通过解析 URL 来获得参数.&lt;/p&gt;
+&lt;p&gt;我们可以通过 Node.js 内建的 url 库来解析 GET 请求过来的 URL.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var url = require(&amp;apos;url&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后调用 url.parse 函数.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var params = url.parse(request.url, true).query;  // params 即为我们需要的参数
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后打开浏览器, 尝试请求我们的 HTTP Server.&lt;/p&gt;
+&lt;p&gt;如: &lt;a href=&quot;http://localhost:1337/index?username=root&amp;amp;action=test&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:1337/index?username=root&amp;amp;action=test&lt;/a&gt; , 在 url 中附带参数.&lt;/p&gt;
+&lt;p&gt;然后打印我们的 params, 即可看到如下图的内容.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/get-params.png&quot; alt=&quot;get-params&quot;&gt;&lt;/p&gt;
+&lt;p&gt;完整的代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;apos;http&amp;apos;);
+var url = require(&amp;apos;url&amp;apos;);
+http.createServer(function (request, response) {
+  var params = url.parse(request.url, true).query;
+  console.log(params);
+  response.writeHead(200, {&amp;apos;Content-Type&amp;apos;: &amp;apos;text/plain&amp;apos;});
+  response.end(&amp;apos;Hello World\n&amp;apos;);
+}).listen(1337, &amp;apos;127.0.0.1&amp;apos;);
+console.log(&amp;apos;Server running at http://127.0.0.1:1337/&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;在-POST-方式中&quot;&gt;&lt;a href=&quot;#在-POST-方式中&quot; class=&quot;headerlink&quot; title=&quot;在 POST 方式中:&quot;&gt;&lt;/a&gt;在 POST 方式中:&lt;/h3&gt;&lt;p&gt;由于 POST 方式传递的参数并不会显示在 URL 中, 所以上边的方式就不可行了, 那么我们就要换一种方式了.&lt;/p&gt;
+&lt;p&gt;前边我们已经知道了, POST 方式, 它会将参数数据添加到请求的 HEADER 中发送到服务端, 所以, 我们需要去解析 HEADER 中的数据来获取 POST 请求发送过来的参数.&lt;/p&gt;
+&lt;p&gt;这里我们就需要使用 ‘querystring’ 这个库了, 用来处理 response 对象的数据, 完整代码如下.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;apos;http&amp;apos;);
+var querystring = require(&amp;apos;querystring&amp;apos;);
+http.createServer(function (request, response) {
+  request.setEncoding(&amp;apos;utf-8&amp;apos;);
+  var postData = &amp;apos;&amp;apos;;
+  // 注册监听, 接收数据块
+  request.addListener(&amp;quot;data&amp;quot;, function (postDataChunk) {
+      postData += postDataChunk;
+  });
+  // 数据接收完毕, 执行回调函数
+  request.addListener(&amp;quot;end&amp;quot;, function () {
+    var params = querystring.parse(postData);  //解析 HEADER 中的数据
+    console.log(params);
+    response.writeHead(200, {&amp;apos;Content-Type&amp;apos;: &amp;apos;text/plain&amp;apos;});
+    response.end(&amp;apos;Hello World\n&amp;apos;);
+  });
+}).listen(1337, &amp;apos;127.0.0.1&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由于 POST 传输数据的量相较于 GET 方式较大, 所以这里并不能直接得到数据, 而是通过添加两个监听器, 分别处理数据接入过程以及数据接入完两个状态.&lt;/p&gt;
+&lt;p&gt;但是, 这并不是最理想的. 当你是通过 ‘FORM-DATA’ 方式发送请求的话, 我们接收到的结果并不是我们想象中的样子. 比如我通过 POSTMAN 去发送一个 ‘FORM-DATA’, 其中包含了 ‘name’ 及 ‘password’ 两个字段的数据. 我们解析出来的结果是如下图:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/post-form-data.png&quot; alt=&quot;post-form-data&quot;&gt;&lt;/p&gt;
+&lt;p&gt;它虽然是一个 JS 对象, 但是它的内容于我们而言几乎是不可用的, 尽管依稀可以见到 ‘name’ 跟 ‘password’ 两个字段, 但是处理起来还是比较费劲.&lt;/p&gt;
+&lt;p&gt;而当我们在发送数据时, 是通过发送 ‘application/json’ 类型的数据, 如下图 POSTMAN 的使用.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/postman.png&quot; alt=&quot;postman&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后我们就能顺利看到我们传递过来的参数了.&lt;/p&gt;
+&lt;h3 id=&quot;Express-js-中的请求参数处理&quot;&gt;&lt;a href=&quot;#Express-js-中的请求参数处理&quot; class=&quot;headerlink&quot; title=&quot;Express.js 中的请求参数处理&quot;&gt;&lt;/a&gt;Express.js 中的请求参数处理&lt;/h3&gt;&lt;p&gt;Express 是 Node 服务端里我们比较常见的 Web 框架. Express.js 框架有较为完善的封装, 可以让我们直接获取 GET/POST 方式传递过来的参数.&lt;/p&gt;
+&lt;p&gt;在 Express.js 框架中, 我们每个请求都会有一个 Request 对象, 通过查阅 API 我们发现, Request 对象有一个 params 属性, 我们发送请求时所附带的参数数据都被保存在其中, 我们可以直接调用.&lt;/p&gt;
+&lt;p&gt;如: &lt;code&gt;request.params[&amp;#39;name&amp;#39;]&lt;/code&gt; 或者是 &lt;code&gt;request.params.name&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;详见 Express.js 上 Request 对象的 API:  &lt;a href=&quot;http://expressjs.com/4x/api.html#req.params&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://expressjs.com/4x/api.html#req.params&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结:&quot;&gt;&lt;/a&gt;总结:&lt;/h2&gt;&lt;p&gt;理解 GET/POST 两种请求的参数传递方式.&lt;/p&gt;
+&lt;p&gt;GET 的参数都是附加于 URL 中的, 而 POST 的参数是添加在 Body 中的.&lt;/p&gt;
+&lt;p&gt;但是, 这不是必须的, 我们一样可以在 GET 请求时, 设置参数在 Body 中, 而 POST 请求时, 将参数放置在 URL 中. 但是因为一些考虑, 才有上边的结果.&lt;/p&gt;
+&lt;p&gt;比如, URL 带有参数的 GET 请求, 我们可以将其保存在书签中, 下次通过地址访问一样的内容.&lt;/p&gt;
+&lt;p&gt;而对于 POST 请求, 它不会被浏览器的历史记录了, 且不可保存在书签中, 于是乎, 有了一点点安全性, 但只是一点点, 对于有心人, 一样可以记录请求, 以及获取参数.&lt;/p&gt;
+&lt;p&gt;打完收工. 另外还有一篇文章, 可以一看 &lt;a href=&quot;http://aijuans.iteye.com/blog/1562027&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GET和POST有什么区别? 及为什么网上的多数答案都是错的&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及.
+    
+    </summary>
+    
+      <category term="Code" scheme="http://pakchoi.me/categories/Code/"/>
+    
+    
+      <category term="Node.js" scheme="http://pakchoi.me/tags/Node-js/"/>
+    
+      <category term="HTTP" scheme="http://pakchoi.me/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 交互式变基</title>
+    <link href="http://pakchoi.me/2015/03/17/git-interactive-rebase/"/>
+    <id>http://pakchoi.me/2015/03/17/git-interactive-rebase/</id>
+    <published>2015-03-17T05:56:52.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;git-rebase-简介&quot;&gt;&lt;a href=&quot;#git-rebase-简介&quot; class=&quot;headerlink&quot; title=&quot;git rebase 简介&quot;&gt;&lt;/a&gt;git rebase 简介&lt;/h1&gt;&lt;p&gt;我们知道 Git 中它提供了几个命令来让我们进行代码合并操作, 分别有 &lt;code&gt;git merge&lt;/code&gt;, &lt;code&gt;git pull&lt;/code&gt; 还有 &lt;code&gt;git rebase&lt;/code&gt;.&lt;br&gt;它们之间是有着不少细节上的区别, 由于 &lt;code&gt;git pull&lt;/code&gt; 平时较少用, 所以我们这里就只比较下 &lt;code&gt;git rebase&lt;/code&gt; 以及 &lt;code&gt;git merge&lt;/code&gt; 两者之间的区别.&lt;br&gt;至于为何 &lt;code&gt;git pull&lt;/code&gt; 平时较少使用, 可以&lt;a href=&quot;http://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;查看此&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;git-rebase-作用&quot;&gt;&lt;a href=&quot;#git-rebase-作用&quot; class=&quot;headerlink&quot; title=&quot;git rebase 作用&quot;&gt;&lt;/a&gt;git rebase 作用&lt;/h2&gt;&lt;p&gt;一般情况下, &lt;code&gt;git rebase&lt;/code&gt; 跟我们使用 &lt;code&gt;git merge&lt;/code&gt; 是没两样的, 它们都可以用来将本地代码与其它分支上的代码进行合并.&lt;br&gt;但是假如我们生成了大量的提交, 那么我们会遇到一些问题, 在团队协作上, 也会加大代码合并的成本. 而 git rebase 可以对我们本地尚未推送到远端的提交进行编辑处理.&lt;/p&gt;
+&lt;h1 id=&quot;git-rebase-命令详解&quot;&gt;&lt;a href=&quot;#git-rebase-命令详解&quot; class=&quot;headerlink&quot; title=&quot;git rebase 命令详解&quot;&gt;&lt;/a&gt;git rebase 命令详解&lt;/h1&gt;&lt;p&gt;首先我们可以先在终端里输入 &lt;code&gt;git help rebase&lt;/code&gt; 来查看 &lt;code&gt;git rebase&lt;/code&gt; 的官方帮助文档.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-synopsis.png&quot; alt=&quot;git-rebase-synopsis.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;一般用法:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git rebase [&amp;lt;upstream&amp;gt; [branch]]&lt;/code&gt;, 我们在一般情况下, 都是针对远端上的 master 分支来进行变基, 所以这里就以远端的 master 分支做为例子.&lt;/p&gt;
+&lt;p&gt;注: 本文中的”变基” 均表示 rebase 操作.&lt;/p&gt;
+&lt;h2 id=&quot;交互式变基&quot;&gt;&lt;a href=&quot;#交互式变基&quot; class=&quot;headerlink&quot; title=&quot;交互式变基&quot;&gt;&lt;/a&gt;交互式变基&lt;/h2&gt;&lt;p&gt;交互式变基, 其实即是对应着 &lt;code&gt;git rebase -i&lt;/code&gt; 或者是 &lt;code&gt;git rebase --interactive&lt;/code&gt;&lt;br&gt;突出点在于可以交互式编辑我们本地的提交.&lt;/p&gt;
+&lt;p&gt;当我们在终端里执行 &lt;code&gt;git rebase --interactive origin/master&lt;/code&gt; 的话, 那么我们会看到下图类似的一个内容.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-i-sample.png&quot; alt=&quot;git-rebase-i-sample.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;根据上图中的内容, 我们可以看到, 交互式变基里, 有 6 个命令, 分别是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;p, pick - 使用该提交&lt;/li&gt;
+&lt;li&gt;r, reword - 使用该提交, 同时编辑提交消息&lt;/li&gt;
+&lt;li&gt;e, edit - 使用该提交, 但是会停止变基操作, 等待对提交进行修改操作&lt;/li&gt;
+&lt;li&gt;s, squash - 使用该提交, 并且将该提交跟上一个提交融合到一起&lt;/li&gt;
+&lt;li&gt;f, fixup - 与 squash 相同, 但是丢弃该提交的日志消息&lt;/li&gt;
+&lt;li&gt;x, exec - 执行命令, exec 命令后边接 shell 命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上图表示, 这时候我们进入了 git rebase todo 列表.&lt;br&gt;列表中的内容是有固定格式的, 除了 &lt;code&gt;exec&lt;/code&gt; 命令外, 其它都是&lt;/p&gt;
+&lt;p&gt;command commit-id commit-comment&lt;/p&gt;
+&lt;p&gt;的结构.&lt;/p&gt;
+&lt;h1 id=&quot;git-rebase-实战&quot;&gt;&lt;a href=&quot;#git-rebase-实战&quot; class=&quot;headerlink&quot; title=&quot;git rebase 实战&quot;&gt;&lt;/a&gt;git rebase 实战&lt;/h1&gt;&lt;p&gt;假如我们现在有两个分支如下.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/branch-topic.png&quot; alt=&quot;branch-topic&quot;&gt;&lt;/p&gt;
+&lt;p&gt;那么我们进行 &lt;code&gt;git rebase master topic&lt;/code&gt; 操作后, 结果将会是&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/rebase-result.png&quot; alt=&quot;rebase-result&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们看到, topic 上的几个提交, C, D, E 原本都是在 B 提交之后的, 现在它们被移动到了 G 之后.&lt;/p&gt;
+&lt;p&gt;而同样的这个情况下, 假如我们通过命令 &lt;code&gt;git merge master topic&lt;/code&gt; 来将 master 分支上的更改合并到 topic 分支上, 那么会出现 E 跟 G 两个提交点连接到一块, 如下图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/merge-result.png&quot; alt=&quot;merge-result&quot;&gt;&lt;/p&gt;
+&lt;p&gt;git rebase 的作用就类似于此, 还有其它更具体的功能, 可以从文档里去了解, 这里就不细细说明了, 只解释一些基本的内容.&lt;/p&gt;
+&lt;h2 id=&quot;在-Gerrit-仓库上使用&quot;&gt;&lt;a href=&quot;#在-Gerrit-仓库上使用&quot; class=&quot;headerlink&quot; title=&quot;在 Gerrit 仓库上使用&quot;&gt;&lt;/a&gt;在 Gerrit 仓库上使用&lt;/h2&gt;&lt;p&gt;当我们在使用 Gerrit 仓库的时候, 因为 Gerrit 它有提供 Code Review 功能, 所以我们在每次提交的时候, 都需要为我们的提交添加 Change-Id 的备注.&lt;br&gt;Gerrit 上的要求是, 每个 Commit 都必须要有一个 Change-Id 值作为结尾, 但是, 假如之前的某一个提交里并没有添加 Change-Id, 那么, 我们是无法成功将本地的提交推送到远端上的.&lt;/p&gt;
+&lt;p&gt;一般情况下, 我们直接进行 &lt;code&gt;git commit --amend&lt;/code&gt; 命令就好了, 但是这个只对上一个提交生效, 对于非上一个提交, 是无法进行修改的, 所以这时候我们就可以通过交互式变基来解决我们的问题, 将多个提交合并为一个, 或者是, 为那个没有 Change-Id 的提交补充一个 Change-Id.&lt;/p&gt;
+&lt;p&gt;在终端上, 我们执行 &lt;code&gt;git rebase -i origin/master&lt;/code&gt;, 然后除了第一个提交, 其它的 command 位置都修改为 squash, 像下图.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-squash-sample.png&quot; alt=&quot;git-rebase-squash-sample.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;注意: 这里是使用 vim 来进行编辑的, 修改完毕后, 按 esc 键确认进入命令模式, 然后输入 &lt;code&gt;:wq&lt;/code&gt; 来保存我们的操作并且退出, 然后就会看到 COMMIT_EDITMSG 操作, 如下图.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-edit.png&quot; alt=&quot;git-rebase-edit.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;然后我们稍加编辑, 把多余的 Change-Id 给移除掉, 然后把内容做下对齐.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-edit-complete.png&quot; alt=&quot;git-rebase-edit-complete.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;然后回到 VIM 的命令模式, 输入 &lt;code&gt;:wq&lt;/code&gt; 保存我们的修改, 就可以看到 &lt;code&gt;git rebase&lt;/code&gt; 已经在开始执行我们的修改了.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-console-result.png&quot; alt=&quot;git-rebase-console-result.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-log.png&quot; alt=&quot;git-rebase-log.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;而在 SourceTree 中, 操作就相对简单了不少, 对着我们需要进行交互式变基的那个提交右键, 然后如下图所示, 即可打开交互式变基的对话框.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-source-tree-sample-1.png&quot; alt=&quot;git-rebase-source-tree-sample-1.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;接着就根据下方所提供的按钮来进行操作就行了.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-source-tree-sample-2.png&quot; alt=&quot;git-rebase-source-tree-sample-2.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/03/git-rebase-source-tree-sample-3.png&quot; alt=&quot;git-rebase-source-tree-sample-3.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      我们知道 Git 中它提供了几个命令来让我们进行代码合并操作, 分别有 git merge, git pull 还有 git rebase. 然而 git rebase 与前两者有什么区别, 而 Git 交互式变基又是啥呢?
+    
+    </summary>
+    
+      <category term="Software" scheme="http://pakchoi.me/categories/Software/"/>
+    
+    
+      <category term="git" scheme="http://pakchoi.me/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Android 系统上执行 Java 程序</title>
+    <link href="http://pakchoi.me/2015/01/31/run-java-in-android/"/>
+    <id>http://pakchoi.me/2015/01/31/run-java-in-android/</id>
+    <published>2015-01-31T02:43:22.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;之前一阵子在有在使用 Android 平台上的 UiAutomator 编写一些自动化脚本, 然后我就在想, UiAutoamtor 程序是怎么执行起来的, 在编写程序的时候也感觉 UiAutomator 似乎与一般的 Java 程序无异, 那么, 我们是否可以在 Android 上来执行 Java 程序呢.&lt;/p&gt;
+&lt;p&gt;在 Android 平台上, 进行自动化脚本开发的时候, 我们使用了 Android 官方提供的 UiAutomator. 而 UiAutomator 的本质其实就是 Java 程序. 它的入口是一个名为 uiautomator 在 /system/bin 下的 shell 程序.&lt;/p&gt;
+&lt;p&gt;对这个 shell 程序进行分析, 我们不难发现, 它实际上有几个重要的点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设置 ANDROID_DATA 环境变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/01/ANDROID_DATA.png&quot; alt=&quot;ANDROID_DATA&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设置 CLASSPATH 环境变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;假如不设置 CLASSPATH 的话, 我们没有办法查找到我们的程序 Jar 包.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/01/CLASSPATH.png&quot; alt=&quot;CLASSPATH&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行 exec app_process 命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/01/app_process.png&quot; alt=&quot;exec app_process&quot;&gt;&lt;/p&gt;
+&lt;p&gt;直接执行, 会发现它会要求我们提供一个 Class name&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/01/dalvikvm.png&quot; alt=&quot;dalvikvm&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里值得注意的是, 它支持 -cp 命令, 所以我们可以通过 -cp 来指定我们的类库依赖, 比如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;adb shell dalvikvm Hello -cp /data/local/tmp/hello-dex.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是这里需要注意, 只支持 dex 可执行文件.&lt;/p&gt;
+&lt;p&gt;Ps: 当我们使用非 root 权限, 或者 USER_ID 不等于 0 的时候, 我们需要设置 ANDROID_DATA 方能使用, 不然会直接出现 Aborted 的结果&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ANDROID_DATA=/data/local/tmp CLASSPATH=/system/framework/uiautomator.jar:/system/framework/android.test.runner.jar exec app_process /system/bin com.android.commands.uiautomator.Launcher
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      之前一阵子在有在使用 Android 平台上的 UiAutomator 编写一些自动化脚本, 然后我就在想, UiAutoamtor 程序是怎么执行起来的, 在编写程序的时候也感觉 UiAutomator 似乎与一般的 Java 程序无异, 那么, 我们是否可以在 Android 上来执行 Java 程序呢.
+    
+    </summary>
+    
+      <category term="Code" scheme="http://pakchoi.me/categories/Code/"/>
+    
+    
+      <category term="Java" scheme="http://pakchoi.me/tags/Java/"/>
+    
+      <category term="Android" scheme="http://pakchoi.me/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://pakchoi.me/2015/01/12/hello-world/"/>
+    <id>http://pakchoi.me/2015/01/12/hello-world/</id>
+    <published>2015-01-11T22:29:52.000Z</published>
+    <updated>2016-05-13T06:22:48.559Z</updated>
+    
+    <content type="html">&lt;p&gt;身为程序员, 要有一个程序员的开始.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;身为程序员, 要有一个程序员的开始.&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="Casual" scheme="http://pakchoi.me/categories/Casual/"/>
+    
+    
+  </entry>
+  
+</feed>

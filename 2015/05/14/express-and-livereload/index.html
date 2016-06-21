@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!--
+<html>
+<head>
+<title></title>
+<body></body>
+</head>
+</html>
+-->
+<html class="theme-ninja use-motion">
+<head>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+	<meta name="description" content="Pakchoi's blog."/>
+
+
+	<meta name="keywords" content="Express,Node.js,LiveReload,"/>
+
+
+	<link rel="alternate" href="/atom.xml" title="Half A Day" type="application/atom+xml"/>
+
+
+	<link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1"/>
+
+
+<script type="text/javascript">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6ea3a6b78cf86228995c577636d3f562";
+    var s = document.getElementsByTagName("script")[0];
+    if (!(/^localhost|^(\d+\.){3}\d+/.test(window.location.hostname))) s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<title> Express 中配置 livereload // Half A Day </title>
+</head>
+<body>
+  <div class="container one-column page-post-detail">
+  <div class="headband"></div>
+  <div id="header" class="header">
+    <div class="header-inner">
+      <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+    <span class="logo">
+      <i class="icon-logo"></i>
+    </span>
+    <span class="site-title">Half A Day</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<ul id="menu" class="menu">
+  
+  
+  <li class="menu-item menu-item-home">
+    <a href="/">
+      <i class="menu-item-icon icon-home"></i><br/>Home
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives">
+      <i class="menu-item-icon icon-archives"></i><br/>Archives
+    </a>
+  </li>
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about">
+      <i class="menu-item-icon icon-about"></i><br/>About
+    </a>
+  </li>
+  
+</ul>
+
+    </div>
+  </div>
+  <div id="main" class="main">
+    <div class="main-inner">
+      <div id="content" class="content">
+<div id="posts" class="posts-expand">
+  
+<div class="post post-type-normal ">
+  <div class="post-header">
+      
+    
+    <h1 class="post-title">
+      
+        Express 中配置 livereload
+      
+    </h1>
+    
+    <div class="post-meta">
+      <span class="post-time">Posted on 2015-05-14</span>
+      
+      <span class="post-category">
+        &nbsp; | &nbsp; In
+        
+        <a href="/categories/Software/">Software</a>
+          
+          
+        
+      </span>
+      
+      
+        
+      <span class="post-comments-count">
+        &nbsp; | &nbsp;
+        <a href="/2015/05/14/express-and-livereload/#comments">
+          <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/14/express-and-livereload/">0 Comments</span>
+        </a>
+      </span>
+        
+      
+    </div>
+  </div>
+  <div class="post-body">
+    
+    
+      <h1 id="LiveReload-是什么"><a href="#LiveReload-是什么" class="headerlink" title="LiveReload 是什么"></a>LiveReload 是什么</h1><p>LiveReload 是 Web 开发中的实用的工具, 它可以让我们不用再在每次修改完文件之后手动刷新页面, 它会自动为我们刷新.</p>
+<p>LiveReload 它分为三部分, 客户端目标代码及服务端, 还有浏览器插件.</p>
+<p>在学习如何配置之前, 我们先逆向思维下, 从已经配置了 LiveReload 的项目中来了解 LiveReload 究竟是做了些啥.</p>
+<p>通过审查加入了 LiveReload 的页面我们知道, LiveReload 它在我们的页面中的底部增加了类似下面这些代码:</p>
+<pre><code>&lt;script&gt;//&lt;![CDATA[
+document.write(&apos;&lt;script src=&quot;//&apos; + (location.hostname || &apos;localhost&apos;) + &apos;:35729/livereload.js?snipver=1&quot;&gt;&lt;\/script&gt;&apos;)
+//]]&gt;&lt;/script&gt;
+</code></pre><p>它会为我们 HTML 文件末尾添加一个 <code>script</code> 标签, 用来请求本地的一个服务端中请求 livereload.js 这个 js 脚本.</p>
+<h1 id="怎么在-Express-中配置-LiveReload"><a href="#怎么在-Express-中配置-LiveReload" class="headerlink" title="怎么在 Express 中配置 LiveReload"></a>怎么在 Express 中配置 LiveReload</h1><p>所以这里就出现了两个问题:</p>
+<ol>
+<li>上面的那段代码是从哪来的?</li>
+<li>livereload.js 这个文件又是从哪来的?</li>
+</ol>
+<p>关于第一个问题, 上面的那段代码是从哪来的?</p>
+<p>这个不可能是我们手动去给每个页面添加的, 这样做不魔法.</p>
+<p>Express 中有这么一个中间件 <code>connect-livereload</code>, 它就为我们办这件事. <a href="https://www.npmjs.com/package/connect-livereload" target="_blank" rel="external">项目页在此</a>. Ps: <code>connect-livereload</code> 它并不提供 livereload.js 这个文件.</p>
+<p>为 Express 对象添加这个中间件即可.</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+app.use(require(&apos;connect-livereload&apos;)({
+  port: 35729
+}));
+</code></pre><p>所以到这里, 我们就算是把客户端上的 livereload 给配置好了.</p>
+<p>第二个问题, livereload.js 这个文件又是从哪来的?</p>
+<p>我们可以观察到, 它是从某个 http 服务中请求过来的.<br>所以, 这里我们就需要这个 http 服务了.</p>
+<p>我们可以直接通过 npm 下载 livereload 然后运行.</p>
+<pre><code>npm install -g livereload
+</code></pre><p>然后执行</p>
+<pre><code>livereload -p 35729
+</code></pre><p>在 35729 端口上运行 livereload 的服务端.</p>
+<p>但是同时, livereload 也支持 gulp, grunt 这两个构建工具, 我们都可以在他们的 plugins 页面中搜索到相关.<br>(Ps: grunt 中已经集成了 livereload 在 <code>contrib-watch</code> 模块中)</p>
+<h1 id="LiveReload-在-gulp-中"><a href="#LiveReload-在-gulp-中" class="headerlink" title="LiveReload 在 gulp 中"></a>LiveReload 在 gulp 中</h1><p>以 gulp 为例子, 我们需要插件 <code>gulp-livereload</code>, 而且在 gulp 中需要做两件事:</p>
+<ol>
+<li>启动 LiveReload 的服务端;</li>
+<li><p>调用 LiveReload 的重新加载.</p>
+<p> var livereload = require(‘gulp-livereload’);<br> gulp.task(‘watch’, function() {<br>   livereload.listen({</p>
+<pre><code>port: 35729
+</code></pre><p>   });</p>
+<p>   gulp.watch([‘public/<strong>/*’, ‘views/</strong>/*.jade’], function(event) {</p>
+<pre><code>gulp.src(event.path)
+  .pipe(livereload());
+</code></pre><p>   });<br> });</p>
+</li>
+</ol>
+<p>上述中, 第三行代码 <code>livereload.listen({port: 35729});</code> 即是启动我们的 LiveReload 服务端.</p>
+<p>然后, 我们给当前 task 添加一个文件监听, 监听 public 及 views 目录下文件的变动, 然后对该变动的文件执行操作.</p>
+<p>在 grunt 中也是类似的, 在此就不多说明. 详情可见 <a href="https://www.npmjs.com/package/grunt-contrib-watch#options-livereload" target="_blank" rel="external">此</a>, 插件页有详细的说明.</p>
+
+    
+  </div>
+  <div class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Express/">#Express</a>
+      
+      <a href="/tags/Node-js/">#Node.js</a>
+      
+      <a href="/tags/LiveReload/">#LiveReload</a>
+      
+    </div>
+    
+    
+    <div class="post-nav">
+      <div class="post-nav-prev post-nav-item">
+      
+        <a href="/2015/05/20/jsx-trying/">初识 JSX</a>
+      
+      </div>
+      <div class="post-nav-next post-nav-item">
+      
+        <a href="/2015/04/02/http-code-304/">HTTP 304 状态与浏览器缓存</a>
+      
+      </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+  
+  <div class="comments" id="comments">
+    
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+  </div>
+  
+</div>
+
+      </div>
+    </div>
+    
+  
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+    
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table Of Contents</li>
+      <li class="sidebar-nav-overview" data-target="site-overview">Overview</li>
+    </ul>
+    
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/default_avatar.jpg" alt="__Pakchoi" />
+        <p class="site-author-name">__Pakchoi</p>
+      </div>
+      <p class="site-description motion-element">Pakchoi's blog.</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">11</span>
+            <span class="site-state-item-name">posts</span>
+          </a>
+        </div>
+        <div class="site-state-item site-state-categories">
+        <a href="/categories">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">categories</span>
+        </a>
+        </div>
+        <div class="site-state-item site-state-tags">
+        <a href="/tags">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">tags</span>
+        </a>
+        </div>
+      </div>
+      
+      <div class="feed-link motion-element">
+        <a href="/atom.xml"><i class="menu-item-icon icon-feed"></i>RSS</a>
+      </div>
+      
+      <div class="links-of-author motion-element">
+      
+        
+        <span class="links-of-author-item">
+          <a href="http://github.com/pakchoidora" target="_blank">GitHub</a>
+        </span>
+        
+        <span class="links-of-author-item">
+          <a href="http://weibo.com/pakchoidora" target="_blank">Weibo</a>
+        </span>
+        
+      
+      </div>
+      
+      
+      <div class="cc-license motion-element">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+          <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/>
+        </a>
+      </div>
+      
+    </div>
+    
+    <div class="post-toc-wrap sidebar-panel-active">
+      <div class="post-toc-indicator-top post-toc-indicator"></div>
+      <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LiveReload-是什么"><span class="nav-number">1.</span> <span class="nav-text">LiveReload 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么在-Express-中配置-LiveReload"><span class="nav-number">2.</span> <span class="nav-text">怎么在 Express 中配置 LiveReload</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LiveReload-在-gulp-中"><span class="nav-number">3.</span> <span class="nav-text">LiveReload 在 gulp 中</span></a></li></ol></div>
+      
+      </div>
+      <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+    </div>
+    
+  </div>
+</div>
+
+
+  </div>
+  <div id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="copyright">
+  
+  &copy; &nbsp; 
+  2016
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">__Pakchoi</span>
+</div>
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+    </div>
+  </div>
+  <div class="back-to-top"></div>
+</div>
+<script type="text/javascript" src="/vendors/zepto/zepto.min.js?v=1.1.6"></script>
+  
+<script type="text/javascript">
+  function hasMobileUA () {
+    return /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g.test(window.navigator.userAgent);
+  }
+  function isDesktop () { return screen.width > 991 && !hasMobileUA(); }
+  function isTablet () { return screen.width < 992 && screen.width > 767 && hasMobileUA(); }
+  function isMobile () { return screen.width < 767 && hasMobileUA(); }
+  function escapeSelector (selector) { return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&") }
+</script>
+<script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var toggle = $('.sidebar-toggle');
+    var line1st = $('.sidebar-toggle-line-first')
+    var line2nd = $('.sidebar-toggle-line-middle');
+    var line3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+    var statusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+    var line1stStatusInit = statusInit;
+    var line1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var line1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var line2ndStatusInit = statusInit;
+    var line2ndStatusArrow = {width: '90%'};
+    var line2ndStatusClose = {opacity: 0};
+    var line3rdStatusInit = statusInit;
+    var line3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var line3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    $.Velocity.RunSequence([
+      {e: $('.brand'), p: {opacity: 1}, o: {duration: 100}},
+      {e: $('.logo'), p: {opacity: 1, top: 0}, o: {duration: 50}},
+      {e: $('.site-title'), p: {opacity: 1, top: 0}, o: {duration: 200}}
+    ]);
+    $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    $('.post').velocity('transition.slideDownIn', window.postMotionOptions || {stagger: 300, drag: true});
+    $('.back-to-top').on('click', function () {
+      body.velocity('scroll');
+    });
+    function sidebarShowMotion () {
+      line1st.velocity(line1stStatusClose);
+      line2nd.velocity(line2ndStatusClose);
+      line3rd.velocity(line3rdStatusClose);
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      setTimeout(function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        $('.sidebar .motion-element').velocity(
+          'transition.slideRightIn',
+          {stagger: 50, drag: true}
+        );
+      }, 0);
+    }
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+      line1st.velocity(line1stStatusInit);
+      line2nd.velocity(line2ndStatusInit);
+      line3rd.velocity(line3rdStatusInit);
+      sidebar.removeClass('sidebar-active');
+      setTimeout(function() {
+        $('.sidebar .motion-element').css({
+          display: 'none'
+        });
+      }, 0);
+    };
+    toggle.on('click', function () {
+      isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+      isSidebarVisible = !isSidebarVisible;
+    }).on('mouseenter', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusArrow);
+      line2nd.velocity('stop').velocity(line2ndStatusArrow);
+      line3rd.velocity('stop').velocity(line3rdStatusArrow);
+    }).on('mouseleave', function () {
+      if (isSidebarVisible) {return}
+      line1st.velocity('stop').velocity(line1stStatusInit);
+      line2nd.velocity('stop').velocity(line2ndStatusInit);
+      line3rd.velocity('stop').velocity(line3rdStatusInit);
+    });
+  });
+</script>
+
+  <script type="text/javascript">
+  (function ($) {
+    'use strict';
+    function ScrollSpy(element, options) {
+      this.$body = $(document.body);
+      this.$scrollElement = $(element).is('body') ? $(window) : $(element);
+      this.options = $.extend({}, ScrollSpy.DEFAULTS, options);
+      this.selector = (this.options.target || '') + ' .nav li > a';
+      this.offsets = [];
+      this.targets = [];
+      this.activeTarget = null;
+      this.scrollHeight = 0;
+      this.$scrollElement.on('scroll.scrollspy', $.proxy(this.process, this));
+      this.refresh();
+      this.process();
+    }
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    };
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight);
+    }
+    ScrollSpy.prototype.refresh = function () {
+      var that = this;
+      var offsetMethod = 'offset';
+      var offsetBase = 0;
+      this.offsets = [];
+      this.targets = [];
+      this.scrollHeight = this.getScrollHeight();
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position';
+        offsetBase = this.$scrollElement.scrollTop();
+      }
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el = $(this);
+          var href = $el.data('target') || $el.attr('href');
+          var $href = /^#./.test(href) && $(escapeSelector(href)); // Need to escape selector.
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0]);
+          that.targets.push(this[1]);
+        });
+    }
+    ScrollSpy.prototype.process = function () {
+      var scrollTop = this.$scrollElement.scrollTop() + this.options.offset;
+      var scrollHeight = this.getScrollHeight();
+      var maxScroll = this.options.offset + scrollHeight - this.$scrollElement.height();
+      var offsets = this.offsets;
+      var targets = this.targets;
+      var activeTarget = this.activeTarget;
+      var i;
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh();
+      }
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i);
+      }
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.scrollspy');  // Add a custom event.
+        this.activeTarget = null;
+        return this.clear();
+      }
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i]);
+      }
+    }
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target;
+      this.clear();
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]';
+      var active = $(selector)
+        .parents('li')
+        .addClass('active');
+      active.trigger('activate.scrollspy')
+    }
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parent('.active')
+        .removeClass('active');
+    }
+    function Plugin(option) {
+      return this.each(function () {
+        var $this = $(this);
+        var data = $this.data('scrollspy');
+        var options = typeof option == 'object' && option;
+        if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)));
+        if (typeof option == 'string') data[option]();
+      })
+    }
+    var old = $.fn.scrollspy;
+    $.fn.scrollspy = Plugin;
+    $.fn.scrollspy.Constructor = ScrollSpy;
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old;
+      return this;
+    }
+    $(window).on('load.scrollspy', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this);
+        Plugin.call($spy, $spy.data());
+      })
+    })
+  })(Zepto);
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+    $tocSelector
+      .on('activate.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+      $tocSelector.css('height', height);
+      return height;
+    }
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+    onScroll($tocSelector);
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+          toggleTOCOverflowIndicators();
+      });
+    }
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var html = $('html');
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+      currentTarget.velocity('transition.slideUpOut', 200, function () {
+        target
+          .velocity('stop')
+          .velocity('transition.slideDownIn', 200)
+          .addClass(activePanelClassName);
+      });
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+    $('.post-toc').find('a').on('click', function (e) {
+      e.preventDefault();
+      var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+      html.velocity('stop').velocity('scroll', {
+        offset: offset  + 'px',
+        mobileHA: false
+      });
+    });
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+      setTimeout(function () {
+        $('.sidebar-toggle').trigger('click');
+      }, 800);
+    }
+  });
+</script>
+
+
+
+  
+  
+  
+    
+      
+    
+<script type="text/javascript">
+  var disqus_shortname = 'pakchoi';
+  var disqus_identifier = '2015/05/14/express-and-livereload/';
+  var disqus_url = 'http://pakchoi.me/2015/05/14/express-and-livereload/';
+  (function(){
+    var scripts = 'count,embed'.split(',');
+    for (var k in scripts) {
+      var script = scripts[k];
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + script + '.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+  }());
+</script>
+  
+
+
+
+</body>
+</html>
