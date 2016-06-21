@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pakchoi.me/"/>
-  <updated>2016-05-13T06:22:48.559Z</updated>
+  <updated>2016-06-21T09:16:53.399Z</updated>
   <id>http://pakchoi.me/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识 HLS 协议</title>
+    <link href="http://pakchoi.me/2016/06/21/hls-fe/"/>
+    <id>http://pakchoi.me/2016/06/21/hls-fe/</id>
+    <published>2016-06-21T09:16:53.000Z</published>
+    <updated>2016-06-21T09:16:53.399Z</updated>
+    
+    <content type="html">&lt;p&gt;有一天偶然从公司 KM 的推送中看到 HLS 协议这么一个东西, 觉得有意思而且之前在上一家公司时, 也听闻这么一个技术, 但是一直没有机会接触, 于是乎找了找资料来了解下, 本文不准备讨论实现及应用, 只做简单了解.&lt;/p&gt;
+&lt;h1 id=&quot;HLS&quot;&gt;&lt;a href=&quot;#HLS&quot; class=&quot;headerlink&quot; title=&quot;HLS&quot;&gt;&lt;/a&gt;HLS&lt;/h1&gt;&lt;p&gt;HLS(http live stream), Apple 公司于2009年提出的基于 HTTP 协议的流媒体协议.&lt;br&gt;支持度: iOS、MacOSX 及 Apple TV 原生支持; Android 3.0+ 支持.&lt;/p&gt;
+&lt;p&gt;它的传输内容包括两部份, 一是 M3U8 描述文件, 而是 TS 媒体文件.&lt;/p&gt;
+&lt;h1 id=&quot;流媒体协议&quot;&gt;&lt;a href=&quot;#流媒体协议&quot; class=&quot;headerlink&quot; title=&quot;流媒体协议&quot;&gt;&lt;/a&gt;流媒体协议&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;RTP/RTCP&lt;/li&gt;
+&lt;li&gt;RTMP (各大直播平台常用的, 在 Flash 及 AIR 中有很好的支持)&lt;/li&gt;
+&lt;li&gt;DASH&lt;/li&gt;
+&lt;li&gt;HLS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;HLS-特点&quot;&gt;&lt;a href=&quot;#HLS-特点&quot; class=&quot;headerlink&quot; title=&quot;HLS 特点&quot;&gt;&lt;/a&gt;HLS 特点&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;支持直播和点播实现&lt;/li&gt;
+&lt;li&gt;支持用户拖放、回放等操作&lt;/li&gt;
+&lt;li&gt;支持点播资源的加密和鉴权(借助HTTPS)&lt;/li&gt;
+&lt;li&gt;支持流的智能实时切换(针对网络带宽、设备)&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;HLS-优缺点&quot;&gt;&lt;a href=&quot;#HLS-优缺点&quot; class=&quot;headerlink&quot; title=&quot;HLS 优缺点&quot;&gt;&lt;/a&gt;HLS 优缺点&lt;/h1&gt;&lt;h2 id=&quot;HLS-优点&quot;&gt;&lt;a href=&quot;#HLS-优点&quot; class=&quot;headerlink&quot; title=&quot;HLS 优点&quot;&gt;&lt;/a&gt;HLS 优点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;基于 HTTP&lt;/li&gt;
+&lt;li&gt;可充分利用 CDN&lt;/li&gt;
+&lt;li&gt;广播电视标准成熟, 快速进入产业链&lt;/li&gt;
+&lt;li&gt;普通 Web 服务器即可&lt;/li&gt;
+&lt;li&gt;自适应码率&lt;/li&gt;
+&lt;li&gt;广泛的 iOS 平台支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;HLS-缺点&quot;&gt;&lt;a href=&quot;#HLS-缺点&quot; class=&quot;headerlink&quot; title=&quot;HLS 缺点&quot;&gt;&lt;/a&gt;HLS 缺点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;延迟较高&lt;/li&gt;
+&lt;li&gt;PC 平台 HTML5 支持不够成熟, 需要第三方 (比如: Flash 播放)&lt;/li&gt;
+&lt;li&gt;MPEG2-TS 文件协议较复杂&lt;/li&gt;
+&lt;li&gt;不适合做交互式语音应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;Web-中如何使用&quot;&gt;&lt;a href=&quot;#Web-中如何使用&quot; class=&quot;headerlink&quot; title=&quot;Web 中如何使用&quot;&gt;&lt;/a&gt;Web 中如何使用&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;video controls&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;source src=&amp;quot;example.m3u8&amp;quot;&amp;gt;&amp;lt;/source&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/video&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;video src=&amp;quot;example.m3u8&amp;quot; controls&amp;gt;&amp;lt;/video&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;M3U8&quot;&gt;&lt;a href=&quot;#M3U8&quot; class=&quot;headerlink&quot; title=&quot;M3U8&quot;&gt;&lt;/a&gt;M3U8&lt;/h1&gt;&lt;p&gt;M3U8 是 M3U 的 UTF8 编码版本, M3U 是一种列表文件, 只提供一些描述信息.&lt;/p&gt;
+&lt;p&gt;M3U 文件中可以包含多个 tag, 每个 tag 的功能和属性如下&lt;/p&gt;
+&lt;h2 id=&quot;M3U8-常见-Tag&quot;&gt;&lt;a href=&quot;#M3U8-常见-Tag&quot; class=&quot;headerlink&quot; title=&quot;M3U8 常见 Tag&quot;&gt;&lt;/a&gt;M3U8 常见 Tag&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;#EXTM3U&lt;/strong&gt;&lt;br&gt;每个 M3U 文件第一行必须是这个 tag, 请标示作用&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-MEDIA-SEQUENCE: &amp;lt;sequence&amp;gt;&lt;/strong&gt;&lt;br&gt;每一个media URI 在 PlayList 中只有唯一的序号, 相邻之间序号 +1, 一个 media URI 并不是必须要包含的, 如果没有, 默认为 0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXTINF: &amp;lt;duration&amp;gt; [, &amp;lt;title&amp;gt;]&lt;/strong&gt;&lt;br&gt;duration 指定每个媒体段(ts)的持续时间(秒), 仅对其后面的URI有效, title 是下载资源的 url&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-TARGETDURATION: &amp;lt;duration&amp;gt;&lt;/strong&gt;&lt;br&gt;指定最大的媒体段时间长(秒). 所以#EXTINF中指定的时间长度必须小于或是等于这个最大值. 这个 tag 在整个 PlayList 文件中只能出现一次 (在嵌套的情况下, 一般有真正 TS url 的 m3u8 才会出现该 tag)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-KEY: &amp;lt;attribute-list&amp;gt;&lt;/strong&gt;&lt;br&gt;表示怎么对 media segments 进行解码. 其作用范围是下次该 tag 出现前的所有 media URI, 属性为 NONE 或者 AES-128.&lt;br&gt;NONE 表示 URI 以及 IV (Initialization Vector) 属性必须不存在; AES-128(Advanced EncryptionStandard)表示 URI 必须存在, IV 可以不存在.&lt;br&gt;对于 AES-128 的情况, keytag 和 URI 属性共同表示了一个key文件, 通过URI可以获得这个 key, 如果没有IV (Initialization Vector), 则使用序列号作为IV进行编解码, 将序列号的高位赋到 16 个字节的 buffer 中, 左边补 0; 如果有 IV, 则将改值当成 16 个字节的 16 进制数.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-PROGRAM-DATE-TIME&lt;/strong&gt;&lt;br&gt;将一个绝对时间或是日期和一个媒体段中的第一个 Sample 相关联, 只对下一个 meida URI 有效&lt;br&gt;例子: &lt;code&gt;#EXT-X-PROGRAM-DATE-TIME:2010-02-19T14:54:23.031+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-ALLOW-CACHE:&amp;lt;YES|NO&amp;gt;&lt;/strong&gt;&lt;br&gt;是否允许做 cache, 这个可以在 PlayList 文件中任意地方出现, 并且最多出现一次, 作用效果是所有的媒体段.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-PLAYLIST-TYPE&lt;/strong&gt;&lt;br&gt;提供关于 PlayList 的可变性的信息, 这个对整个 PlayList 文件有效, 是可选的, 格式如下: &lt;code&gt;#EXT-X-PLAYLIST-TYPE:&lt;/code&gt; 如果是 VOD, 则服务器不能改变 PlayList 文件; 如果是 EVENT, 则服务器不能改变或是删除 PlayList 文件中的任何部分, 但是可以向该文件中增加新的一行内容. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-ENDLIST&lt;/strong&gt;&lt;br&gt;表示 PlayList 的末尾了, 它可以在 PlayList 中任意位置出现, 但是只能出现一个, 但作为直播的, 不需要这个 tag&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#EXT-X-STREAM-INF&lt;/strong&gt;&lt;br&gt;指定一个包含多媒体信息的 media URI 作为 PlayList, 一般做 M3U8 的嵌套使用, 它只对紧跟后面的 URI 有效&lt;/p&gt;
+&lt;p&gt;有以下属性: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BANDWIDTH: 带宽, 必须有&lt;/li&gt;
+&lt;li&gt;PROGRAM-ID: 该值是一个十进制整数, 惟一地标识一个在 PlayList 文件范围内的特定的描述. 一个 PlayList 文件中可能包含多个有相同 ID 的此 tag&lt;/li&gt;
+&lt;li&gt;CODECS: 不是必须的&lt;/li&gt;
+&lt;li&gt;RESOLUTION: 分辨率&lt;/li&gt;
+&lt;li&gt;AUDIO: 这个值必须和 AUDIO 类别的 &lt;code&gt;EXT-X-MEDIA&lt;/code&gt; 标签中 &lt;code&gt;GROUP-ID&lt;/code&gt; 属性值相匹配.&lt;/li&gt;
+&lt;li&gt;VIDEO: 同上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;一个-m3u8-文件请求例子&quot;&gt;&lt;a href=&quot;#一个-m3u8-文件请求例子&quot; class=&quot;headerlink&quot; title=&quot;一个 m3u8 文件请求例子&quot;&gt;&lt;/a&gt;一个 m3u8 文件请求例子&lt;/h2&gt;&lt;p&gt;由于 PC 端我当前使用的 Chrome 还不支持 HTML5 中用 &lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; 标签播放 HLS, 所以我只能是找来了一个视频播放器来打开 M3U8 链接, 接着用 Wireshark 抓包来分析.&lt;/p&gt;
+&lt;p&gt;顺道一提, HTPP 请求的 raw 数据, 可以在 Wireshark 中通过右键菜单选到 &lt;code&gt;follow&lt;/code&gt; =&amp;gt; &lt;code&gt;TCP Stream&lt;/code&gt; 或者菜单栏中的 &lt;code&gt;Analyze&lt;/code&gt; =&amp;gt; &lt;code&gt;follow&lt;/code&gt; =&amp;gt; &lt;code&gt;TCP Steam&lt;/code&gt; 来查看.&lt;/p&gt;
+&lt;p&gt;M3U8 的请求如下:&lt;/p&gt;
+&lt;h3 id=&quot;发出请求&quot;&gt;&lt;a href=&quot;#发出请求&quot; class=&quot;headerlink&quot; title=&quot;发出请求&quot;&gt;&lt;/a&gt;发出请求&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;GET /live/virgin1/chunklist_w63623014.m3u8 HTTP/1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;User-Agent: Daum PotPlayer&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Host: wow01.105.net&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cache-Control: no-cache&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;返回-Header&quot;&gt;&lt;a href=&quot;#返回-Header&quot; class=&quot;headerlink&quot; title=&quot;返回 Header&quot;&gt;&lt;/a&gt;返回 Header&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;HTTP/1.1 200 OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Date: Fri, 17 Jun 2016 03:35:58 GMT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Type: application/vnd.apple.mpegurl&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Accept-Ranges: bytes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server: WowzaStreamingEngine/4.2.0.01&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cache-Control: no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Length: 213&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;返回内容&quot;&gt;&lt;a href=&quot;#返回内容&quot; class=&quot;headerlink&quot; title=&quot;返回内容&quot;&gt;&lt;/a&gt;返回内容&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#EXTM3U&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-VERSION:3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-ALLOW-CACHE:NO&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-TARGETDURATION:15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-MEDIA-SEQUENCE:1974&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXTINF:7.64,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;media_w63623014_1974.ts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXTINF:9.24,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;media_w63623014_1975.ts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXTINF:0.96,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;media_w63623014_1976.ts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;请求到 M3U8 文件后, 读取到里面的描述信息, 就会根据信息中的 &lt;code&gt;SEQUENCE&lt;/code&gt; 去请求对应的 TS 文件, 假如是直播的话, 则会一直请求这个 M3U8 文件, 但是返回的 &lt;code&gt;SEQUENCE&lt;/code&gt; 已经不同了.&lt;/p&gt;
+&lt;h2 id=&quot;请求一个-TS-文件&quot;&gt;&lt;a href=&quot;#请求一个-TS-文件&quot; class=&quot;headerlink&quot; title=&quot;请求一个 TS 文件&quot;&gt;&lt;/a&gt;请求一个 TS 文件&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;GET /live/virgin1/media_w63623014_1972.ts HTTP/1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;User-Agent: VLC/2.2.1 LibVLC/2.2.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Host: wow01.105.net&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cache-Control: no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;HTTP/1.1 200 OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Date: Fri, 17 Jun 2016 03:35:59 GMT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Type: video/MP2T&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Accept-Ranges: bytes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server: WowzaStreamingEngine/4.2.0.01&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cache-Control: no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Length: 1274640&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;带嵌套的-M3U8-文件&quot;&gt;&lt;a href=&quot;#带嵌套的-M3U8-文件&quot; class=&quot;headerlink&quot; title=&quot;带嵌套的 M3U8 文件&quot;&gt;&lt;/a&gt;带嵌套的 M3U8 文件&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#EXTM3U&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1280000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://example.com/low.m3u8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://example.com/mid.m3u8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=7680000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://example.com/hi.m3u8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=65000,CODECS=&amp;quot;mp4a.40.5&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://example.com/audio-only.m3u8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上边通过设定不同的 &lt;code&gt;BANDWIDTH&lt;/code&gt; 可以让设备选择合适的列表进行播放.&lt;/p&gt;
+&lt;h1 id=&quot;TS-文件&quot;&gt;&lt;a href=&quot;#TS-文件&quot; class=&quot;headerlink&quot; title=&quot;TS 文件&quot;&gt;&lt;/a&gt;TS 文件&lt;/h1&gt;&lt;p&gt;TS 文件为传输流文件, 视频编码主要格式 h264/mpeg4, 音频为 acc/MP3. 关于视频编码, 音频编码一类的, 我还不是很清楚, 就大概知道这么回事就好了.&lt;/p&gt;
+&lt;h1 id=&quot;拓展&quot;&gt;&lt;a href=&quot;#拓展&quot; class=&quot;headerlink&quot; title=&quot;拓展&quot;&gt;&lt;/a&gt;拓展&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/42162310/answer/93858266&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频直播大概包含哪些环节&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://obsproject.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Open Broadcast Software&lt;/a&gt; 开源的 PC 直播软件(录制/直播流传输)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/arut/nginx-rtmp-module&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nginx-rtmp-module&lt;/a&gt; nginx 模块, 支持 RTMP 及 HLS、DASH 等&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有一天偶然从公司 KM 的推送中看到 HLS 协议这么一个东西, 觉得有意思而且之前在上一家公司时, 也听闻这么一个技术, 但是一直没有机会接触, 于是乎找了找资料来了解下, 本文不准备讨论实现及应用, 只做简单了解.&lt;/p&gt;
+&lt;h1 id=&quot;HLS&quot;&gt;&lt;a href=&quot;#
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>毕业后一年</title>
@@ -321,9 +410,9 @@ React.render(React.createElement(Timer, null), mountNode);
     
       <category term="JavaScript" scheme="http://pakchoi.me/tags/JavaScript/"/>
     
-      <category term="JSX" scheme="http://pakchoi.me/tags/JSX/"/>
-    
       <category term="React" scheme="http://pakchoi.me/tags/React/"/>
+    
+      <category term="JSX" scheme="http://pakchoi.me/tags/JSX/"/>
     
   </entry>
   
@@ -392,9 +481,9 @@ app.use(require(&amp;apos;connect-livereload&amp;apos;)({
       <category term="Software" scheme="http://pakchoi.me/categories/Software/"/>
     
     
-      <category term="Express" scheme="http://pakchoi.me/tags/Express/"/>
-    
       <category term="Node.js" scheme="http://pakchoi.me/tags/Node-js/"/>
+    
+      <category term="Express" scheme="http://pakchoi.me/tags/Express/"/>
     
       <category term="LiveReload" scheme="http://pakchoi.me/tags/LiveReload/"/>
     

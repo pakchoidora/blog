@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://pakchoi.me/2015/03/29/nodejs-get-and-post/</loc>
+    <loc>http://pakchoi.me/2016/06/21/hls-fe/</loc>
+    
+    <lastmod>2016-06-21T09:16:53.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://pakchoi.me/2015/05/20/jsx-trying/</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
     
@@ -10,6 +17,27 @@
   
   <url>
     <loc>http://pakchoi.me/2015/11/01/after-graduation-year-1/</loc>
+    
+    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://pakchoi.me/2015/03/17/git-interactive-rebase/</loc>
+    
+    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://pakchoi.me/2015/06/15/high-performance-web/</loc>
+    
+    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://pakchoi.me/2015/05/31/guokr-blocks/</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
     
@@ -30,7 +58,7 @@
   </url>
   
   <url>
-    <loc>http://pakchoi.me/2015/06/15/high-performance-web/</loc>
+    <loc>http://pakchoi.me/2015/03/29/nodejs-get-and-post/</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
     
@@ -44,6 +72,13 @@
   </url>
   
   <url>
+    <loc>http://pakchoi.me/2015/07/09/yslow-trial/</loc>
+    
+    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://pakchoi.me/2015/01/31/run-java-in-android/</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
@@ -51,28 +86,7 @@
   </url>
   
   <url>
-    <loc>http://pakchoi.me/2015/03/17/git-interactive-rebase/</loc>
-    
-    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://pakchoi.me/2015/05/20/jsx-trying/</loc>
-    
-    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://pakchoi.me/2015/05/31/guokr-blocks/</loc>
-    
-    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://pakchoi.me/2015/07/09/yslow-trial/</loc>
+    <loc>http://pakchoi.me/tags/index.html</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
     
@@ -87,13 +101,6 @@
   
   <url>
     <loc>http://pakchoi.me/about/index.html</loc>
-    
-    <lastmod>2016-05-13T06:22:48.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://pakchoi.me/tags/index.html</loc>
     
     <lastmod>2016-05-13T06:22:48.559Z</lastmod>
     

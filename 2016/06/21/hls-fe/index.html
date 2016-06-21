@@ -19,7 +19,7 @@
 	<meta name="description" content="Pakchoi's blog."/>
 
 
-	<meta name="keywords" content="Blocks,Toy,"/>
+	<meta name="keywords" content="Java,Python,JavaScript,CSS,Linux"/>
 
 
 	<link rel="alternate" href="/atom.xml" title="Half A Day" type="application/atom+xml"/>
@@ -38,7 +38,7 @@
   })();
 </script>
 
-<title> 果壳量子积木[小熊猫, 浣熊] // Half A Day </title>
+<title> 初识 HLS 协议 // Half A Day </title>
 </head>
 <body>
   <div class="container one-column page-post-detail">
@@ -92,19 +92,19 @@
     
     <h1 class="post-title">
       
-        果壳量子积木[小熊猫, 浣熊]
+        初识 HLS 协议
       
     </h1>
     
     <div class="post-meta">
-      <span class="post-time">Posted on 2015-05-31</span>
+      <span class="post-time">Posted on 2016-06-21</span>
       
       
         
       <span class="post-comments-count">
         &nbsp; | &nbsp;
-        <a href="/2015/05/31/guokr-blocks/#comments">
-          <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/31/guokr-blocks/">0 Comments</span>
+        <a href="/2016/06/21/hls-fe/#comments">
+          <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/21/hls-fe/">0 Comments</span>
         </a>
       </span>
         
@@ -114,36 +114,89 @@
   <div class="post-body">
     
     
-      <p>6.1 儿童节将至, 偶然在微博上看到果壳的量子积木, 甚是喜欢, 于是乎就下单了, 刚好在儿童节前一天拿到手, 趁着午饭前的一点时间, 就开始砌这两个小玩意了.</p>
-<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/05/DSC00018-C.jpg" alt="盒子"></p>
-<p>四四方方又稍显结实的盒子.</p>
-<p><img src="http://7xirxu.com1.z0.glb.clouddn.com/2015/05/DSC00024-C.jpg" alt="成果"></p>
-<p>两个小时后的成果.</p>
-<p>平均每个积木耗时都在 1小时内, 而且完工还会稍稍剩一些小积木, 应该是防止我们弄丢了某几块就 GG 了 (想起以前做高达独角兽纸模, 结果头部做坏了, 整个就坏了, 图纸是跟淘宝卖家买的, 打印无门).</p>
-<p>利用剩下的小零碎, 做了一棵不像树又不像草的东西, 唉, 如果再多点那就可以砌出一棵高大点的树了.</p>
+      <p>有一天偶然从公司 KM 的推送中看到 HLS 协议这么一个东西, 觉得有意思而且之前在上一家公司时, 也听闻这么一个技术, 但是一直没有机会接触, 于是乎找了找资料来了解下, 本文不准备讨论实现及应用, 只做简单了解.</p>
+<h1 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h1><p>HLS(http live stream), Apple 公司于2009年提出的基于 HTTP 协议的流媒体协议.<br>支持度: iOS、MacOSX 及 Apple TV 原生支持; Android 3.0+ 支持.</p>
+<p>它的传输内容包括两部份, 一是 M3U8 描述文件, 而是 TS 媒体文件.</p>
+<h1 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h1><ul>
+<li>RTP/RTCP</li>
+<li>RTMP (各大直播平台常用的, 在 Flash 及 AIR 中有很好的支持)</li>
+<li>DASH</li>
+<li>HLS</li>
+</ul>
+<h1 id="HLS-特点"><a href="#HLS-特点" class="headerlink" title="HLS 特点"></a>HLS 特点</h1><ul>
+<li>支持直播和点播实现</li>
+<li>支持用户拖放、回放等操作</li>
+<li>支持点播资源的加密和鉴权(借助HTTPS)</li>
+<li>支持流的智能实时切换(针对网络带宽、设备)</li>
+<li>…</li>
+</ul>
+<h1 id="HLS-优缺点"><a href="#HLS-优缺点" class="headerlink" title="HLS 优缺点"></a>HLS 优缺点</h1><h2 id="HLS-优点"><a href="#HLS-优点" class="headerlink" title="HLS 优点"></a>HLS 优点</h2><ul>
+<li>基于 HTTP</li>
+<li>可充分利用 CDN</li>
+<li>广播电视标准成熟, 快速进入产业链</li>
+<li>普通 Web 服务器即可</li>
+<li>自适应码率</li>
+<li>广泛的 iOS 平台支持</li>
+</ul>
+<h2 id="HLS-缺点"><a href="#HLS-缺点" class="headerlink" title="HLS 缺点"></a>HLS 缺点</h2><ul>
+<li>延迟较高</li>
+<li>PC 平台 HTML5 支持不够成熟, 需要第三方 (比如: Flash 播放)</li>
+<li>MPEG2-TS 文件协议较复杂</li>
+<li>不适合做交互式语音应用</li>
+</ul>
+<h1 id="Web-中如何使用"><a href="#Web-中如何使用" class="headerlink" title="Web 中如何使用"></a>Web 中如何使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video controls&gt;</span><br><span class="line">    &lt;source src=&quot;example.m3u8&quot;&gt;&lt;/source&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src=&quot;example.m3u8&quot; controls&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="M3U8"><a href="#M3U8" class="headerlink" title="M3U8"></a>M3U8</h1><p>M3U8 是 M3U 的 UTF8 编码版本, M3U 是一种列表文件, 只提供一些描述信息.</p>
+<p>M3U 文件中可以包含多个 tag, 每个 tag 的功能和属性如下</p>
+<h2 id="M3U8-常见-Tag"><a href="#M3U8-常见-Tag" class="headerlink" title="M3U8 常见 Tag"></a>M3U8 常见 Tag</h2><p><strong>#EXTM3U</strong><br>每个 M3U 文件第一行必须是这个 tag, 请标示作用</p>
+<p><strong>#EXT-X-MEDIA-SEQUENCE: &lt;sequence&gt;</strong><br>每一个media URI 在 PlayList 中只有唯一的序号, 相邻之间序号 +1, 一个 media URI 并不是必须要包含的, 如果没有, 默认为 0</p>
+<p><strong>#EXTINF: &lt;duration&gt; [, &lt;title&gt;]</strong><br>duration 指定每个媒体段(ts)的持续时间(秒), 仅对其后面的URI有效, title 是下载资源的 url</p>
+<p><strong>#EXT-X-TARGETDURATION: &lt;duration&gt;</strong><br>指定最大的媒体段时间长(秒). 所以#EXTINF中指定的时间长度必须小于或是等于这个最大值. 这个 tag 在整个 PlayList 文件中只能出现一次 (在嵌套的情况下, 一般有真正 TS url 的 m3u8 才会出现该 tag)</p>
+<p><strong>#EXT-X-KEY: &lt;attribute-list&gt;</strong><br>表示怎么对 media segments 进行解码. 其作用范围是下次该 tag 出现前的所有 media URI, 属性为 NONE 或者 AES-128.<br>NONE 表示 URI 以及 IV (Initialization Vector) 属性必须不存在; AES-128(Advanced EncryptionStandard)表示 URI 必须存在, IV 可以不存在.<br>对于 AES-128 的情况, keytag 和 URI 属性共同表示了一个key文件, 通过URI可以获得这个 key, 如果没有IV (Initialization Vector), 则使用序列号作为IV进行编解码, 将序列号的高位赋到 16 个字节的 buffer 中, 左边补 0; 如果有 IV, 则将改值当成 16 个字节的 16 进制数.</p>
+<p><strong>#EXT-X-PROGRAM-DATE-TIME</strong><br>将一个绝对时间或是日期和一个媒体段中的第一个 Sample 相关联, 只对下一个 meida URI 有效<br>例子: <code>#EXT-X-PROGRAM-DATE-TIME:2010-02-19T14:54:23.031+08:00</code></p>
+<p><strong>#EXT-X-ALLOW-CACHE:&lt;YES|NO&gt;</strong><br>是否允许做 cache, 这个可以在 PlayList 文件中任意地方出现, 并且最多出现一次, 作用效果是所有的媒体段.</p>
+<p><strong>#EXT-X-PLAYLIST-TYPE</strong><br>提供关于 PlayList 的可变性的信息, 这个对整个 PlayList 文件有效, 是可选的, 格式如下: <code>#EXT-X-PLAYLIST-TYPE:</code> 如果是 VOD, 则服务器不能改变 PlayList 文件; 如果是 EVENT, 则服务器不能改变或是删除 PlayList 文件中的任何部分, 但是可以向该文件中增加新的一行内容. </p>
+<p><strong>#EXT-X-ENDLIST</strong><br>表示 PlayList 的末尾了, 它可以在 PlayList 中任意位置出现, 但是只能出现一个, 但作为直播的, 不需要这个 tag</p>
+<p><strong>#EXT-X-STREAM-INF</strong><br>指定一个包含多媒体信息的 media URI 作为 PlayList, 一般做 M3U8 的嵌套使用, 它只对紧跟后面的 URI 有效</p>
+<p>有以下属性: </p>
+<ul>
+<li>BANDWIDTH: 带宽, 必须有</li>
+<li>PROGRAM-ID: 该值是一个十进制整数, 惟一地标识一个在 PlayList 文件范围内的特定的描述. 一个 PlayList 文件中可能包含多个有相同 ID 的此 tag</li>
+<li>CODECS: 不是必须的</li>
+<li>RESOLUTION: 分辨率</li>
+<li>AUDIO: 这个值必须和 AUDIO 类别的 <code>EXT-X-MEDIA</code> 标签中 <code>GROUP-ID</code> 属性值相匹配.</li>
+<li>VIDEO: 同上</li>
+</ul>
+<h2 id="一个-m3u8-文件请求例子"><a href="#一个-m3u8-文件请求例子" class="headerlink" title="一个 m3u8 文件请求例子"></a>一个 m3u8 文件请求例子</h2><p>由于 PC 端我当前使用的 Chrome 还不支持 HTML5 中用 <code>&lt;video&gt;</code> 标签播放 HLS, 所以我只能是找来了一个视频播放器来打开 M3U8 链接, 接着用 Wireshark 抓包来分析.</p>
+<p>顺道一提, HTPP 请求的 raw 数据, 可以在 Wireshark 中通过右键菜单选到 <code>follow</code> =&gt; <code>TCP Stream</code> 或者菜单栏中的 <code>Analyze</code> =&gt; <code>follow</code> =&gt; <code>TCP Steam</code> 来查看.</p>
+<p>M3U8 的请求如下:</p>
+<h3 id="发出请求"><a href="#发出请求" class="headerlink" title="发出请求"></a>发出请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /live/virgin1/chunklist_w63623014.m3u8 HTTP/1.1</span><br><span class="line">User-Agent: Daum PotPlayer</span><br><span class="line">Host: wow01.105.net</span><br><span class="line">Cache-Control: no-cache</span><br></pre></td></tr></table></figure>
+<h3 id="返回-Header"><a href="#返回-Header" class="headerlink" title="返回 Header"></a>返回 Header</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Fri, 17 Jun 2016 03:35:58 GMT</span><br><span class="line">Content-Type: application/vnd.apple.mpegurl</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Server: WowzaStreamingEngine/4.2.0.01</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Content-Length: 213</span><br></pre></td></tr></table></figure>
+<h3 id="返回内容"><a href="#返回内容" class="headerlink" title="返回内容"></a>返回内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-ALLOW-CACHE:NO</span><br><span class="line">#EXT-X-TARGETDURATION:15</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:1974</span><br><span class="line">#EXTINF:7.64,</span><br><span class="line">media_w63623014_1974.ts</span><br><span class="line">#EXTINF:9.24,</span><br><span class="line">media_w63623014_1975.ts</span><br><span class="line">#EXTINF:0.96,</span><br><span class="line">media_w63623014_1976.ts</span><br></pre></td></tr></table></figure>
+<p>请求到 M3U8 文件后, 读取到里面的描述信息, 就会根据信息中的 <code>SEQUENCE</code> 去请求对应的 TS 文件, 假如是直播的话, 则会一直请求这个 M3U8 文件, 但是返回的 <code>SEQUENCE</code> 已经不同了.</p>
+<h2 id="请求一个-TS-文件"><a href="#请求一个-TS-文件" class="headerlink" title="请求一个 TS 文件"></a>请求一个 TS 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GET /live/virgin1/media_w63623014_1972.ts HTTP/1.1</span><br><span class="line">User-Agent: VLC/2.2.1 LibVLC/2.2.1</span><br><span class="line">Host: wow01.105.net</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Fri, 17 Jun 2016 03:35:59 GMT</span><br><span class="line">Content-Type: video/MP2T</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Server: WowzaStreamingEngine/4.2.0.01</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Content-Length: 1274640</span><br></pre></td></tr></table></figure>
+<h2 id="带嵌套的-M3U8-文件"><a href="#带嵌套的-M3U8-文件" class="headerlink" title="带嵌套的 M3U8 文件"></a>带嵌套的 M3U8 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1280000</span><br><span class="line">http://example.com/low.m3u8</span><br><span class="line">#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000</span><br><span class="line">http://example.com/mid.m3u8</span><br><span class="line">#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=7680000</span><br><span class="line">http://example.com/hi.m3u8</span><br><span class="line">#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=65000,CODECS=&quot;mp4a.40.5&quot;</span><br><span class="line">http://example.com/audio-only.m3u8</span><br></pre></td></tr></table></figure>
+<p>上边通过设定不同的 <code>BANDWIDTH</code> 可以让设备选择合适的列表进行播放.</p>
+<h1 id="TS-文件"><a href="#TS-文件" class="headerlink" title="TS 文件"></a>TS 文件</h1><p>TS 文件为传输流文件, 视频编码主要格式 h264/mpeg4, 音频为 acc/MP3. 关于视频编码, 音频编码一类的, 我还不是很清楚, 就大概知道这么回事就好了.</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><ul>
+<li><a href="https://www.zhihu.com/question/42162310/answer/93858266" target="_blank" rel="external">视频直播大概包含哪些环节</a></li>
+<li><a href="https://obsproject.com/" target="_blank" rel="external">Open Broadcast Software</a> 开源的 PC 直播软件(录制/直播流传输)</li>
+<li><a href="https://github.com/arut/nginx-rtmp-module" target="_blank" rel="external">nginx-rtmp-module</a> nginx 模块, 支持 RTMP 及 HLS、DASH 等</li>
+</ul>
 
     
   </div>
   <div class="post-footer">
     
-    <div class="post-tags">
-      
-      <a href="/tags/Blocks/">#Blocks</a>
-      
-      <a href="/tags/Toy/">#Toy</a>
-      
-    </div>
-    
     
     <div class="post-nav">
       <div class="post-nav-prev post-nav-item">
       
-        <a href="/2015/06/15/high-performance-web/">构建高性能 Web 的 14 条黄金法则</a>
-      
       </div>
       <div class="post-nav-next post-nav-item">
       
-        <a href="/2015/05/20/jsx-trying/">初识 JSX</a>
+        <a href="/2015/11/01/after-graduation-year-1/">毕业后一年</a>
       
       </div>
     </div>
@@ -242,7 +295,7 @@
       <div class="post-toc">
       
       
-        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HLS"><span class="nav-number">1.</span> <span class="nav-text">HLS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流媒体协议"><span class="nav-number">2.</span> <span class="nav-text">流媒体协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HLS-特点"><span class="nav-number">3.</span> <span class="nav-text">HLS 特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HLS-优缺点"><span class="nav-number">4.</span> <span class="nav-text">HLS 优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HLS-优点"><span class="nav-number">4.1.</span> <span class="nav-text">HLS 优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HLS-缺点"><span class="nav-number">4.2.</span> <span class="nav-text">HLS 缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-中如何使用"><span class="nav-number">5.</span> <span class="nav-text">Web 中如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#M3U8"><span class="nav-number">6.</span> <span class="nav-text">M3U8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#M3U8-常见-Tag"><span class="nav-number">6.1.</span> <span class="nav-text">M3U8 常见 Tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个-m3u8-文件请求例子"><span class="nav-number">6.2.</span> <span class="nav-text">一个 m3u8 文件请求例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发出请求"><span class="nav-number">6.2.1.</span> <span class="nav-text">发出请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回-Header"><span class="nav-number">6.2.2.</span> <span class="nav-text">返回 Header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回内容"><span class="nav-number">6.2.3.</span> <span class="nav-text">返回内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求一个-TS-文件"><span class="nav-number">6.3.</span> <span class="nav-text">请求一个 TS 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带嵌套的-M3U8-文件"><span class="nav-number">6.4.</span> <span class="nav-text">带嵌套的 M3U8 文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TS-文件"><span class="nav-number">7.</span> <span class="nav-text">TS 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拓展"><span class="nav-number">8.</span> <span class="nav-text">拓展</span></a></li></ol></div>
       
       </div>
       <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -602,8 +655,8 @@
     
 <script type="text/javascript">
   var disqus_shortname = 'pakchoi';
-  var disqus_identifier = '2015/05/31/guokr-blocks/';
-  var disqus_url = 'http://pakchoi.me/2015/05/31/guokr-blocks/';
+  var disqus_identifier = '2016/06/21/hls-fe/';
+  var disqus_url = 'http://pakchoi.me/2016/06/21/hls-fe/';
   (function(){
     var scripts = 'count,embed'.split(',');
     for (var k in scripts) {
