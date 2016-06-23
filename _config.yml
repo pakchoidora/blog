@@ -83,16 +83,11 @@ creative_commons: by-nc-sa
 Plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
+- hexo-html-minifier
 
 # Disqus
 disqus_shortname: pakchoi
 
-# HTML Minifier
-html_minifier:
-  exclude:
-  collapseWhitespace: true
-
-## Themes: http://hexo.io/themes/
 theme: ninja
 
 # Deployment
