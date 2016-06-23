@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pakchoi.me/"/>
-  <updated>2016-06-21T09:16:53.399Z</updated>
+  <updated>2016-06-23T07:09:06.721Z</updated>
   <id>http://pakchoi.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://pakchoi.me/2016/06/21/hls-fe/"/>
     <id>http://pakchoi.me/2016/06/21/hls-fe/</id>
     <published>2016-06-21T09:16:53.000Z</published>
-    <updated>2016-06-21T09:16:53.399Z</updated>
+    <updated>2016-06-23T07:09:06.721Z</updated>
     
     <content type="html">&lt;p&gt;有一天偶然从公司 KM 的推送中看到 HLS 协议这么一个东西, 觉得有意思而且之前在上一家公司时, 也听闻这么一个技术, 但是一直没有机会接触, 于是乎找了找资料来了解下, 本文不准备讨论实现及应用, 只做简单了解.&lt;/p&gt;
 &lt;h1 id=&quot;HLS&quot;&gt;&lt;a href=&quot;#HLS&quot; class=&quot;headerlink&quot; title=&quot;HLS&quot;&gt;&lt;/a&gt;HLS&lt;/h1&gt;&lt;p&gt;HLS(http live stream), Apple 公司于2009年提出的基于 HTTP 协议的流媒体协议.&lt;br&gt;支持度: iOS、MacOSX 及 Apple TV 原生支持; Android 3.0+ 支持.&lt;/p&gt;
@@ -109,7 +109,7 @@
     <link href="http://pakchoi.me/2015/11/01/after-graduation-year-1/"/>
     <id>http://pakchoi.me/2015/11/01/after-graduation-year-1/</id>
     <published>2015-11-01T10:13:38.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.655Z</updated>
     
     <content type="html">&lt;p&gt;由于没有写个人年度总结的习惯, 但是又想记录一些成长经历, 所以从毕业后开始算起吧, 不过现在已经不止毕业后一年, 都已经一年又三个月了呢.&lt;/p&gt;
 &lt;h1 id=&quot;大四&quot;&gt;&lt;a href=&quot;#大四&quot; class=&quot;headerlink&quot; title=&quot;大四:&quot;&gt;&lt;/a&gt;大四:&lt;/h1&gt;&lt;p&gt;事情其实应该从去年年初讲起了, 那会大四下学期还没开始, 顺着朋友的推荐, 还没过正月十五, 直接就从家跑到珠海去面试.&lt;/p&gt;
@@ -167,7 +167,7 @@
     <link href="http://pakchoi.me/2015/07/09/yslow-trial/"/>
     <id>http://pakchoi.me/2015/07/09/yslow-trial/</id>
     <published>2015-07-09T08:15:12.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.679Z</updated>
     
     <content type="html">&lt;p&gt;今天被问到测试前端页面性能时, 脑子里只蹦出了 Loadrunner 压测, 以及 PageSpeed, 然后被告知还有 YSlow 这么一个工具, 我也是半天没听出来是个啥…&lt;/p&gt;
 &lt;hr&gt;
@@ -231,7 +231,7 @@
     <link href="http://pakchoi.me/2015/06/15/high-performance-web/"/>
     <id>http://pakchoi.me/2015/06/15/high-performance-web/</id>
     <published>2015-06-15T05:18:35.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.665Z</updated>
     
     <content type="html">&lt;p&gt;前几天被问到构建高性能 Web 时, 一时脑抽没反应过来这是个啥, 其实平时做的雪碧图, 以及 js 代码压缩等都属于这块的内容, 当然这只是其中的一部分.&lt;/p&gt;
 &lt;hr&gt;
@@ -273,7 +273,7 @@
     <link href="http://pakchoi.me/2015/05/31/guokr-blocks/"/>
     <id>http://pakchoi.me/2015/05/31/guokr-blocks/</id>
     <published>2015-05-31T12:43:47.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.662Z</updated>
     
     <content type="html">&lt;p&gt;6.1 儿童节将至, 偶然在微博上看到果壳的量子积木, 甚是喜欢, 于是乎就下单了, 刚好在儿童节前一天拿到手, 趁着午饭前的一点时间, 就开始砌这两个小玩意了.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xirxu.com1.z0.glb.clouddn.com/2015/05/DSC00018-C.jpg&quot; alt=&quot;盒子&quot;&gt;&lt;/p&gt;
@@ -302,7 +302,7 @@
     <link href="http://pakchoi.me/2015/05/20/jsx-trying/"/>
     <id>http://pakchoi.me/2015/05/20/jsx-trying/</id>
     <published>2015-05-20T15:40:53.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.672Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;说到 JSX, 想必很多人跟我一样, 是因为 React 项目中的使用到 JSX 语法才知道的.&lt;/p&gt;
 &lt;p&gt;但是其实早在几年前, Github 上就存在着一个名为 JSX 的项目, 是由 &lt;a href=&quot;https://github.com/kazuho&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;kazuho&lt;/a&gt; 等人开发设计的一个可以生成 JavaScript 代码的强类型, 面向对象的编程语言.&lt;/p&gt;
@@ -421,7 +421,7 @@ React.render(React.createElement(Timer, null), mountNode);
     <link href="http://pakchoi.me/2015/05/14/express-and-livereload/"/>
     <id>http://pakchoi.me/2015/05/14/express-and-livereload/</id>
     <published>2015-05-14T01:54:44.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.657Z</updated>
     
     <content type="html">&lt;h1 id=&quot;LiveReload-是什么&quot;&gt;&lt;a href=&quot;#LiveReload-是什么&quot; class=&quot;headerlink&quot; title=&quot;LiveReload 是什么&quot;&gt;&lt;/a&gt;LiveReload 是什么&lt;/h1&gt;&lt;p&gt;LiveReload 是 Web 开发中的实用的工具, 它可以让我们不用再在每次修改完文件之后手动刷新页面, 它会自动为我们刷新.&lt;/p&gt;
 &lt;p&gt;LiveReload 它分为三部分, 客户端目标代码及服务端, 还有浏览器插件.&lt;/p&gt;
@@ -494,7 +494,7 @@ app.use(require(&amp;apos;connect-livereload&amp;apos;)({
     <link href="http://pakchoi.me/2015/04/02/http-code-304/"/>
     <id>http://pakchoi.me/2015/04/02/http-code-304/</id>
     <published>2015-04-02T14:51:46.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.670Z</updated>
     
     <content type="html">&lt;p&gt;事情起因是之前有人问起一个问题, 说他加载了页面后, 打开浏览器的开发者工具后发现在 Network 里, 很多资源的传输大小都是 200B.&lt;/p&gt;
 &lt;p&gt;而且当我们点开了菜单中的 &lt;code&gt;Use large request rows&lt;/code&gt; 按钮后, 我们在 &lt;code&gt;Size/Content&lt;/code&gt; 列会看到两个大小不同的数值, 而假如我们启用了浏览器 cache 时, 往往 &lt;code&gt;Content&lt;/code&gt; 值要比 &lt;code&gt;Size&lt;/code&gt; 值小得多, 这是因为啥呢.&lt;/p&gt;
@@ -536,7 +536,7 @@ app.use(require(&amp;apos;connect-livereload&amp;apos;)({
     <link href="http://pakchoi.me/2015/03/29/nodejs-get-and-post/"/>
     <id>http://pakchoi.me/2015/03/29/nodejs-get-and-post/</id>
     <published>2015-03-29T05:25:59.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.675Z</updated>
     
     <content type="html">&lt;p&gt;由于最近的一项工作中有需要使用 Node.js 来编写一个 HTTP 工具, 其中就有包括 GET/POST 参数的处理, 也遇到了一些小问题, 所以顺便就写下来, 作为一个小知识普及. 嗯, 就是酱紫, 不要问我隔壁老王是谁.&lt;/p&gt;
 &lt;h2 id=&quot;HTTP-GET-以及-HTTP-POST-两者的区别&quot;&gt;&lt;a href=&quot;#HTTP-GET-以及-HTTP-POST-两者的区别&quot; class=&quot;headerlink&quot; title=&quot;HTTP GET 以及 HTTP POST 两者的区别.&quot;&gt;&lt;/a&gt;HTTP GET 以及 HTTP POST 两者的区别.&lt;/h2&gt;&lt;p&gt;首先我们先了解下 HTTP GET 与 HTTP POST 两者有什么不同&lt;/p&gt;
@@ -638,7 +638,7 @@ http.createServer(function (request, response) {
     <link href="http://pakchoi.me/2015/03/17/git-interactive-rebase/"/>
     <id>http://pakchoi.me/2015/03/17/git-interactive-rebase/</id>
     <published>2015-03-17T05:56:52.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.660Z</updated>
     
     <content type="html">&lt;h1 id=&quot;git-rebase-简介&quot;&gt;&lt;a href=&quot;#git-rebase-简介&quot; class=&quot;headerlink&quot; title=&quot;git rebase 简介&quot;&gt;&lt;/a&gt;git rebase 简介&lt;/h1&gt;&lt;p&gt;我们知道 Git 中它提供了几个命令来让我们进行代码合并操作, 分别有 &lt;code&gt;git merge&lt;/code&gt;, &lt;code&gt;git pull&lt;/code&gt; 还有 &lt;code&gt;git rebase&lt;/code&gt;.&lt;br&gt;它们之间是有着不少细节上的区别, 由于 &lt;code&gt;git pull&lt;/code&gt; 平时较少用, 所以我们这里就只比较下 &lt;code&gt;git rebase&lt;/code&gt; 以及 &lt;code&gt;git merge&lt;/code&gt; 两者之间的区别.&lt;br&gt;至于为何 &lt;code&gt;git pull&lt;/code&gt; 平时较少使用, 可以&lt;a href=&quot;http://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;查看此&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;git-rebase-作用&quot;&gt;&lt;a href=&quot;#git-rebase-作用&quot; class=&quot;headerlink&quot; title=&quot;git rebase 作用&quot;&gt;&lt;/a&gt;git rebase 作用&lt;/h2&gt;&lt;p&gt;一般情况下, &lt;code&gt;git rebase&lt;/code&gt; 跟我们使用 &lt;code&gt;git merge&lt;/code&gt; 是没两样的, 它们都可以用来将本地代码与其它分支上的代码进行合并.&lt;br&gt;但是假如我们生成了大量的提交, 那么我们会遇到一些问题, 在团队协作上, 也会加大代码合并的成本. 而 git rebase 可以对我们本地尚未推送到远端的提交进行编辑处理.&lt;/p&gt;
@@ -706,7 +706,7 @@ http.createServer(function (request, response) {
     <link href="http://pakchoi.me/2015/01/31/run-java-in-android/"/>
     <id>http://pakchoi.me/2015/01/31/run-java-in-android/</id>
     <published>2015-01-31T02:43:22.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.677Z</updated>
     
     <content type="html">&lt;p&gt;之前一阵子在有在使用 Android 平台上的 UiAutomator 编写一些自动化脚本, 然后我就在想, UiAutoamtor 程序是怎么执行起来的, 在编写程序的时候也感觉 UiAutomator 似乎与一般的 Java 程序无异, 那么, 我们是否可以在 Android 上来执行 Java 程序呢.&lt;/p&gt;
 &lt;p&gt;在 Android 平台上, 进行自动化脚本开发的时候, 我们使用了 Android 官方提供的 UiAutomator. 而 UiAutomator 的本质其实就是 Java 程序. 它的入口是一个名为 uiautomator 在 /system/bin 下的 shell 程序.&lt;/p&gt;
@@ -753,7 +753,7 @@ http.createServer(function (request, response) {
     <link href="http://pakchoi.me/2015/01/12/hello-world/"/>
     <id>http://pakchoi.me/2015/01/12/hello-world/</id>
     <published>2015-01-11T22:29:52.000Z</published>
-    <updated>2016-05-13T06:22:48.559Z</updated>
+    <updated>2016-06-22T02:15:21.663Z</updated>
     
     <content type="html">&lt;p&gt;身为程序员, 要有一个程序员的开始.&lt;/p&gt;
 </content>
