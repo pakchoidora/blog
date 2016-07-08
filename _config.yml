@@ -83,7 +83,6 @@ creative_commons: by-nc-sa
 Plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
-- hexo-html-minifier
 
 # Disqus
 disqus_shortname: pakchoi

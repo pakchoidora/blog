@@ -16,6 +16,7 @@ public/
 .idea/
 
 .settings/
+.vscode/
 
 # libs for laboratory
 dev-libs/

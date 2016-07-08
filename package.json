@@ -20,6 +20,7 @@
     "hexo-renderer-stylus": "^0.2.0",
     "hexo-server": "^0.1.2",
     "hexo-tag-bilibili": "^0.2.0",
-    "hexo-uglify": "0.0.3"
+    "hexo-uglify": "0.0.3",
+    "html-minifier": "^3.0.0"
   }
 }
