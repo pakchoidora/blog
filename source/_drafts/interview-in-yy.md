@@ -1,6 +1,6 @@
 title: interview-in-yy
 tags:
-- invterview
+- interview
 description:
 ---
 

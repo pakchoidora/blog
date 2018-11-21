@@ -2,6 +2,7 @@
 
 Thumbs.db
 
+package-lock.json
 db.json
 
 *.log
